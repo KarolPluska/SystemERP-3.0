@@ -48,6 +48,17 @@ final class ZEGGER_ERP_App {
     ), home_url('/'));
   }
 
+  private static function allowed_modules(){
+    return array(
+      'start',
+      'offers',
+      'company-users',
+      'product-library',
+      'messenger',
+      'notifications',
+    );
+  }
+
   public static function maybe_render(){
     $q = get_query_var(self::QUERY_VAR, '');
     if ((string) $q !== '1') { return; }
@@ -58,7 +69,7 @@ final class ZEGGER_ERP_App {
 
   private static function render(){
     $module = sanitize_key((string) get_query_var(self::QUERY_VAR_MODULE, ''));
-    $allowed = array('start', 'offers');
+    $allowed = self::allowed_modules();
     if (!in_array($module, $allowed, true)) {
       $module = 'start';
     }
@@ -87,6 +98,7 @@ final class ZEGGER_ERP_App {
     $boot = array(
       'version' => ZEGGER_ERP_VERSION,
       'initialModule' => $module,
+      'modules' => $allowed,
       'routes' => array(
         'app' => self::app_url(),
         'offerPanel' => self::offer_panel_url(),
@@ -97,7 +109,7 @@ final class ZEGGER_ERP_App {
       ),
       'ui' => array(
         'brand' => 'ZEGGER ERP',
-        'confirmLeave' => 'Masz niezapisane zmiany w module ofert. Czy na pewno chcesz opuścić ten widok?',
+        'confirmLeave' => 'Masz niezapisane zmiany. Czy na pewno chcesz opuscic ten widok?',
       ),
     );
 
@@ -119,7 +131,7 @@ final class ZEGGER_ERP_App {
 </head>
 <body class="zegger-erp-page">
   <div id="zegger-erp-app" class="zegger-erp" data-initial-module="<?php echo esc_attr($module); ?>">
-    <div class="zegger-erp__boot" role="status" aria-live="polite">Ładowanie ERP...</div>
+    <div class="zegger-erp__boot" role="status" aria-live="polite">Ladowanie ERP...</div>
   </div>
   <?php wp_footer(); ?>
 </body>

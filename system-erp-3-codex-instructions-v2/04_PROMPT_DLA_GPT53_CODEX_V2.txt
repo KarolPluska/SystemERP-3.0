@@ -1,0 +1,150 @@
+SYSTEM ERP 3.0 - INSTRUKCJA KRYTYCZNA DLA GPT-5.3-CODEX
+
+Masz wykonać trzecią próbę wdrożenia System ERP i NIE WOLNO Ci powtórzyć błędów z dwóch wcześniejszych iteracji.
+
+TO JEST KLUCZOWE:
+- Repo 1.0 (`KarolPluska/Zegger`) nie jest bazą runtime. To repo wiedzy, legacy i specyfikacji.
+- Repo 2.0 (`KarolPluska/SystemERP-2.0`) nie jest bazą runtime. To błędna iteracja pośrednia z przydatnymi guardrailami i szkicem IA, ale z dryfem prototypowym i błędami wyglądu.
+- Repo 3.0 (`KarolPluska/SystemERP-3.0`) jest jedyną bazą implementacji.
+
+NIE WOLNO CI:
+1. Kodować w repo 1.0 ani 2.0 jako finalnym runtime.
+2. Kopiować 1:1 prototypu `prototype-ui/index.html` z repo 2.0 jako gotowego finalnego UI.
+3. Tworzyć atrap modułów z pustymi kartami i placeholderowym contentem udającym produkt.
+4. Budować nowego „łatwiejszego” Panelu Ofertowego zamiast zachować istniejący moduł legacy.
+5. Zostawić docelowego ERP jako starego hosta iframe uruchamianego z kalkulatora.
+6. Produkować duplikatów folderów pluginu, błędnych ZIP root, preview-chaosu, nested plugin folders ani śmieciowych kopii plików.
+7. Mieszać źródeł wiedzy z miejscem finalnej implementacji.
+8. Ulepszać tylko wygląd, jeśli architektura nadal jest błędna.
+
+OBOWIĄZKOWA KOLEJNOŚĆ PRACY:
+
+KROK 1 - AUDYT REPO 3.0
+Najpierw przeanalizuj dokładnie istniejące pliki w `SystemERP-3.0`:
+- `zq-offer-suite-v1.2.18.7/zq-offer-suite.php`
+- `zq-offer-suite-v1.2.18.7/includes/class-zqos-admin.php`
+- `zq-offer-suite-v1.2.18.7/includes/class-zqos-auth.php`
+- `zq-offer-suite-v1.2.18.7/includes/class-zqos-db.php`
+- `zq-offer-suite-v1.2.18.7/includes/class-zqos-maintenance.php`
+- `zq-offer-suite-v1.2.18.7/includes/class-zqos-panel.php`
+- `zq-offer-suite-v1.2.18.7/includes/class-zqos-reminders.php`
+- `zq-offer-suite-v1.2.18.7/includes/class-zqos-rest.php`
+- `zq-offer-suite-v1.2.18.7/includes/class-zqos-sheets.php`
+- `Źródło - Kalkulator ogrodzeń ZEGGER v1.9.9.1.html`
+
+Dopiero po tej analizie możesz planować mapę nowego pluginu.
+
+KROK 2 - PRZECZYTAJ ŹRÓDŁA REFERENCYJNE, ALE NIE KODUJ W NICH
+Z repo 1.0 przeczytaj i wykorzystaj jako źródło prawdy biznesowej / migracyjnej:
+- `AGENTS.md`
+- `codex_zegger_erp_materials/00_START_HERE_FOR_CODEX.txt`
+- `codex_zegger_erp_materials/01_MASTER_SPEC_ZEGGER_ERP.txt`
+- `codex_zegger_erp_materials/02_AUTH_COMPANY_USERS_PERMISSIONS_SPEC.txt`
+- `codex_zegger_erp_materials/03_PRODUCTS_OFFERS_AND_SOURCES_SPEC.txt`
+- `codex_zegger_erp_materials/04_COMMUNICATOR_NOTIFICATIONS_AND_RELATIONS_SPEC.txt`
+- `codex_zegger_erp_materials/05_TECHNICAL_ARCHITECTURE_MIGRATION_AND_CALCULATOR_SPEC.txt`
+- `codex_zegger_erp_materials/06_TASKLIST_ACCEPTANCE_AND_DELIVERABLES.txt`
+- `codex_zegger_erp_materials/07_FILE_BY_FILE_PATCH_STRATEGY.txt`
+- `codex_zegger_erp_materials/09_ACCEPTANCE_TEST_MATRIX.txt`
+
+Z repo 2.0 przeczytaj i wykorzystaj wyłącznie jako guardraile procesu / IA:
+- `AGENTS.md`
+- `prototype-ui/index.html`
+- `prototype-ui/docs/11_FROZEN_UI_DECISIONS.md`
+
+UWAGA:
+`prototype-ui/index.html` NIE jest finalnym wyglądem docelowym. To tylko szkic modułów, copy i układu przepływów. Nie wolno go odtwarzać 1:1 jako produktu końcowego.
+
+KROK 3 - ZBUDUJ NOWY KANONICZNY RUNTIME W REPO 3.0
+W repo 3.0 utwórz nowy plugin runtime:
+- folder pluginu: `zegger-erp/`
+- plik główny: `zegger-erp/zegger-erp.php`
+
+Legacy `zq-offer-suite-v1.2.18.7/` traktuj jako:
+- źródło migracji,
+- źródło logiki,
+- źródło kodu do adaptacji,
+- źródło referencji UX dla Offer Panel,
+- ale NIE jako finalną architekturę.
+
+KROK 4 - NAJPIERW REALNY SHELL, NIE MAKieta
+Zanim zaczniesz upiększać, shell ERP ma realnie działać:
+- logowanie,
+- post-login routing,
+- launcher/start,
+- topbar,
+- przełączanie modułów,
+- mobile navigation,
+- ochrona niezapisanych zmian,
+- stan sesji po stronie ERP.
+
+To nie ma być dashboard korporacyjny.
+To ma być kompaktowe narzędzie pracy.
+
+KROK 5 - OFER PANEL CHRONIONY PRZED REGRESJĄ
+To jest najważniejsza zasada całego zadania.
+Nie wolno:
+- rozwalić logiki tworzenia ofert,
+- rozwalić PDF,
+- rozwalić klientów,
+- rozwalić historii ofert,
+- rozwalić notatek,
+- rozwalić flow pracy,
+- zrobić „ładniejszej, ale słabszej” wersji.
+
+Dozwolone jest:
+- wydzielenie CSS/JS/renderer z monolitu,
+- refaktor wewnętrzny,
+- adaptacja do nowego shell-a,
+- cienka warstwa kompatybilności,
+- ale końcowy efekt modułu ofertowego ma pozostać rozpoznawalny i produkcyjny.
+
+KROK 6 - KALKULATOR NIE JEST JUŻ HOSTEM GŁÓWNYM
+Zmień model wejścia z kalkulatora:
+- kalkulator ma być launcherem do ERP,
+- nie finalnym hostem ciężkiego modala i głównego runtime,
+- sesja oraz właściwy interfejs mają żyć po stronie ERP.
+
+KROK 7 - NIE POWTARZAJ BŁĘDÓW WIZUALNYCH Z 2.0
+Ogólny kierunek, który jest pożądany:
+- kompaktowy shell,
+- spokojna, nowoczesna skala szarości,
+- dobre mobile projektowane osobno,
+- brak sidebar-first enterprise dashboard vibe,
+- brak wielkich pustych ścian i pustych kart udających gotowość.
+
+Niepożądane:
+- puste placeholdery,
+- atrapowe KPI tiles bez znaczenia,
+- sztuczny app demo look,
+- próby „wygląda dobrze, ale nic nie robi”.
+
+KROK 8 - RAPORTOWANIE KAŻDEGO ETAPU
+Każdy etap wdrożenia musi kończyć się raportem:
+- files changed
+- why changed
+- czy ruszono activation path
+- czy ruszono DB/schema
+- czy ruszono calculator file
+- czy ZIP root został sprawdzony
+- czy BOM scan został wykonany
+- co realnie widać po wdrożeniu
+- co zostało tylko przygotowane technicznie
+
+KRYTERIUM AKCEPTACJI
+Praca NIE jest ukończona, dopóki nie są spełnione równocześnie:
+- nowy plugin `zegger-erp` jest instalowalny,
+- ERP shell działa,
+- użytkownik po logowaniu trafia do ERP, nie do starego hosta,
+- Offer Panel działa jako chroniony moduł bez regresji,
+- kalkulator działa jako launcher,
+- nie ma chaosu repo i duplikatów,
+- mobilka nie jest tylko ściśniętym desktopem,
+- output jest realny, nie atrapowy.
+
+STYL PRACY
+- czytaj przed edycją,
+- planuj przed przepisywaniem,
+- nie zgaduj struktury plików, kiedy możesz ją ustalić,
+- nie wciskaj makiety jako gotowego wdrożenia,
+- exactness over speed.

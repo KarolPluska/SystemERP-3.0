@@ -1,0 +1,392 @@
+.zegger-erp,
+.zegger-erp * {
+  box-sizing: border-box;
+}
+
+.zegger-erp {
+  --erp-bg: #f3f5f7;
+  --erp-panel: #ffffff;
+  --erp-panel-soft: #f8f9fb;
+  --erp-text: #15171b;
+  --erp-muted: #5b6270;
+  --erp-border: #d9dee7;
+  --erp-accent: #1f2937;
+  --erp-accent-soft: #e5e9f0;
+  --erp-danger: #b3261e;
+  --erp-ok: #0f766e;
+  min-height: 100dvh;
+  width: 100%;
+  color: var(--erp-text);
+  background:
+    radial-gradient(1200px 500px at 50% -120px, #ffffff 0%, #f3f5f7 62%, #edf1f6 100%);
+  font-family: Poppins, "Trebuchet MS", "Segoe UI", sans-serif;
+  overflow-x: hidden;
+}
+
+.zegger-erp-page {
+  margin: 0;
+  min-height: 100dvh;
+  background: #eef2f6;
+}
+
+.zegger-erp__boot {
+  width: min(560px, calc(100vw - 24px));
+  margin: 24px auto;
+  border: 1px solid var(--erp-border);
+  background: var(--erp-panel);
+  border-radius: 16px;
+  padding: 18px;
+  text-align: center;
+  color: var(--erp-muted);
+  font-size: 14px;
+}
+
+.zegger-erp__center {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+}
+
+.zegger-erp__login {
+  width: min(460px, calc(100vw - 24px));
+  border: 1px solid var(--erp-border);
+  background: var(--erp-panel);
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 22px 42px rgba(20, 28, 36, 0.08);
+}
+
+.zegger-erp__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--erp-muted);
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.zegger-erp__logo-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #111827;
+}
+
+.zegger-erp__title {
+  margin: 0;
+  font-size: 23px;
+  line-height: 1.2;
+}
+
+.zegger-erp__subtitle {
+  margin: 10px 0 0;
+  color: var(--erp-muted);
+  font-size: 14px;
+}
+
+.zegger-erp__form {
+  margin-top: 16px;
+}
+
+.zegger-erp__field {
+  margin-top: 12px;
+}
+
+.zegger-erp__field label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.zegger-erp__input {
+  width: 100%;
+  border: 1px solid var(--erp-border);
+  border-radius: 12px;
+  padding: 11px 12px;
+  font-size: 14px;
+  color: var(--erp-text);
+  background: #fff;
+}
+
+.zegger-erp__input:focus {
+  outline: none;
+  border-color: #4b5563;
+  box-shadow: 0 0 0 3px rgba(31, 41, 55, 0.14);
+}
+
+.zegger-erp__btn {
+  border: 1px solid var(--erp-border);
+  background: #fff;
+  color: var(--erp-text);
+  border-radius: 12px;
+  padding: 11px 14px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.zegger-erp__btn:hover {
+  transform: translateY(-1px);
+}
+
+.zegger-erp__btn:disabled {
+  opacity: 0.65;
+  transform: none;
+  cursor: not-allowed;
+}
+
+.zegger-erp__btn--primary {
+  width: 100%;
+  border-color: #111827;
+  background: #111827;
+  color: #fff;
+  margin-top: 14px;
+}
+
+.zegger-erp__msg {
+  margin-top: 10px;
+  min-height: 18px;
+  font-size: 13px;
+  color: var(--erp-danger);
+}
+
+.zegger-erp__shell {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+}
+
+.zegger-erp__topbar {
+  position: sticky;
+  top: 0;
+  z-index: 15;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--erp-border);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+}
+
+.zegger-erp__topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.zegger-erp__topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.zegger-erp__badge {
+  border: 1px solid var(--erp-border);
+  background: var(--erp-panel-soft);
+  color: var(--erp-muted);
+  font-size: 12px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.zegger-erp__badge.is-dirty {
+  color: #7f1d1d;
+  border-color: #fecaca;
+  background: #fee2e2;
+}
+
+.zegger-erp__nav {
+  display: flex;
+  gap: 8px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--erp-border);
+  background: rgba(244, 246, 249, 0.9);
+}
+
+.zegger-erp__nav-btn {
+  appearance: none;
+  border: 1px solid var(--erp-border);
+  background: #fff;
+  color: var(--erp-text);
+  border-radius: 11px;
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.zegger-erp__nav-btn.is-active {
+  border-color: #111827;
+  background: #111827;
+  color: #fff;
+}
+
+.zegger-erp__content {
+  padding: 12px;
+}
+
+.zegger-erp__module {
+  display: none;
+}
+
+.zegger-erp__module.is-active {
+  display: block;
+}
+
+.zegger-erp__grid {
+  display: grid;
+  gap: 10px;
+}
+
+.zegger-erp__card {
+  border: 1px solid var(--erp-border);
+  background: var(--erp-panel);
+  border-radius: 14px;
+  padding: 12px;
+}
+
+.zegger-erp__card h3 {
+  margin: 0 0 8px;
+  font-size: 15px;
+}
+
+.zegger-erp__muted {
+  color: var(--erp-muted);
+  font-size: 13px;
+}
+
+.zegger-erp__stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.zegger-erp__stat {
+  border: 1px solid var(--erp-border);
+  background: var(--erp-panel-soft);
+  border-radius: 12px;
+  padding: 8px 10px;
+}
+
+.zegger-erp__stat span {
+  display: block;
+  color: var(--erp-muted);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.zegger-erp__stat strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 15px;
+}
+
+.zegger-erp__table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.zegger-erp__table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 520px;
+}
+
+.zegger-erp__table th,
+.zegger-erp__table td {
+  border-bottom: 1px solid var(--erp-border);
+  padding: 8px 6px;
+  font-size: 13px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.zegger-erp__table th {
+  color: var(--erp-muted);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.zegger-erp__status {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 3px 8px;
+  font-size: 12px;
+  border: 1px solid var(--erp-border);
+  background: var(--erp-panel-soft);
+}
+
+.zegger-erp__offer-wrap {
+  border: 1px solid var(--erp-border);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  min-height: calc(100dvh - 210px);
+}
+
+.zegger-erp__offer-iframe {
+  width: 100%;
+  min-height: calc(100dvh - 210px);
+  border: 0;
+  display: block;
+  background: #fff;
+}
+
+.zegger-erp__mobile-nav {
+  position: sticky;
+  bottom: 0;
+  z-index: 14;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  border-top: 1px solid var(--erp-border);
+  background: rgba(255, 255, 255, 0.95);
+  padding: 8px 10px max(8px, env(safe-area-inset-bottom));
+}
+
+.zegger-erp__mobile-nav .zegger-erp__nav-btn {
+  width: 100%;
+}
+
+@media (min-width: 900px) {
+  .zegger-erp__topbar {
+    padding: 12px 20px;
+  }
+
+  .zegger-erp__nav {
+    padding: 10px 20px;
+  }
+
+  .zegger-erp__content {
+    padding: 14px 20px;
+  }
+
+  .zegger-erp__grid {
+    grid-template-columns: 2fr 3fr;
+  }
+
+  .zegger-erp__stats {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .zegger-erp__mobile-nav {
+    display: none;
+  }
+
+  .zegger-erp__offer-wrap,
+  .zegger-erp__offer-iframe {
+    min-height: calc(100dvh - 186px);
+  }
+}

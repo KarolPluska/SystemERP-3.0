@@ -45,8 +45,8 @@ final class ZQOS_Admin {
     if (!is_array($creds) || empty($creds['login']) || empty($creds['pass'])) return;
 
     echo '<div class="notice notice-warning"><p><strong>ZQ Offer Suite:</strong> Utworzono konto startowe dla panelu ofertowego: ';
-    echo 'login <code>' . esc_html($creds['login']) . '</code>, hasło <code>' . esc_html($creds['pass']) . '</code>. ';
-    echo 'Po utworzeniu własnych kont usuń/zmień hasło dla tego konta. (Info wyświetlane do czasu usunięcia tej noty w Ustawieniach.)</p></div>';
+    echo 'login <code>' . esc_html($creds['login']) . '</code>, hasĹ‚o <code>' . esc_html($creds['pass']) . '</code>. ';
+    echo 'Po utworzeniu wĹ‚asnych kont usuĹ„/zmieĹ„ hasĹ‚o dla tego konta. (Info wyĹ›wietlane do czasu usuniÄ™cia tej noty w Ustawieniach.)</p></div>';
   }
 
   private static function admin_url_page($slug){
@@ -77,7 +77,7 @@ final class ZQOS_Admin {
     echo '<tbody>';
     echo '<tr><th style="width:240px">Aktualny czas (serwer WP)</th><td><code>' . esc_html($now) . '</code></td></tr>';
     echo '<tr><th>Hook</th><td><code>' . esc_html($hook) . '</code></td></tr>';
-    echo '<tr><th>Następne uruchomienie</th><td>';
+    echo '<tr><th>NastÄ™pne uruchomienie</th><td>';
     if ($nextTs){
       echo '<code>' . esc_html(date_i18n('Y-m-d H:i:s', $nextTs)) . '</code>';
       if ($schedule){
@@ -89,7 +89,7 @@ final class ZQOS_Admin {
       echo '<strong style="color:#b32d2e">brak zaplanowanego eventu</strong>';
     }
     echo '</td></tr>';
-    echo '<tr><th>DISABLE_WP_CRON</th><td>' . ($disable ? '<strong style="color:#b32d2e">true</strong> (WP-Cron wyłączony)' : '<strong style="color:#1e8e3e">false</strong>') . '</td></tr>';
+    echo '<tr><th>DISABLE_WP_CRON</th><td>' . ($disable ? '<strong style="color:#b32d2e">true</strong> (WP-Cron wyĹ‚Ä…czony)' : '<strong style="color:#1e8e3e">false</strong>') . '</td></tr>';
     echo '<tr><th>ALTERNATE_WP_CRON</th><td>' . ($alt ? '<strong style="color:#1e8e3e">true</strong>' : '<strong style="color:#555">false</strong>') . '</td></tr>';
     echo '</tbody>';
     echo '</table>';
@@ -99,9 +99,9 @@ final class ZQOS_Admin {
       $phpCmd = 'php -q ' . rtrim(ABSPATH, '/\\') . '/wp-cron.php >/dev/null 2>&1';
       $curlCmd = 'curl -sS ' . $cronUrl . ' >/dev/null 2>&1';
       echo '<div class="notice notice-warning" style="max-width:860px;margin-top:12px">';
-      echo '<p><strong>Auto-sync nie zadziała</strong>, jeśli WP-Cron jest wyłączony lub nie ma zaplanowanego eventu. Najpewniejsze rozwiązanie to systemowy CRON na serwerze, odpalany co 1 minutę:</p>';
+      echo '<p><strong>Auto-sync nie zadziaĹ‚a</strong>, jeĹ›li WP-Cron jest wyĹ‚Ä…czony lub nie ma zaplanowanego eventu. Najpewniejsze rozwiÄ…zanie to systemowy CRON na serwerze, odpalany co 1 minutÄ™:</p>';
       echo '<p><code>' . esc_html($phpCmd) . '</code><br><span style="opacity:.8">lub</span><br><code>' . esc_html($curlCmd) . '</code></p>';
-      echo '<p style="margin-bottom:0">Po ustawieniu CRON-a ustaw w Ustawieniach wtyczki interwał 1/5/10/15 min - WordPress wykona sync, gdy event będzie "due".</p>';
+      echo '<p style="margin-bottom:0">Po ustawieniu CRON-a ustaw w Ustawieniach wtyczki interwaĹ‚ 1/5/10/15 min - WordPress wykona sync, gdy event bÄ™dzie "due".</p>';
       echo '</div>';
     }
   }
@@ -128,23 +128,27 @@ final class ZQOS_Admin {
       echo '<p>Ostatnia synchronizacja: <code>' . esc_html($meta['fetched_at']) . '</code> ('
         . esc_html((string)$meta['duration_ms']) . ' ms)</p>';
       if (!empty($meta['errors'])){
-        echo '<div class="notice notice-error"><p><strong>Błędy synchronizacji:</strong><br>' . esc_html(implode("\n", $meta['errors'])) . '</p></div>';
+        echo '<div class="notice notice-error"><p><strong>BĹ‚Ä™dy synchronizacji:</strong><br>' . esc_html(implode("\n", $meta['errors'])) . '</p></div>';
       } else {
         echo '<div class="notice notice-success"><p>Cache OK.</p></div>';
       }
     } else {
-      echo '<div class="notice notice-warning"><p>Brak cache. Uruchom synchronizację ręcznie.</p></div>';
+      echo '<div class="notice notice-warning"><p>Brak cache. Uruchom synchronizacjÄ™ rÄ™cznie.</p></div>';
     }
 
     echo '<form method="post" action="' . esc_url(admin_url('admin-post.php')) . '">';
     wp_nonce_field('zqos_sync_now');
     echo '<input type="hidden" name="action" value="zqos_sync_now">';
-    submit_button('Synchronizuj teraz (ręcznie)');
+    submit_button('Synchronizuj teraz (rÄ™cznie)');
     echo '</form>';
 
     self::render_cron_status_box();
 
-    echo '<h2>URL panelu (do iframe)</h2>';
+    echo '<h2>URL ERP (runtime)</h2>';
+    $erpUrl = class_exists('ZEGGER_ERP_App') ? ZEGGER_ERP_App::app_url('offers') : add_query_arg(array('zq_offer_panel' => '1', 'embed' => '1'), home_url('/'));
+    echo '<p><code>' . esc_html($erpUrl) . '</code></p>';
+
+    echo '<h2>URL modułu ofertowego (legacy iframe)</h2>';
     $panelUrl = add_query_arg(array('zq_offer_panel' => '1', 'embed' => '1'), home_url('/'));
     echo '<p><code>' . esc_html($panelUrl) . '</code></p>';
 
@@ -156,7 +160,7 @@ final class ZQOS_Admin {
     $s = ZQOS_DB::settings();
     $warn = (int)($s['storage_warn_mb'] ?? 512);
     if ($warn > 0 && $mb >= $warn){
-      echo '<div class="notice notice-warning"><p><strong>Uwaga:</strong> Rozmiar PDF przekroczył próg ' . esc_html((string)$warn) . ' MB. Rozważ retencję lub ręczne czyszczenie ofert.</p></div>';
+      echo '<div class="notice notice-warning"><p><strong>Uwaga:</strong> Rozmiar PDF przekroczyĹ‚ prĂłg ' . esc_html((string)$warn) . ' MB. RozwaĹĽ retencjÄ™ lub rÄ™czne czyszczenie ofert.</p></div>';
     }
 
     echo '</div>';
@@ -179,10 +183,10 @@ final class ZQOS_Admin {
 
     echo '<tr><th scope="row"><label for="sheet_pub_id">sheet_pub_id</label></th><td>';
     echo '<input name="sheet_pub_id" id="sheet_pub_id" type="text" class="regular-text" value="' . esc_attr($s['sheet_pub_id'] ?? '') . '">';
-    echo '<p class="description">ID publikacji arkusza (część URL /d/e/.../).</p>';
+    echo '<p class="description">ID publikacji arkusza (czÄ™Ĺ›Ä‡ URL /d/e/.../).</p>';
     echo '</td></tr>';
 
-    echo '<tr><th scope="row">Interwał sync</th><td>';
+    echo '<tr><th scope="row">InterwaĹ‚ sync</th><td>';
     $mins = (int)($s['sync_interval_minutes'] ?? 10);
     echo '<select name="sync_interval_minutes">';
     echo '<option value="1"' . selected($mins, 1, false) . '>1 minuta</option>';
@@ -197,10 +201,10 @@ final class ZQOS_Admin {
     echo '</td></tr>';
 
     echo '<tr><th scope="row">Sheets public</th><td>';
-    echo '<label><input type="checkbox" name="sheets_public" value="1"' . checked(!empty($s['sheets_public']), true, false) . '> Pozwól pobierać arkusz bez logowania (niezalecane)</label>';
+    echo '<label><input type="checkbox" name="sheets_public" value="1"' . checked(!empty($s['sheets_public']), true, false) . '> PozwĂłl pobieraÄ‡ arkusz bez logowania (niezalecane)</label>';
     echo '</td></tr>';
 
-    // Sesje / bezpieczeństwo
+    // Sesje / bezpieczeĹ„stwo
     echo '<tr><th scope="row">Sesja (token)</th><td>';
     $hours = (int)($s['session_hours'] ?? 12);
     if ($hours < 1) $hours = 1;
@@ -213,8 +217,8 @@ final class ZQOS_Admin {
     $maxTok = (int)($s['max_active_tokens_per_account'] ?? 3);
     if ($maxTok < 1) $maxTok = 1;
     if ($maxTok > 20) $maxTok = 20;
-    echo '<label>Maks. tokenów na konto: <input name="max_active_tokens_per_account" type="number" min="1" max="20" step="1" value="' . esc_attr((string)$maxTok) . '" style="width:90px"></label>';
-    echo '<p class="description">Przy logowaniu nadmiarowe tokeny są automatycznie usuwane (najstarszy/nieaktywny).</p>';
+    echo '<label>Maks. tokenĂłw na konto: <input name="max_active_tokens_per_account" type="number" min="1" max="20" step="1" value="' . esc_attr((string)$maxTok) . '" style="width:90px"></label>';
+    echo '<p class="description">Przy logowaniu nadmiarowe tokeny sÄ… automatycznie usuwane (najstarszy/nieaktywny).</p>';
     echo '</td></tr>';
 
     echo '<tr><th scope="row">Rate limit logowania</th><td>';
@@ -224,8 +228,8 @@ final class ZQOS_Admin {
     if ($rlA > 50) $rlA = 50;
     if ($rlW < 1) $rlW = 1;
     if ($rlW > 120) $rlW = 120;
-    echo '<label>Max <input name="login_rate_attempts" type="number" min="3" max="50" step="1" value="' . esc_attr((string)$rlA) . '" style="width:90px"> prób w <input name="login_rate_window_minutes" type="number" min="1" max="120" step="1" value="' . esc_attr((string)$rlW) . '" style="width:90px"> minut (login+IP)</label>';
-    echo '<p class="description">Nieudane logowania są logowane w zdarzeniach (events).</p>';
+    echo '<label>Max <input name="login_rate_attempts" type="number" min="3" max="50" step="1" value="' . esc_attr((string)$rlA) . '" style="width:90px"> prĂłb w <input name="login_rate_window_minutes" type="number" min="1" max="120" step="1" value="' . esc_attr((string)$rlW) . '" style="width:90px"> minut (login+IP)</label>';
+    echo '<p class="description">Nieudane logowania sÄ… logowane w zdarzeniach (events).</p>';
     echo '</td></tr>';
 
 
@@ -235,7 +239,7 @@ final class ZQOS_Admin {
     if ($dedupe < 0) $dedupe = 0;
     if ($dedupe > 60) $dedupe = 60;
     echo '<label>Czas (sekundy): <input name="export_dedupe_seconds" type="number" min="0" max="60" step="1" value="' . esc_attr((string)$dedupe) . '" style="width:90px"></label>';
-    echo '<p class="description">0 = wyłączone. Zalecane 10-15 sekund (ochrona przed podwójnym kliknięciem eksportu).</p>';
+    echo '<p class="description">0 = wyĹ‚Ä…czone. Zalecane 10-15 sekund (ochrona przed podwĂłjnym klikniÄ™ciem eksportu).</p>';
     echo '</td></tr>';
 
     // Retencja
@@ -244,23 +248,23 @@ final class ZQOS_Admin {
     $retMonths = (int)($s['retention_months'] ?? 12);
     if ($retMonths < 1) $retMonths = 1;
     if ($retMonths > 120) $retMonths = 120;
-    echo '<label><input type="checkbox" name="retention_enabled" value="1"' . checked($retOn, true, false) . '> Włącz automatyczne czyszczenie (cron)</label><br>';
-    echo '<label>Usuń starsze niż <input name="retention_months" type="number" min="1" max="120" step="1" value="' . esc_attr((string)$retMonths) . '" style="width:90px"> miesięcy</label>';
-    echo '<p class="description">Cron uruchamia się raz dziennie. Usuwa rekord oferty + PDF + zdarzenia powiązane.</p>';
+    echo '<label><input type="checkbox" name="retention_enabled" value="1"' . checked($retOn, true, false) . '> WĹ‚Ä…cz automatyczne czyszczenie (cron)</label><br>';
+    echo '<label>UsuĹ„ starsze niĹĽ <input name="retention_months" type="number" min="1" max="120" step="1" value="' . esc_attr((string)$retMonths) . '" style="width:90px"> miesiÄ™cy</label>';
+    echo '<p class="description">Cron uruchamia siÄ™ raz dziennie. Usuwa rekord oferty + PDF + zdarzenia powiÄ…zane.</p>';
     echo '</td></tr>';
 
     // Storage warning
-    echo '<tr><th scope="row">Ostrzeżenie o rozmiarze storage</th><td>';
+    echo '<tr><th scope="row">OstrzeĹĽenie o rozmiarze storage</th><td>';
     $warn = (int)($s['storage_warn_mb'] ?? 512);
     if ($warn < 0) $warn = 0;
     if ($warn > 50000) $warn = 50000;
-    echo '<label>Próg (MB): <input name="storage_warn_mb" type="number" min="0" max="50000" step="1" value="' . esc_attr((string)$warn) . '" style="width:110px"></label>';
-    echo '<p class="description">0 = wyłączone. Ostrzeżenie pojawi się na Dashboardzie.</p>';
+    echo '<label>PrĂłg (MB): <input name="storage_warn_mb" type="number" min="0" max="50000" step="1" value="' . esc_attr((string)$warn) . '" style="width:110px"></label>';
+    echo '<p class="description">0 = wyĹ‚Ä…czone. OstrzeĹĽenie pojawi siÄ™ na Dashboardzie.</p>';
     echo '</td></tr>';
 
     echo '</tbody></table>';
 
-    echo '<h2>Zakładki (tabs)</h2>';
+    echo '<h2>ZakĹ‚adki (tabs)</h2>';
     echo '<table class="widefat striped"><thead><tr><th>Nazwa</th><th>GID</th></tr></thead><tbody>';
     for ($i=0; $i<4; $i++){
       $name = $tabs[$i]['name'] ?? '';
@@ -273,12 +277,12 @@ final class ZQOS_Admin {
     submit_button('Zapisz ustawienia');
     echo '</form>';
 
-    echo '<h2>Usuń notę konta startowego</h2>';
+    echo '<h2>UsuĹ„ notÄ™ konta startowego</h2>';
     echo '<form method="post" action="' . esc_url(admin_url('admin-post.php')) . '">';
     wp_nonce_field('zqos_save_settings');
     echo '<input type="hidden" name="action" value="zqos_save_settings">';
     echo '<input type="hidden" name="clear_bootstrap" value="1">';
-    submit_button('Ukryj notę (nie usuwa konta)', 'secondary');
+    submit_button('Ukryj notÄ™ (nie usuwa konta)', 'secondary');
     echo '</form>';
 
     echo '</div>';
@@ -367,24 +371,24 @@ final class ZQOS_Admin {
     echo '<input type="hidden" name="action" value="zqos_create_account">';
     echo '<table class="form-table"><tbody>';
     echo '<tr><th>Login</th><td><input name="login" type="text" class="regular-text" required></td></tr>';
-    echo '<tr><th>Hasło</th><td><input name="password" type="text" class="regular-text" required></td></tr>';
+    echo '<tr><th>HasĹ‚o</th><td><input name="password" type="text" class="regular-text" required></td></tr>';
     echo '<tr><th>Uprawnienia</th><td>';
     echo '<label><input type="checkbox" name="can_view_all_clients" value="1"> Wszyscy klienci</label><br>';
-    echo '<label><input type="checkbox" name="can_force_sync" value="1"> Wymuś sync</label><br>';
+    echo '<label><input type="checkbox" name="can_force_sync" value="1"> WymuĹ› sync</label><br>';
     echo '<label><input type="checkbox" name="can_view_stats" value="1"> Statystyki</label><br>';
-    echo '<label><input type="checkbox" name="super_admin" value="1"> Super Admin (przełączanie kont)</label><br>';
+    echo '<label><input type="checkbox" name="super_admin" value="1"> Super Admin (przeĹ‚Ä…czanie kont)</label><br>';
     echo '<input type="hidden" name="can_select_client" value="0">';
-    echo '<label><input type="checkbox" name="can_select_client" value="1" checked> Wybór klienta z bazy</label><br>';
+    echo '<label><input type="checkbox" name="can_select_client" value="1" checked> WybĂłr klienta z bazy</label><br>';
     echo '<input type="hidden" name="can_add_client" value="0">';
-    echo '<label><input type="checkbox" name="can_add_client" value="1" checked> Dodawanie klientów</label><br>';
+    echo '<label><input type="checkbox" name="can_add_client" value="1" checked> Dodawanie klientĂłw</label><br>';
     echo '<input type="hidden" name="can_edit_client" value="0">';
     echo '<label><input type="checkbox" name="can_edit_client" value="1"> Edycja danych klienta</label>';
     echo '</td></tr>';
 
-    echo '<tr><th>Kontrola rabatów</th><td>';
-    echo '<label><input type="checkbox" name="allow_special_offer" value="1" checked> Pozwól na "Oferta specjalna" (ręczna cena)</label><br>';
+    echo '<tr><th>Kontrola rabatĂłw</th><td>';
+    echo '<label><input type="checkbox" name="allow_special_offer" value="1" checked> PozwĂłl na "Oferta specjalna" (rÄ™czna cena)</label><br>';
     echo '<label>Maks. rabat %: <input name="max_discount_percent" type="number" min="0" max="100" step="0.01" value="100" style="width:120px"></label>';
-    echo '<p class="description">Jeśli ustawisz np. 10 - panel i backend zablokuje większy rabat.</p>';
+    echo '<p class="description">JeĹ›li ustawisz np. 10 - panel i backend zablokuje wiÄ™kszy rabat.</p>';
     echo '</td></tr>';
 
     // Allowed tabs
@@ -392,33 +396,33 @@ final class ZQOS_Admin {
     $tabsCfg = isset($s['tabs']) && is_array($s['tabs']) ? $s['tabs'] : array();
     $tabNames = array();
     foreach ($tabsCfg as $tb){ $nm = isset($tb['name']) ? trim((string)$tb['name']) : ''; if ($nm) $tabNames[] = $nm; }
-    if (!$tabNames){ $tabNames = array('Ogrodzenia Panelowe','Ogrodzenia Palisadowe','Słupki','Akcesoria'); }
+    if (!$tabNames){ $tabNames = array('Ogrodzenia Panelowe','Ogrodzenia Palisadowe','SĹ‚upki','Akcesoria'); }
 
-    echo '<tr><th>Dostępne kategorie</th><td>';
-    echo '<p class="description">Jeśli nie zaznaczysz nic - konto widzi wszystkie kategorie.</p>';
+    echo '<tr><th>DostÄ™pne kategorie</th><td>';
+    echo '<p class="description">JeĹ›li nie zaznaczysz nic - konto widzi wszystkie kategorie.</p>';
     foreach ($tabNames as $nm){
       echo '<label style="display:inline-block;margin-right:14px;"><input type="checkbox" name="allowed_tabs[]" value="' . esc_attr($nm) . '"> ' . esc_html($nm) . '</label>';
     }
     echo '</td></tr>';
 
     echo '<tr><th>Dane sprzedawcy (PDF)</th><td>';
-    echo '<label>Imię i nazwisko: <input name="seller_name" type="text" class="regular-text" value=""></label><br>';
+    echo '<label>ImiÄ™ i nazwisko: <input name="seller_name" type="text" class="regular-text" value=""></label><br>';
     echo '<label>Telefon: <input name="seller_phone" type="text" class="regular-text" value=""></label><br>';
     echo '<label>Email: <input name="seller_email" type="email" class="regular-text" value=""></label><br>';
-    echo '<label>Oddział: <input name="seller_branch" type="text" class="regular-text" value=""></label>';
+    echo '<label>OddziaĹ‚: <input name="seller_branch" type="text" class="regular-text" value=""></label>';
     echo '</td></tr>';
 
     echo '<tr><th>Kasowanie ofert</th><td>';
-    echo '<label><input type="checkbox" name="can_delete_offers_own" value="1" checked> Może kasować swoje</label><br>';
-    echo '<label><input type="checkbox" name="can_delete_offers_any" value="1"> Może kasować wszystkie (admin)</label>';
+    echo '<label><input type="checkbox" name="can_delete_offers_own" value="1" checked> MoĹĽe kasowaÄ‡ swoje</label><br>';
+    echo '<label><input type="checkbox" name="can_delete_offers_any" value="1"> MoĹĽe kasowaÄ‡ wszystkie (admin)</label>';
     echo '</td></tr>';
 
     
     echo '<tr><th>Blokowanie ofert</th><td>';
-    echo '<label><input type="checkbox" name="can_lock_offers" value="1"> Może blokować/odblokowywać oferty</label>';
+    echo '<label><input type="checkbox" name="can_lock_offers" value="1"> MoĹĽe blokowaÄ‡/odblokowywaÄ‡ oferty</label>';
     echo '</td></tr>';
 echo '</tbody></table>';
-    submit_button('Utwórz konto');
+    submit_button('UtwĂłrz konto');
     echo '</form>';
 
     echo '<h2>Lista kont</h2>';
@@ -459,18 +463,18 @@ echo '</tbody></table>';
       echo '<input type="hidden" name="id" value="' . esc_attr((string)$r['id']) . '">';
 
       echo '<p><label><input type="checkbox" name="can_view_all_clients" value="1"' . checked(!empty($perms['can_view_all_clients']), true, false) . '> Wszyscy klienci</label><br>';
-      echo '<label><input type="checkbox" name="can_force_sync" value="1"' . checked(!empty($perms['can_force_sync']), true, false) . '> Wymuś sync</label><br>';
+      echo '<label><input type="checkbox" name="can_force_sync" value="1"' . checked(!empty($perms['can_force_sync']), true, false) . '> WymuĹ› sync</label><br>';
       echo '<label><input type="checkbox" name="can_view_stats" value="1"' . checked(!empty($perms['can_view_stats']), true, false) . '> Statystyki</label><br>';
-      echo '<label><input type="checkbox" name="super_admin" value="1"' . checked(!empty($perms['super_admin']), true, false) . '> Super Admin (przełączanie kont)</label><br>';
+      echo '<label><input type="checkbox" name="super_admin" value="1"' . checked(!empty($perms['super_admin']), true, false) . '> Super Admin (przeĹ‚Ä…czanie kont)</label><br>';
 
-      // v1.2.5 - domyślnie TRUE jeśli klucz nie istnieje (stare konta)
+      // v1.2.5 - domyĹ›lnie TRUE jeĹ›li klucz nie istnieje (stare konta)
       $canSelClient = array_key_exists('can_select_client', $perms) ? !empty($perms['can_select_client']) : true;
       $canAddClient = array_key_exists('can_add_client', $perms) ? !empty($perms['can_add_client']) : true;
       $canEditClient = array_key_exists('can_edit_client', $perms) ? !empty($perms['can_edit_client']) : (!empty($perms['can_view_all_clients']));
       echo '<input type="hidden" name="can_select_client" value="0">';
-      echo '<label><input type="checkbox" name="can_select_client" value="1"' . checked($canSelClient, true, false) . '> Wybór klienta z bazy</label><br>';
+      echo '<label><input type="checkbox" name="can_select_client" value="1"' . checked($canSelClient, true, false) . '> WybĂłr klienta z bazy</label><br>';
       echo '<input type="hidden" name="can_add_client" value="0">';
-      echo '<label><input type="checkbox" name="can_add_client" value="1"' . checked($canAddClient, true, false) . '> Dodawanie klientów</label><br>';
+      echo '<label><input type="checkbox" name="can_add_client" value="1"' . checked($canAddClient, true, false) . '> Dodawanie klientĂłw</label><br>';
       echo '<input type="hidden" name="can_edit_client" value="0">';
       echo '<label><input type="checkbox" name="can_edit_client" value="1"' . checked($canEditClient, true, false) . '> Edycja danych klienta</label></p>';
 
@@ -487,9 +491,9 @@ echo '</tbody></table>';
       $tabsCfg2 = isset($s2['tabs']) && is_array($s2['tabs']) ? $s2['tabs'] : array();
       $tabNames2 = array();
       foreach ($tabsCfg2 as $tb){ $nm = isset($tb['name']) ? trim((string)$tb['name']) : ''; if ($nm) $tabNames2[] = $nm; }
-      if (!$tabNames2){ $tabNames2 = array('Ogrodzenia Panelowe','Ogrodzenia Palisadowe','Słupki','Akcesoria'); }
+      if (!$tabNames2){ $tabNames2 = array('Ogrodzenia Panelowe','Ogrodzenia Palisadowe','SĹ‚upki','Akcesoria'); }
 
-      echo '<p><b>Dostępne kategorie:</b><br><span style="font-size:12px;color:#666">Brak zaznaczeń = wszystkie</span><br>';
+      echo '<p><b>DostÄ™pne kategorie:</b><br><span style="font-size:12px;color:#666">Brak zaznaczeĹ„ = wszystkie</span><br>';
       foreach ($tabNames2 as $nm){
         echo '<label style="display:inline-block;margin-right:12px;"><input type="checkbox" name="allowed_tabs[]" value="' . esc_attr($nm) . '"' . checked(in_array($nm, $allowedTabs, true), true, false) . '> ' . esc_html($nm) . '</label>';
       }
@@ -502,10 +506,10 @@ echo '</tbody></table>';
       $sb = isset($seller['branch']) ? (string)$seller['branch'] : '';
 
       echo '<p><b>Sprzedawca (PDF):</b><br>';
-      echo '<label>Imię i nazwisko: <input name="seller_name" type="text" class="regular-text" value="' . esc_attr($sn) . '"></label><br>';
+      echo '<label>ImiÄ™ i nazwisko: <input name="seller_name" type="text" class="regular-text" value="' . esc_attr($sn) . '"></label><br>';
       echo '<label>Telefon: <input name="seller_phone" type="text" class="regular-text" value="' . esc_attr($sp) . '"></label><br>';
       echo '<label>Email: <input name="seller_email" type="email" class="regular-text" value="' . esc_attr($se) . '"></label><br>';
-      echo '<label>Oddział: <input name="seller_branch" type="text" class="regular-text" value="' . esc_attr($sb) . '"></label></p>';
+      echo '<label>OddziaĹ‚: <input name="seller_branch" type="text" class="regular-text" value="' . esc_attr($sb) . '"></label></p>';
 
       $delOwn = !empty($perms['can_delete_offers_own']);
       $delAny = !empty($perms['can_delete_offers_any']);
@@ -521,15 +525,15 @@ echo '</tbody></table>';
       wp_nonce_field('zqos_reset_account_pass');
       echo '<input type="hidden" name="action" value="zqos_reset_account_pass">';
       echo '<input type="hidden" name="id" value="' . esc_attr((string)$r['id']) . '">';
-      echo '<input type="text" name="new_pass" placeholder="Nowe hasło" required>';
-      echo '<button class="button">Ustaw hasło</button>';
+      echo '<input type="text" name="new_pass" placeholder="Nowe hasĹ‚o" required>';
+      echo '<button class="button">Ustaw hasĹ‚o</button>';
       echo '</form> ';
 
-      echo '<form style="display:inline-block" method="post" action="' . esc_url(admin_url('admin-post.php')) . '" onsubmit="return confirm(\'Usunąć konto?\')">';
+      echo '<form style="display:inline-block" method="post" action="' . esc_url(admin_url('admin-post.php')) . '" onsubmit="return confirm(\'UsunÄ…Ä‡ konto?\')">';
       wp_nonce_field('zqos_delete_account');
       echo '<input type="hidden" name="action" value="zqos_delete_account">';
       echo '<input type="hidden" name="id" value="' . esc_attr((string)$r['id']) . '">';
-      echo '<button class="button button-link-delete">Usuń</button>';
+      echo '<button class="button button-link-delete">UsuĹ„</button>';
       echo '</form>';
 
       echo '</td>';
@@ -552,17 +556,17 @@ echo '</tbody></table>';
 
     $login = trim($login);
     if (!$login || strlen($login) > 64) wp_die('Niepoprawny login.');
-    if (!$pass) wp_die('Brak hasła.');
+    if (!$pass) wp_die('Brak hasĹ‚a.');
 
     $perms = array(
       'can_view_all_clients' => !empty($_POST['can_view_all_clients']),
       'can_force_sync' => !empty($_POST['can_force_sync']),
       'can_view_stats' => !empty($_POST['can_view_stats']),
       'super_admin' => !empty($_POST['super_admin']),
-      // v1.2.5 - domyślnie TRUE jeśli klucz nie istnieje (stare konta)
+      // v1.2.5 - domyĹ›lnie TRUE jeĹ›li klucz nie istnieje (stare konta)
       'can_select_client' => !empty($_POST['can_select_client']),
       'can_add_client' => !empty($_POST['can_add_client']),
-      // v1.2.7 - domyślnie FALSE (chyba że konto ma Wszyscy klienci)
+      // v1.2.7 - domyĹ›lnie FALSE (chyba ĹĽe konto ma Wszyscy klienci)
       'can_edit_client' => !empty($_POST['can_edit_client']),
 
       // v1.1.1
@@ -595,7 +599,7 @@ echo '</tbody></table>';
     ), array('%s','%s','%s','%s','%s','%s'));
 
     if (!$ok){
-      wp_die('Nie można utworzyć konta (login może już istnieć).');
+      wp_die('Nie moĹĽna utworzyÄ‡ konta (login moĹĽe juĹĽ istnieÄ‡).');
     }
 
     wp_safe_redirect(self::admin_url_page('zqos-accounts') . '&created=1');
@@ -634,10 +638,10 @@ echo '</tbody></table>';
       'can_force_sync' => !empty($_POST['can_force_sync']),
       'can_view_stats' => !empty($_POST['can_view_stats']),
       'super_admin' => !empty($_POST['super_admin']),
-      // v1.2.5 - domyślnie TRUE jeśli klucz nie istnieje (stare konta)
+      // v1.2.5 - domyĹ›lnie TRUE jeĹ›li klucz nie istnieje (stare konta)
       'can_select_client' => !empty($_POST['can_select_client']),
       'can_add_client' => !empty($_POST['can_add_client']),
-      // v1.2.7 - domyślnie FALSE (chyba że konto ma Wszyscy klienci)
+      // v1.2.7 - domyĹ›lnie FALSE (chyba ĹĽe konto ma Wszyscy klienci)
       'can_edit_client' => !empty($_POST['can_edit_client']),
       'allow_special_offer' => !empty($_POST['allow_special_offer']),
       'max_discount_percent' => isset($_POST['max_discount_percent']) ? (float)$_POST['max_discount_percent'] : 100,
@@ -700,7 +704,7 @@ echo '</tbody></table>';
     wp_nonce_field('zqos_create_client');
     echo '<input type="hidden" name="action" value="zqos_create_client">';
     echo '<table class="form-table"><tbody>';
-    echo '<tr><th>Imię i nazwisko</th><td><input name="full_name" class="regular-text"></td></tr>';
+    echo '<tr><th>ImiÄ™ i nazwisko</th><td><input name="full_name" class="regular-text"></td></tr>';
     echo '<tr><th>Nazwa firmy</th><td><input name="company" class="regular-text"></td></tr>';
     echo '<tr><th>NIP</th><td><input name="nip" class="regular-text"></td></tr>';
     echo '<tr><th>Telefon</th><td><input name="phone" class="regular-text"></td></tr>';
@@ -710,7 +714,7 @@ echo '</tbody></table>';
     submit_button('Dodaj klienta');
     echo '</form>';
 
-    echo '<h2>Przypisywanie klientów do kont</h2>';
+    echo '<h2>Przypisywanie klientĂłw do kont</h2>';
     echo '<form method="post" action="' . esc_url(admin_url('admin-post.php')) . '">';
     wp_nonce_field('zqos_assign_client');
     echo '<input type="hidden" name="action" value="zqos_assign_client">';
@@ -726,11 +730,11 @@ echo '</tbody></table>';
       echo '<option value="' . esc_attr((string)$c['id']) . '">' . esc_html($label) . '</option>';
     }
     echo '</select> ';
-    echo '<label><input type="checkbox" name="set_fixed" value="1"> Ustaw jako domyślny klient dla konta</label> ';
+    echo '<label><input type="checkbox" name="set_fixed" value="1"> Ustaw jako domyĹ›lny klient dla konta</label> ';
     echo '<button class="button button-primary">Przypisz</button></p>';
     echo '</form>';
 
-    echo '<h2>Lista klientów</h2>';
+    echo '<h2>Lista klientĂłw</h2>';
     echo '<table class="widefat striped"><thead><tr><th>ID</th><th>Firma</th><th>Osoba</th><th>NIP</th><th>Kontakt</th><th>Adres</th><th>Akcje</th></tr></thead><tbody>';
     foreach ($clients as $c){
       echo '<tr>';
@@ -742,11 +746,11 @@ echo '</tbody></table>';
       echo '<td>' . esc_html($contact) . '</td>';
       echo '<td>' . esc_html((string)($c['address'] ?? '')) . '</td>';
       echo '<td>';
-      echo '<form method="post" action="' . esc_url(admin_url('admin-post.php')) . '" onsubmit="return confirm(\'Usunąć klienta?\')">';
+      echo '<form method="post" action="' . esc_url(admin_url('admin-post.php')) . '" onsubmit="return confirm(\'UsunÄ…Ä‡ klienta?\')">';
       wp_nonce_field('zqos_delete_client');
       echo '<input type="hidden" name="action" value="zqos_delete_client">';
       echo '<input type="hidden" name="id" value="' . esc_attr((string)$c['id']) . '">';
-      echo '<button class="button button-link-delete">Usuń</button>';
+      echo '<button class="button button-link-delete">UsuĹ„</button>';
       echo '</form>';
       echo '</td>';
       echo '</tr>';
@@ -912,14 +916,14 @@ echo '</tbody></table>';
     echo '<label style="margin-right:10px;"><input type="checkbox" name="has_pdf" value="1"' . checked($f_has_pdf, 1, false) . '> tylko z PDF</label>';
     echo '<label style="margin-right:10px;">Szukaj: <input type="text" name="q" value="' . esc_attr($f_q) . '" placeholder="nazwa oferty" style="width:220px"></label>';
     echo '<button class="button">Zastosuj</button> ';
-    echo '<a class="button" href="' . esc_url(self::admin_url_page('zqos-offers')) . '">Wyczyść</a>';
+    echo '<a class="button" href="' . esc_url(self::admin_url_page('zqos-offers')) . '">WyczyĹ›Ä‡</a>';
     echo '</form>';
 
     if ($deleted !== null){
       if ($deleted > 0){
-        echo '<div class="notice notice-success is-dismissible"><p>Usunięto ofert: <strong>' . esc_html((string)$deleted) . '</strong>.</p></div>';
+        echo '<div class="notice notice-success is-dismissible"><p>UsuniÄ™to ofert: <strong>' . esc_html((string)$deleted) . '</strong>.</p></div>';
       } else {
-        echo '<div class="notice notice-info is-dismissible"><p>Nie usunięto żadnych ofert.</p></div>';
+        echo '<div class="notice notice-info is-dismissible"><p>Nie usuniÄ™to ĹĽadnych ofert.</p></div>';
       }
     }
 
@@ -935,13 +939,13 @@ echo '</tbody></table>';
     echo '<input type="hidden" name="redirect_q" value="' . esc_attr($f_q) . '">';
 
     echo '<p>';
-    echo '<button type="submit" class="button button-link-delete" onclick="return window.ZQOSOffersBulkDelete && window.ZQOSOffersBulkDelete.confirmDelete();">Usuń zaznaczone</button>';
+    echo '<button type="submit" class="button button-link-delete" onclick="return window.ZQOSOffersBulkDelete && window.ZQOSOffersBulkDelete.confirmDelete();">UsuĹ„ zaznaczone</button>';
     echo '</p>';
 
     
       $canLockOffers = !empty($perms['can_lock_offers']);
       echo '<p><b>Blokowanie ofert:</b><br>';
-      echo '<label><input type="checkbox" name="can_lock_offers" value="1"' . checked($canLockOffers, true, false) . '> może blokować/odblokowywać</label></p>';
+      echo '<label><input type="checkbox" name="can_lock_offers" value="1"' . checked($canLockOffers, true, false) . '> moĹĽe blokowaÄ‡/odblokowywaÄ‡</label></p>';
 echo '<table class="widefat striped"><thead><tr>';
     echo '<th style="width:28px;"><input type="checkbox" id="zqos-offers-checkall" aria-label="Zaznacz wszystkie"></th>';
     echo '<th style="width:70px;">ID</th><th>Nazwa</th><th style="width:180px;">Konto</th><th style="width:170px;">Data</th><th style="width:120px;">PDF</th>';
@@ -973,7 +977,7 @@ echo '<table class="widefat striped"><thead><tr>';
     echo '</tbody></table>';
 
     echo '<p style="margin-top:10px;">';
-    echo '<button type="submit" class="button button-link-delete" onclick="return window.ZQOSOffersBulkDelete && window.ZQOSOffersBulkDelete.confirmDelete();">Usuń zaznaczone</button>';
+    echo '<button type="submit" class="button button-link-delete" onclick="return window.ZQOSOffersBulkDelete && window.ZQOSOffersBulkDelete.confirmDelete();">UsuĹ„ zaznaczone</button>';
     echo '</p>';
 
     echo '</form>';
@@ -1000,10 +1004,10 @@ echo '<table class="widefat striped"><thead><tr>';
       window.ZQOSOffersBulkDelete = {
         confirmDelete: function(){
           if (!anySelected()){
-            alert("Nie zaznaczyłeś żadnych ofert.");
+            alert("Nie zaznaczyĹ‚eĹ› ĹĽadnych ofert.");
             return false;
           }
-          return confirm("Usunąć zaznaczone oferty? Tej operacji nie da się cofnąć.");
+          return confirm("UsunÄ…Ä‡ zaznaczone oferty? Tej operacji nie da siÄ™ cofnÄ…Ä‡.");
         }
       };
     })();
@@ -1054,7 +1058,7 @@ echo '<table class="widefat striped"><thead><tr>';
 
   $placeholders = implode(',', array_fill(0, count($ids), '%d'));
 
-  // Pobierz ścieżki PDF do usunięcia
+  // Pobierz Ĺ›cieĹĽki PDF do usuniÄ™cia
   $sqlSel = "SELECT id, pdf_path FROM {$t['offers']} WHERE id IN ($placeholders)";
   $argsSel = array_merge(array($sqlSel), $ids);
   $sqlSelP = call_user_func_array(array($wpdb, 'prepare'), $argsSel);
@@ -1075,13 +1079,13 @@ echo '<table class="widefat striped"><thead><tr>';
     }
   }
 
-  // Usuń eventy powiązane z ofertą (statystyki)
+  // UsuĹ„ eventy powiÄ…zane z ofertÄ… (statystyki)
   $sqlDelEv = "DELETE FROM {$t['events']} WHERE offer_id IN ($placeholders)";
   $argsDelEv = array_merge(array($sqlDelEv), $ids);
   $sqlDelEvP = call_user_func_array(array($wpdb, 'prepare'), $argsDelEv);
   $wpdb->query($sqlDelEvP);
 
-  // Usuń oferty
+  // UsuĹ„ oferty
   $sqlDel = "DELETE FROM {$t['offers']} WHERE id IN ($placeholders)";
   $argsDel = array_merge(array($sqlDel), $ids);
   $sqlDelP = call_user_func_array(array($wpdb, 'prepare'), $argsDel);
@@ -1145,7 +1149,7 @@ public static function handle_admin_download_pdf(){
 
     $accounts = $wpdb->get_results("SELECT id, login FROM {$t['accounts']} ORDER BY login ASC", ARRAY_A);
 
-    // Oferty per konto w zakresie (filtr dat w JOIN, żeby konta bez ofert też były widoczne)
+    // Oferty per konto w zakresie (filtr dat w JOIN, ĹĽeby konta bez ofert teĹĽ byĹ‚y widoczne)
     $sqlOffers = "SELECT a.login, COUNT(o.id) AS cnt
                  FROM {$t['accounts']} a
                  LEFT JOIN {$t['offers']} o
@@ -1205,7 +1209,7 @@ public static function handle_admin_download_pdf(){
     echo '</tbody></table>';
 
     echo '<h2>Zdarzenia (' . esc_html($from) . ' - ' . esc_html($to) . ')</h2>';
-    echo '<table class="widefat striped"><thead><tr><th>Event</th><th>Ilość</th></tr></thead><tbody>';
+    echo '<table class="widefat striped"><thead><tr><th>Event</th><th>IloĹ›Ä‡</th></tr></thead><tbody>';
     foreach ($events as $r){
       echo '<tr><td><code>' . esc_html($r['event']) . '</code></td><td>' . esc_html((string)$r['cnt']) . '</td></tr>';
     }
@@ -1222,3 +1226,4 @@ public static function handle_admin_download_pdf(){
     exit;
   }
 }
+

@@ -22,7 +22,7 @@ final class ZQOS_Panel {
     $q = get_query_var('zq_offer_panel', '');
     if ((string)$q !== '1') return;
 
-    // Panel to aplikacja JS; nie ładujemy motywu.
+    // Panel to aplikacja JS; nie Ă„Ä…Ă˘â‚¬Ĺˇadujemy motywu.
     nocache_headers();
     header('Content-Type: text/html; charset=utf-8');
 
@@ -43,7 +43,7 @@ final class ZQOS_Panel {
       }
     }
     if (!$tabNames){
-      $tabNames = array('Ogrodzenia Panelowe','Ogrodzenia Palisadowe','Słupki','Akcesoria');
+      $tabNames = array('Ogrodzenia Panelowe','Ogrodzenia Palisadowe','SĂ„Ä…Ă˘â‚¬Ĺˇupki','Akcesoria');
     }
 
     $apiBase = esc_url_raw( home_url( '/' ) );
@@ -81,7 +81,7 @@ final class ZQOS_Panel {
   }
 
   private static function html_shell(){
-    // Minimalne HTML: sekcja wyboru produktów + lista + klient + historia
+    // Minimalne HTML: sekcja wyboru produktĂ„â€šÄąâ€šw + lista + klient + historia
     return <<<HTML
 <div id="zq-offer-backdrop" class="zq-offer-backdrop is-open" role="dialog" aria-modal="true" aria-label="Panel Ofertowy">
   <div class="zq-offer-modal" role="document" aria-describedby="zq-offer-desc">
@@ -96,7 +96,7 @@ final class ZQOS_Panel {
     </div>
 
     <div class="zq-offer-body">
-      <div id="zq-offer-desc" class="zq-sr-only">Panel ofertowy - dobór produktów, lista pozycji, klienci, historia ofert i eksport PDF.</div>
+      <div id="zq-offer-desc" class="zq-sr-only">Panel ofertowy - dobĂ„â€šÄąâ€šr produktĂ„â€šÄąâ€šw, lista pozycji, klienci, historia ofert i eksport PDF.</div>
 
       <div class="zq-card zq-card--top">
         <div class="zq-topbar">
@@ -109,17 +109,17 @@ final class ZQOS_Panel {
                 <span class="zq-user" id="zq-user"></span>
                 <svg class="zq-usercaret" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7 10l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </button>
-              <div class="zq-usermenu" id="zq-usermenu" role="menu" aria-label="Przełącz konto" style="display:none"></div>
+              <div class="zq-usermenu" id="zq-usermenu" role="menu" aria-label="PrzeĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦cz konto" style="display:none"></div>
             </div>
-                        <button class="zq-btn danger" id="zq-clear-btn" type="button">Wyczyść listę</button>
+                        <button class="zq-btn danger" id="zq-clear-btn" type="button">WyczyĂ„Ä…Ă˘â‚¬ĹźÄ‚â€žĂ˘â‚¬Ë‡ listÄ‚â€žĂ˘â€žË</button>
           </div>
         </div>
 
         <div class="zq-banner" id="zq-draft-banner" style="display:none">
           <div class="t" id="zq-draft-text"></div>
           <div class="a">
-            <button class="zq-btn secondary" id="zq-draft-restore" type="button">Przywróć szkic</button>
-            <button class="zq-btn ghost" id="zq-draft-discard" type="button">Odrzuć</button>
+            <button class="zq-btn secondary" id="zq-draft-restore" type="button">PrzywrĂ„â€šÄąâ€šÄ‚â€žĂ˘â‚¬Ë‡ szkic</button>
+            <button class="zq-btn ghost" id="zq-draft-discard" type="button">OdrzuÄ‚â€žĂ˘â‚¬Ë‡</button>
           </div>
         </div>
 
@@ -137,12 +137,12 @@ final class ZQOS_Panel {
               <div class="zq-prof-avatar" id="zq-prof-avatar" aria-hidden="true"></div>
 
               <div class="zq-prof-info">
-                <div class="zq-prof-name" id="zq-prof-name">—</div>
-                <div class="zq-prof-role" id="zq-prof-role">—</div>
+                <div class="zq-prof-name" id="zq-prof-name">Ä‚ËĂ˘â€šÂ¬Ă˘â‚¬ĹĄ</div>
+                <div class="zq-prof-role" id="zq-prof-role">Ä‚ËĂ˘â€šÂ¬Ă˘â‚¬ĹĄ</div>
 
                 <div class="zq-prof-contact" id="zq-prof-chips">
-                  <a class="zq-prof-contact-item" id="zq-prof-phone" href="#" rel="nofollow">—</a>
-                  <a class="zq-prof-contact-item" id="zq-prof-email" href="#" rel="nofollow">—</a>
+                  <a class="zq-prof-contact-item" id="zq-prof-phone" href="#" rel="nofollow">Ä‚ËĂ˘â€šÂ¬Ă˘â‚¬ĹĄ</a>
+                  <a class="zq-prof-contact-item" id="zq-prof-email" href="#" rel="nofollow">Ä‚ËĂ˘â€šÂ¬Ă˘â‚¬ĹĄ</a>
 
                   <div class="zq-prof-stat" aria-label="Oferty">
                     <span class="k">Oferty</span>
@@ -175,13 +175,13 @@ final class ZQOS_Panel {
 
         <div class="zq-card" id="zq-add-card">
           <div class="zq-card-head">
-            <h3 class="zq-h" data-zq-help="Dodawanie pozycji do oferty. Wybierz produkt, ilość i rabat, a następnie kliknij przycisk Dodaj pozycję.">Dodaj pozycję</h3>
+            <h3 class="zq-h" data-zq-help="Dodawanie pozycji do oferty. Wybierz produkt, iloĂ„Ä…Ă˘â‚¬ĹźÄ‚â€žĂ˘â‚¬Ë‡ i rabat, a nastÄ‚â€žĂ˘â€žËpnie kliknij przycisk Dodaj pozycjÄ‚â€žĂ˘â€žË.">Dodaj pozycjÄ‚â€žĂ˘â€žË</h3>
             <div class="zq-muted" id="zq-disc-all-hint"></div>
           </div>
 
           <div class="zq-row">
             <div class="zq-col zq-9">
-              <div class="zq-label" data-zq-help="Szybkie wyszukiwanie po nazwie, SKU, wymiarze lub kolorze RAL. Wybór z listy uzupełni selektory poniżej.">Szukaj produktu (nazwa/SKU/wymiar/RAL)</div>
+              <div class="zq-label" data-zq-help="Szybkie wyszukiwanie po nazwie, SKU, wymiarze lub kolorze RAL. WybĂ„â€šÄąâ€šr z listy uzupeĂ„Ä…Ă˘â‚¬Ĺˇni selektory poniĂ„Ä…Ă„Ëťej.">Szukaj produktu (nazwa/SKU/wymiar/RAL)</div>
               <div class="zq-dropwrap">
                 <input class="zq-input" id="zq-search" type="text" autocomplete="off" placeholder="Np. panel 3D 2500, SKU 123, RAL 7016">
                 <div class="zq-drop" id="zq-search-drop" style="display:none"></div>
@@ -195,39 +195,39 @@ final class ZQOS_Panel {
 
           <div class="zq-row">
             <div class="zq-col zq-4">
-              <div class="zq-label" data-zq-help="Zawęża listę produktów do wybranej kategorii. Dane pochodzą z arkusza (synchronizacja).">Kategoria</div>
+              <div class="zq-label" data-zq-help="ZawÄ‚â€žĂ˘â€žËĂ„Ä…Ă„Ëťa listÄ‚â€žĂ˘â€žË produktĂ„â€šÄąâ€šw do wybranej kategorii. Dane pochodzÄ‚â€žĂ˘â‚¬Â¦ z arkusza (synchronizacja).">Kategoria</div>
               <select class="zq-select" id="zq-cat"></select>
             </div>
             <div class="zq-col zq-4">
-              <div class="zq-label" data-zq-help="Zawęża listę produktów w ramach kategorii.">Podkategoria</div>
+              <div class="zq-label" data-zq-help="ZawÄ‚â€žĂ˘â€žËĂ„Ä…Ă„Ëťa listÄ‚â€žĂ˘â€žË produktĂ„â€šÄąâ€šw w ramach kategorii.">Podkategoria</div>
               <select class="zq-select" id="zq-subcat"></select>
             </div>
             <div class="zq-col zq-4">
-              <div class="zq-label" data-zq-help="Wybierz produkt. Dostępne wymiary i RAL zależą od produktu.">Produkt</div>
+              <div class="zq-label" data-zq-help="Wybierz produkt. DostÄ‚â€žĂ˘â€žËpne wymiary i RAL zaleĂ„Ä…Ă„ËťÄ‚â€žĂ˘â‚¬Â¦ od produktu.">Produkt</div>
               <select class="zq-select" id="zq-prod"></select>
             </div>
           </div>
 
           <div class="zq-row">
             <div class="zq-col zq-3">
-              <div class="zq-label" data-zq-help="Wybierz wariant wymiaru/rozmiaru produktu (jeśli dostępny).">Wymiar/Rozmiar</div>
+              <div class="zq-label" data-zq-help="Wybierz wariant wymiaru/rozmiaru produktu (jeĂ„Ä…Ă˘â‚¬Ĺźli dostÄ‚â€žĂ˘â€žËpny).">Wymiar/Rozmiar</div>
               <select class="zq-select" id="zq-dim"></select>
             </div>
             <div class="zq-col zq-3">
-              <div class="zq-label" data-zq-help="Wybierz kolor RAL (jeśli produkt ma warianty kolorystyczne).">RAL</div>
+              <div class="zq-label" data-zq-help="Wybierz kolor RAL (jeĂ„Ä…Ă˘â‚¬Ĺźli produkt ma warianty kolorystyczne).">RAL</div>
               <select class="zq-select" id="zq-ral"></select>
             </div>
             <div class="zq-col zq-2">
-              <div class="zq-label" data-zq-help="Ilość pozycji (szt.). Tryb Paleta/TIR zmienia tylko cenę jednostkową.">Ilość</div>
+              <div class="zq-label" data-zq-help="IloĂ„Ä…Ă˘â‚¬ĹźÄ‚â€žĂ˘â‚¬Ë‡ pozycji (szt.). Tryb Paleta/TIR zmienia tylko cenÄ‚â€žĂ˘â€žË jednostkowÄ‚â€žĂ˘â‚¬Â¦.">IloĂ„Ä…Ă˘â‚¬ĹźÄ‚â€žĂ˘â‚¬Ë‡</div>
               <input class="zq-input" id="zq-qty" type="number" min="1" step="1" value="1">
             </div>
             <div class="zq-col zq-2">
-              <div class="zq-label" data-zq-help="Rabat procentowy dla tej pozycji. Wartości po rabacie są liczone automatycznie.">Rabat %</div>
+              <div class="zq-label" data-zq-help="Rabat procentowy dla tej pozycji. WartoĂ„Ä…Ă˘â‚¬Ĺźci po rabacie sÄ‚â€žĂ˘â‚¬Â¦ liczone automatycznie.">Rabat %</div>
               <input class="zq-input" id="zq-disc" type="number" min="0" max="100" step="1" value="0">
             </div>
             <div class="zq-col zq-2">
               <div class="zq-label">&nbsp;</div>
-              <button class="zq-btn primary zq-w-full" id="zq-add" type="button">Dodaj pozycję</button>
+              <button class="zq-btn primary zq-w-full" id="zq-add" type="button">Dodaj pozycjÄ‚â€žĂ˘â€žË</button>
             </div>
           </div>
 
@@ -236,23 +236,23 @@ final class ZQOS_Panel {
 
         <div class="zq-card">
           <div class="zq-card-head">
-            <h3 class="zq-h" data-zq-help="Lista pozycji w ofercie. Możesz edytować ilości/rabaty, zmieniać tryb ceny (szt./paleta/TIR) i usuwać pozycje.">Pozycje</h3>
+            <h3 class="zq-h" data-zq-help="Lista pozycji w ofercie. MoĂ„Ä…Ă„Ëťesz edytowaÄ‚â€žĂ˘â‚¬Ë‡ iloĂ„Ä…Ă˘â‚¬Ĺźci/rabaty, zmieniaÄ‚â€žĂ˘â‚¬Ë‡ tryb ceny (szt./paleta/TIR) i usuwaÄ‚â€žĂ˘â‚¬Ë‡ pozycje.">Pozycje</h3>
             <div class="zq-note" id="zq-totals-note">VAT: 23% - rabat per pozycja. | Pozycji: <span id="zq-lines-count">0</span></div>
           </div>
 
           <div class="zq-lines">
             <div class="zq-lines-head">
               <div>Pozycja</div>
-              <div>Ilość</div>
+              <div>IloĂ„Ä…Ă˘â‚¬ĹźÄ‚â€žĂ˘â‚¬Ë‡</div>
               <div class="hide-md">Cena jedn. (Netto)</div>
               <div>Rabat %</div>
-              <div class="hide-md">Wartość Netto</div>
+              <div class="hide-md">WartoĂ„Ä…Ă˘â‚¬ĹźÄ‚â€žĂ˘â‚¬Ë‡ Netto</div>
               <div>Netto (po rabacie)</div>
-              <div class="hide-md">Wartość Brutto</div>
+              <div class="hide-md">WartoĂ„Ä…Ă˘â‚¬ĹźÄ‚â€žĂ˘â‚¬Ë‡ Brutto</div>
               <div>Brutto (po rabacie)</div>
               <div>Akcje</div>
             </div>
-            <div id="zq-lines-empty" class="zq-empty">Brak pozycji. Dodaj produkty powyżej.</div>
+            <div id="zq-lines-empty" class="zq-empty">Brak pozycji. Dodaj produkty powyĂ„Ä…Ă„Ëťej.</div>
             <div id="zq-lines-list"></div>
           </div>
 
@@ -265,62 +265,62 @@ final class ZQOS_Panel {
                   <img src="https://zegger.pl/wp-content/uploads/2026/02/oneproduct.png" alt="" loading="lazy" decoding="async" />
                   <span>Pojedynczy</span>
                 </div>
-                <div class="zq-legend-pill" title="Paleta - cena paletowa (zmienia tylko cenę jednostkową)">
+                <div class="zq-legend-pill" title="Paleta - cena paletowa (zmienia tylko cenÄ‚â€žĂ˘â€žË jednostkowÄ‚â€žĂ˘â‚¬Â¦)">
                   <img src="https://zegger.pl/wp-content/uploads/2026/02/paleta.png" alt="" loading="lazy" decoding="async" />
                   <span>Paleta</span>
                 </div>
-                <div class="zq-legend-pill" title="TIR - cena TIR (zmienia tylko cenę jednostkową)">
+                <div class="zq-legend-pill" title="TIR - cena TIR (zmienia tylko cenÄ‚â€žĂ˘â€žË jednostkowÄ‚â€žĂ˘â‚¬Â¦)">
                   <img src="https://zegger.pl/wp-content/uploads/2026/02/tir.png" alt="" loading="lazy" decoding="async" />
                   <span>TIR</span>
                 </div>
               </div>
 
               <div class="zq-legend-note">
-                Tryb Paleta / TIR zmienia tylko cenę jednostkową (wg arkusza). Ilość zawsze oznacza sztuki.
+                Tryb Paleta / TIR zmienia tylko cenÄ‚â€žĂ˘â€žË jednostkowÄ‚â€žĂ˘â‚¬Â¦ (wg arkusza). IloĂ„Ä…Ă˘â‚¬ĹźÄ‚â€žĂ˘â‚¬Ë‡ zawsze oznacza sztuki.
               </div>
 
               <div class="zq-legend-bottom" aria-label="Ustawienia oferty">
                 <div class="zq-legend-ctrl">
                   <div class="zq-legend-disc">
-                  <div class="zq-label zq-label--sm" data-zq-help="Ustawia rabat procentowy na wszystkie pozycje na liście (z uwzględnieniem limitu konta).">Rabat globalny %</div>
+                  <div class="zq-label zq-label--sm" data-zq-help="Ustawia rabat procentowy na wszystkie pozycje na liĂ„Ä…Ă˘â‚¬Ĺźcie (z uwzglÄ‚â€žĂ˘â€žËdnieniem limitu konta).">Rabat globalny %</div>
                   <div class="zq-legend-disc-row">
                     <input class="zq-input zq-input--sm" id="zq-disc-all" type="number" min="0" max="100" step="1" value="0">
                     <button class="zq-btn dark" id="zq-apply-disc-all" type="button">Zastosuj</button>
                   </div>
                 </div>
 
-                <label class="zq-check zq-check--sm"><input id="zq-special" type="checkbox"> Oferta specjalna (ręczna cena)</label>
+                <label class="zq-check zq-check--sm"><input id="zq-special" type="checkbox"> Oferta specjalna (rÄ‚â€žĂ˘â€žËczna cena)</label>
                 </div>
 
                 <div class="zq-legend-actions">
-                  <button class="zq-btn dark" id="zq-add-transport-line" type="button">Usługi transportowe</button>
-                  <button class="zq-btn dark" id="zq-add-custom-line" type="button">Dodaj niestandardową pozycję</button>
+                  <button class="zq-btn dark" id="zq-add-transport-line" type="button">UsĂ„Ä…Ă˘â‚¬Ĺˇugi transportowe</button>
+                  <button class="zq-btn dark" id="zq-add-custom-line" type="button">Dodaj niestandardowÄ‚â€žĂ˘â‚¬Â¦ pozycjÄ‚â€žĂ˘â€žË</button>
                 </div>
               </div>
             </div>
 
             <div class="zq-total-box">
               <div class="k">Razem netto</div>
-              <div class="v" id="zq-total-net-before">0,00 zł</div>
+              <div class="v" id="zq-total-net-before">0,00 zĂ„Ä…Ă˘â‚¬Ĺˇ</div>
               <div class="k">Razem netto (po rabacie)</div>
-              <div class="v" id="zq-total-net-after">0,00 zł</div>
+              <div class="v" id="zq-total-net-after">0,00 zĂ„Ä…Ă˘â‚¬Ĺˇ</div>
               <div class="k">Razem brutto</div>
-              <div class="v" id="zq-total-gross-before">0,00 zł</div>
+              <div class="v" id="zq-total-gross-before">0,00 zĂ„Ä…Ă˘â‚¬Ĺˇ</div>
               <div class="k">Razem brutto (po rabacie)</div>
-              <div class="v" id="zq-total-gross-after">0,00 zł</div>
+              <div class="v" id="zq-total-gross-after">0,00 zĂ„Ä…Ă˘â‚¬Ĺˇ</div>
             </div>
           </div>
         </div>
 
 <div class="zq-card zq-client-card">
   <div class="zq-card-head">
-    <h3 class="zq-h" data-zq-help="Wybór klienta przypisanego do oferty. Dane klienta trafiają do PDF oraz historii ofert.">Klient</h3>
-    <span class="zq-badge" id="zq-client-badge" style="display:none">Klient stały</span>
+    <h3 class="zq-h" data-zq-help="WybĂ„â€šÄąâ€šr klienta przypisanego do oferty. Dane klienta trafiajÄ‚â€žĂ˘â‚¬Â¦ do PDF oraz historii ofert.">Klient</h3>
+    <span class="zq-badge" id="zq-client-badge" style="display:none">Klient staĂ„Ä…Ă˘â‚¬Ĺˇy</span>
   </div>
 
   <div class="zq-row" id="zq-client-select-row">
     <div class="zq-col zq-8" id="zq-client-select-wrap">
-      <div class="zq-label" data-zq-help="Wybierz klienta z listy. Po wyborze dane klienta są użyte w eksporcie PDF i zapisie do historii.">Wybór klienta</div>
+      <div class="zq-label" data-zq-help="Wybierz klienta z listy. Po wyborze dane klienta sÄ‚â€žĂ˘â‚¬Â¦ uĂ„Ä…Ă„Ëťyte w eksporcie PDF i zapisie do historii.">WybĂ„â€šÄąâ€šr klienta</div>
       <select class="zq-select" id="zq-client-select"></select>
     </div>
     <div class="zq-col zq-4" id="zq-client-actions-col">
@@ -340,7 +340,7 @@ final class ZQOS_Panel {
 
   <div class="zq-row">
     <div class="zq-col zq-6">
-      <div class="zq-label">Imię i nazwisko</div>
+      <div class="zq-label">ImiÄ‚â€žĂ˘â€žË i nazwisko</div>
       <input class="zq-input" id="zq-client-fullname" type="text">
     </div>
     <div class="zq-col zq-6">
@@ -380,7 +380,7 @@ final class ZQOS_Panel {
         <div class="zq-modal-title" id="zq-client-modal-title">Klient</div>
         <div class="zq-modal-sub" id="zq-client-modal-sub"></div>
       </div>
-      <button type="button" class="zq-icon-btn" id="zq-client-modal-close" aria-label="Zamknij">×</button>
+      <button type="button" class="zq-icon-btn" id="zq-client-modal-close" aria-label="Zamknij">Ă„â€šĂ˘â‚¬â€ť</button>
     </div>
 
     <input type="hidden" id="zq-client-modal-id" value="">
@@ -389,7 +389,7 @@ final class ZQOS_Panel {
     <div class="zq-modal-body">
       <div class="zq-row">
         <div class="zq-col zq-6">
-          <div class="zq-label">Imię i nazwisko</div>
+          <div class="zq-label">ImiÄ‚â€žĂ˘â€žË i nazwisko</div>
           <input class="zq-input" id="zq-cm-fullname" type="text">
         </div>
         <div class="zq-col zq-6">
@@ -437,14 +437,14 @@ final class ZQOS_Panel {
     <div class="zq-modal-head">
       <div>
         <div class="zq-modal-title" id="zq-prof-modal-title">Profil</div>
-        <div class="zq-modal-sub">Dane profilu są widoczne w panelu i w eksporcie PDF (handlowiec).</div>
+        <div class="zq-modal-sub">Dane profilu sÄ‚â€žĂ˘â‚¬Â¦ widoczne w panelu i w eksporcie PDF (handlowiec).</div>
       </div>
-      <button type="button" class="zq-icon-btn" id="zq-prof-modal-close" aria-label="Zamknij">×</button>
+      <button type="button" class="zq-icon-btn" id="zq-prof-modal-close" aria-label="Zamknij">Ă„â€šĂ˘â‚¬â€ť</button>
     </div>
 
     <div class="zq-row">
       <div class="zq-col zq-6">
-        <div class="zq-label">Imię i nazwisko</div>
+        <div class="zq-label">ImiÄ‚â€žĂ˘â€žË i nazwisko</div>
         <input class="zq-input zq-locked" id="zq-prof-seller-name" type="text" autocomplete="name" readonly>
       </div>
       <div class="zq-col zq-6">
@@ -465,11 +465,11 @@ final class ZQOS_Panel {
 
     <div class="zq-row">
       <div class="zq-col zq-6">
-        <div class="zq-label">Zdjęcie profilowe (URL)</div>
+        <div class="zq-label">ZdjÄ‚â€žĂ˘â€žËcie profilowe (URL)</div>
         <input class="zq-input" id="zq-prof-avatar-url" type="url" inputmode="url" placeholder="https://...">
       </div>
       <div class="zq-col zq-6">
-        <div class="zq-label">Tło profilu (URL)</div>
+        <div class="zq-label">TĂ„Ä…Ă˘â‚¬Ĺˇo profilu (URL)</div>
         <input class="zq-input" id="zq-prof-cover-url" type="url" inputmode="url" placeholder="https://...">
       </div>
     </div>
@@ -491,7 +491,7 @@ final class ZQOS_Panel {
         <div class="zq-modal-title" id="zq-custom-line-title">Niestandardowa pozycja</div>
         <div class="zq-modal-sub" id="zq-custom-line-sub"></div>
       </div>
-      <button type="button" class="zq-icon-btn" id="zq-custom-line-close" aria-label="Zamknij">×</button>
+      <button type="button" class="zq-icon-btn" id="zq-custom-line-close" aria-label="Zamknij">Ă„â€šĂ˘â‚¬â€ť</button>
     </div>
 
     <input type="hidden" id="zq-custom-line-id" value="">
@@ -501,13 +501,13 @@ final class ZQOS_Panel {
       <div class="zq-row">
         <div class="zq-col zq-12">
           <div class="zq-label">Nazwa pozycji</div>
-          <input class="zq-input" id="zq-custom-name" type="text" maxlength="160" placeholder="Np. Transport, Montaż, Usługa...">
+          <input class="zq-input" id="zq-custom-name" type="text" maxlength="160" placeholder="Np. Transport, MontaĂ„Ä…Ă„Ëť, UsĂ„Ä…Ă˘â‚¬Ĺˇuga...">
         </div>
       </div>
 
       <div class="zq-row">
         <div class="zq-col zq-4">
-          <div class="zq-label" data-zq-help="Ilość pozycji (szt.). Tryb Paleta/TIR zmienia tylko cenę jednostkową.">Ilość</div>
+          <div class="zq-label" data-zq-help="IloĂ„Ä…Ă˘â‚¬ĹźÄ‚â€žĂ˘â‚¬Ë‡ pozycji (szt.). Tryb Paleta/TIR zmienia tylko cenÄ‚â€žĂ˘â€žË jednostkowÄ‚â€žĂ˘â‚¬Â¦.">IloĂ„Ä…Ă˘â‚¬ĹźÄ‚â€žĂ˘â‚¬Ë‡</div>
           <input class="zq-input" id="zq-custom-qty" type="number" min="1" step="1" value="1">
         </div>
         <div class="zq-col zq-4">
@@ -515,7 +515,7 @@ final class ZQOS_Panel {
           <input class="zq-input" id="zq-custom-unit-net" type="number" min="0" step="0.01" value="0">
         </div>
         <div class="zq-col zq-4">
-          <div class="zq-label" data-zq-help="Rabat procentowy dla tej pozycji. Wartości po rabacie są liczone automatycznie.">Rabat %</div>
+          <div class="zq-label" data-zq-help="Rabat procentowy dla tej pozycji. WartoĂ„Ä…Ă˘â‚¬Ĺźci po rabacie sÄ‚â€žĂ˘â‚¬Â¦ liczone automatycznie.">Rabat %</div>
           <input class="zq-input" id="zq-custom-disc" type="number" min="0" max="100" step="1" value="0">
         </div>
       </div>
@@ -541,15 +541,15 @@ final class ZQOS_Panel {
 
 
 
-<!-- Modal: Usługi transportowe (dodaj/edytuj) -->
+<!-- Modal: UsĂ„Ä…Ă˘â‚¬Ĺˇugi transportowe (dodaj/edytuj) -->
 <div class="zq-modal" id="zq-transport-line-modal" aria-hidden="true">
   <div class="zq-modal-card" role="dialog" aria-modal="true" aria-labelledby="zq-transport-line-title">
     <div class="zq-modal-head">
       <div>
-        <div class="zq-modal-title" id="zq-transport-line-title">Usługi transportowe</div>
+        <div class="zq-modal-title" id="zq-transport-line-title">UsĂ„Ä…Ă˘â‚¬Ĺˇugi transportowe</div>
         <div class="zq-modal-sub" id="zq-transport-line-sub"></div>
       </div>
-      <button type="button" class="zq-icon-btn" id="zq-transport-line-close" aria-label="Zamknij">×</button>
+      <button type="button" class="zq-icon-btn" id="zq-transport-line-close" aria-label="Zamknij">Ă„â€šĂ˘â‚¬â€ť</button>
     </div>
 
     <input type="hidden" id="zq-transport-line-id" value="">
@@ -564,8 +564,8 @@ final class ZQOS_Panel {
         <div class="zq-col zq-6">
           <div class="zq-label">Tryb wyceny</div>
           <div class="zq-transport-mode" role="group" aria-label="Tryb wyceny transportu">
-            <label class="zq-check zq-check--sm"><input type="radio" name="zq-transport-mode" id="zq-transport-mode-flat" value="flat" checked> Stała stawka</label>
-            <label class="zq-check zq-check--sm"><input type="radio" name="zq-transport-mode" id="zq-transport-mode-tier" value="tier"> Progi (stawka zależna od KM)</label>
+            <label class="zq-check zq-check--sm"><input type="radio" name="zq-transport-mode" id="zq-transport-mode-flat" value="flat" checked> StaĂ„Ä…Ă˘â‚¬Ĺˇa stawka</label>
+            <label class="zq-check zq-check--sm"><input type="radio" name="zq-transport-mode" id="zq-transport-mode-tier" value="tier"> Progi (stawka zaleĂ„Ä…Ă„Ëťna od KM)</label>
           </div>
         </div>
       </div>
@@ -600,7 +600,7 @@ final class ZQOS_Panel {
         </div>
 
         <div class="zq-col zq-6" style="margin-top:10px">
-          <div class="zq-label">Powyżej KM2 - stawka netto / KM</div>
+          <div class="zq-label">PowyĂ„Ä…Ă„Ëťej KM2 - stawka netto / KM</div>
           <input class="zq-input" id="zq-transport-rate3" type="number" min="0" step="0.01" value="0">
         </div>
         <div class="zq-col zq-6" style="margin-top:10px">
@@ -611,12 +611,12 @@ final class ZQOS_Panel {
 
       <div class="zq-row">
         <div class="zq-col zq-12">
-          <div class="zq-label">Dopłaty (netto, opcjonalnie)</div>
+          <div class="zq-label">DopĂ„Ä…Ă˘â‚¬Ĺˇaty (netto, opcjonalnie)</div>
           <div class="zq-transport-extras">
             <label class="zq-check zq-check--sm"><input id="zq-transport-x-hds-on" type="checkbox"> HDS</label>
             <input class="zq-input zq-input--sm" id="zq-transport-x-hds" type="number" min="0" step="0.01" value="0" placeholder="0">
 
-            <label class="zq-check zq-check--sm"><input id="zq-transport-x-unload-on" type="checkbox"> Rozładunek/wniesienie</label>
+            <label class="zq-check zq-check--sm"><input id="zq-transport-x-unload-on" type="checkbox"> RozĂ„Ä…Ă˘â‚¬Ĺˇadunek/wniesienie</label>
             <input class="zq-input zq-input--sm" id="zq-transport-x-unload" type="number" min="0" step="0.01" value="0" placeholder="0">
 
             <label class="zq-check zq-check--sm"><input id="zq-transport-x-sat-on" type="checkbox"> Dostawa sobota</label>
@@ -659,10 +659,10 @@ final class ZQOS_Panel {
   <div class="zq-modal-card" role="dialog" aria-modal="true" aria-labelledby="zq-osm-title">
     <div class="zq-modal-head">
       <div>
-        <div class="zq-modal-title" id="zq-osm-title">Zmień status oferty</div>
+        <div class="zq-modal-title" id="zq-osm-title">ZmieĂ„Ä…Ă˘â‚¬Ĺľ status oferty</div>
         <div class="zq-modal-sub" id="zq-osm-sub"></div>
       </div>
-      <button type="button" class="zq-icon-btn" id="zq-osm-close" aria-label="Zamknij">×</button>
+      <button type="button" class="zq-icon-btn" id="zq-osm-close" aria-label="Zamknij">Ă„â€šĂ˘â‚¬â€ť</button>
     </div>
 
     <input type="hidden" id="zq-osm-offer-id" value="">
@@ -695,7 +695,7 @@ final class ZQOS_Panel {
         <div class="zq-modal-title" id="zq-ohm-title">Historia oferty</div>
         <div class="zq-modal-sub" id="zq-ohm-sub"></div>
       </div>
-      <button type="button" class="zq-icon-btn" id="zq-ohm-close" aria-label="Zamknij">×</button>
+      <button type="button" class="zq-icon-btn" id="zq-ohm-close" aria-label="Zamknij">Ă„â€šĂ˘â‚¬â€ť</button>
     </div>
 
     <input type="hidden" id="zq-ohm-offer-id" value="">
@@ -713,15 +713,15 @@ final class ZQOS_Panel {
 
 
 
-<!-- Modal: Podgląd oferty (szybki podgląd - read-only) -->
+<!-- Modal: PodglÄ‚â€žĂ˘â‚¬Â¦d oferty (szybki podglÄ‚â€žĂ˘â‚¬Â¦d - read-only) -->
 <div class="zq-modal" id="zq-offer-preview-modal" aria-hidden="true">
   <div class="zq-modal-card" role="dialog" aria-modal="true" aria-labelledby="zq-qvm-title">
     <div class="zq-modal-head">
       <div>
-        <div class="zq-modal-title" id="zq-qvm-title">Podgląd oferty</div>
+        <div class="zq-modal-title" id="zq-qvm-title">PodglÄ‚â€žĂ˘â‚¬Â¦d oferty</div>
         <div class="zq-modal-sub" id="zq-qvm-sub"></div>
       </div>
-      <button type="button" class="zq-icon-btn" id="zq-qvm-close" aria-label="Zamknij">×</button>
+      <button type="button" class="zq-icon-btn" id="zq-qvm-close" aria-label="Zamknij">Ă„â€šĂ˘â‚¬â€ť</button>
     </div>
 
     <input type="hidden" id="zq-qvm-offer-id" value="">
@@ -745,7 +745,7 @@ final class ZQOS_Panel {
         <div class="zq-modal-title" id="zq-snm-title">Notatka handlowa</div>
         <div class="zq-modal-sub" id="zq-snm-sub"></div>
       </div>
-      <button type="button" class="zq-icon-btn" id="zq-snm-close" aria-label="Zamknij">×</button>
+      <button type="button" class="zq-icon-btn" id="zq-snm-close" aria-label="Zamknij">Ă„â€šĂ˘â‚¬â€ť</button>
     </div>
 
     <input type="hidden" id="zq-snm-offer-id" value="">
@@ -753,8 +753,8 @@ final class ZQOS_Panel {
     <div class="zq-modal-body">
       <div class="zq-row">
         <div class="zq-col zq-12">
-          <div class="zq-label">Notatka (wewnętrzna - tylko historia ofert)</div>
-          <textarea class="zq-input zq-textarea" id="zq-snm-note" rows="6" maxlength="5000" placeholder="Wpisz notatkę handlową..."></textarea>
+          <div class="zq-label">Notatka (wewnÄ‚â€žĂ˘â€žËtrzna - tylko historia ofert)</div>
+          <textarea class="zq-input zq-textarea" id="zq-snm-note" rows="6" maxlength="5000" placeholder="Wpisz notatkÄ‚â€žĂ˘â€žË handlowÄ‚â€žĂ˘â‚¬Â¦..."></textarea>
           <div class="zq-note" style="margin-top:6px">Ta notatka jest widoczna tylko w panelu (historia ofert). Nie trafia do PDF.</div>
         </div>
       </div>
@@ -769,15 +769,15 @@ final class ZQOS_Panel {
   </div>
 </div>
 
-<!-- Modal: Potwierdzenie (działa w iframe sandbox - bez confirm()) -->
+<!-- Modal: Potwierdzenie (dziaĂ„Ä…Ă˘â‚¬Ĺˇa w iframe sandbox - bez confirm()) -->
 <div class="zq-modal" id="zq-confirm-modal" aria-hidden="true">
   <div class="zq-modal-card" role="dialog" aria-modal="true" aria-labelledby="zq-confirm-title">
     <div class="zq-modal-head">
       <div>
-        <div class="zq-modal-title" id="zq-confirm-title">Potwierdź</div>
+        <div class="zq-modal-title" id="zq-confirm-title">PotwierdĂ„Ä…ÄąĹş</div>
         <div class="zq-modal-sub" id="zq-confirm-sub"></div>
       </div>
-      <button type="button" class="zq-icon-btn" id="zq-confirm-close" aria-label="Zamknij">×</button>
+      <button type="button" class="zq-icon-btn" id="zq-confirm-close" aria-label="Zamknij">Ă„â€šĂ˘â‚¬â€ť</button>
     </div>
 
     <div class="zq-modal-body">
@@ -792,26 +792,26 @@ final class ZQOS_Panel {
   </div>
 </div>
 
-<!-- Modal: Oferty wymagające aktualizacji (status systemowy) -->
+<!-- Modal: Oferty wymagajÄ‚â€žĂ˘â‚¬Â¦ce aktualizacji (status systemowy) -->
 <div class="zq-modal" id="zq-needs-update-modal" aria-hidden="true">
   <div class="zq-modal-card" role="dialog" aria-modal="true" aria-labelledby="zq-num-title">
     <div class="zq-modal-head">
       <div>
         <div class="zq-modal-title" id="zq-num-title">Wymaga zaktualizowania</div>
-        <div class="zq-modal-sub" id="zq-num-sub">Niektóre oferty nie były edytowane od co najmniej 72h.</div>
+        <div class="zq-modal-sub" id="zq-num-sub">NiektĂ„â€šÄąâ€šre oferty nie byĂ„Ä…Ă˘â‚¬Ĺˇy edytowane od co najmniej 72h.</div>
       </div>
-      <button type="button" class="zq-icon-btn" id="zq-num-close" aria-label="Zamknij">×</button>
+      <button type="button" class="zq-icon-btn" id="zq-num-close" aria-label="Zamknij">Ă„â€šĂ˘â‚¬â€ť</button>
     </div>
 
     <div class="zq-modal-body">
       <div class="zq-muted" style="font-size:13px;line-height:1.45;margin-bottom:10px">
-        Poniżej lista ofert oznaczonych statusem „Wymaga zaktualizowania”.
+        PoniĂ„Ä…Ă„Ëťej lista ofert oznaczonych statusem Ä‚ËĂ˘â€šÂ¬ÄąÄľWymaga zaktualizowaniaÄ‚ËĂ˘â€šÂ¬ÄąÄ„.
       </div>
       <div id="zq-num-list" class="zq-note" style="background:rgba(245,158,11,.10);border-color:rgba(245,158,11,.25)"></div>
     </div>
 
     <div class="zq-modal-actions">
-      <button class="zq-btn ghost" id="zq-num-show" type="button">Pokaż w historii</button>
+      <button class="zq-btn ghost" id="zq-num-show" type="button">PokaĂ„Ä…Ă„Ëť w historii</button>
       <button class="zq-btn primary" id="zq-num-ok" type="button">OK</button>
     </div>
   </div>
@@ -819,67 +819,67 @@ final class ZQOS_Panel {
 
 <div class="zq-card zq-card--export">
           <div class="zq-card-head">
-            <h3 class="zq-h" data-zq-help="Zapisuje ofertę do historii. Eksport oraz pobieranie PDF jest dostępne w sekcji „Historia ofert”.">Zapis oferty</h3>
+            <h3 class="zq-h" data-zq-help="Zapisuje ofertÄ‚â€žĂ˘â€žË do historii. Eksport oraz pobieranie PDF jest dostÄ‚â€žĂ˘â€žËpne w sekcji Ä‚ËĂ˘â€šÂ¬ÄąÄľHistoria ofertÄ‚ËĂ˘â€šÂ¬ÄąÄ„.">Zapis oferty</h3>
             <span id="zq-export-status" class="zq-muted"></span>
           </div>
 
           <div class="zq-row">
             <div class="zq-col zq-6">
-              <div class="zq-label" data-zq-help="Tytuł oferty widoczny w historii i na PDF. Używany także do identyfikacji i deduplikacji zapisów.">Nazwa kalkulacji (wymagana)</div>
+              <div class="zq-label" data-zq-help="TytuĂ„Ä…Ă˘â‚¬Ĺˇ oferty widoczny w historii i na PDF. UĂ„Ä…Ă„Ëťywany takĂ„Ä…Ă„Ëťe do identyfikacji i deduplikacji zapisĂ„â€šÄąâ€šw.">Nazwa kalkulacji (wymagana)</div>
               <input class="zq-input" id="zq-offer-title" type="text" placeholder="Np. Oferta - Kowalski">
             </div>
             <div class="zq-col zq-3">
-              <div class="zq-label" data-zq-help="Status oferty używany w historii, filtrach i statystykach. Jest zapisywany razem z ofertą.">Status (wymagany)</div>
+              <div class="zq-label" data-zq-help="Status oferty uĂ„Ä…Ă„Ëťywany w historii, filtrach i statystykach. Jest zapisywany razem z ofertÄ‚â€žĂ˘â‚¬Â¦.">Status (wymagany)</div>
               <select class="zq-select" id="zq-offer-status">
                 <option value="unset" selected disabled>Wybierz status...</option>
                 <option value="new">Nowa</option>
-                <option value="sent">Wysłana</option>
+                <option value="sent">WysĂ„Ä…Ă˘â‚¬Ĺˇana</option>
                 <option value="in_progress">W trakcie</option>
         <option value="won">Zrealizowana (sukces)</option>
-                <option value="lost">Odrzucona (porażka)</option>
+                <option value="lost">Odrzucona (poraĂ„Ä…Ă„Ëťka)</option>
                 <option value="canceled">Anulowana</option>
               </select>
             </div>
             <div class="zq-col zq-3">
-              <div class="zq-label" data-zq-help="Określa, przez ile dni oferta jest ważna od daty eksportu. Wartość trafia do danych oferty i może być wyświetlana w PDF.">Ważność (dni)</div>
+              <div class="zq-label" data-zq-help="OkreĂ„Ä…Ă˘â‚¬Ĺźla, przez ile dni oferta jest waĂ„Ä…Ă„Ëťna od daty eksportu. WartoĂ„Ä…Ă˘â‚¬ĹźÄ‚â€žĂ˘â‚¬Ë‡ trafia do danych oferty i moĂ„Ä…Ă„Ëťe byÄ‚â€žĂ˘â‚¬Ë‡ wyĂ„Ä…Ă˘â‚¬Ĺźwietlana w PDF.">WaĂ„Ä…Ă„ËťnoĂ„Ä…Ă˘â‚¬ĹźÄ‚â€žĂ˘â‚¬Ë‡ (dni)</div>
               <input class="zq-input" id="zq-valid-days" type="number" min="1" max="365" step="1" value="14">
             </div>
           </div>
 
           <div class="zq-row">
             <div class="zq-col zq-12">
-              <div class="zq-label" data-zq-help="Dodatkowa notatka do oferty. Może być przenoszona do PDF i historii.">Komentarz</div>
+              <div class="zq-label" data-zq-help="Dodatkowa notatka do oferty. MoĂ„Ä…Ă„Ëťe byÄ‚â€žĂ˘â‚¬Ë‡ przenoszona do PDF i historii.">Komentarz</div>
               <input class="zq-input" id="zq-offer-comment" type="text">
             </div>
           </div>
 
           <div class="zq-row">
             <div class="zq-col zq-12">
-              <div class="zq-label" data-zq-help="Dane handlowca wynikające z konta (np. imię, telefon, email, oddział). Pole tylko do odczytu.">Handlowiec</div>
+              <div class="zq-label" data-zq-help="Dane handlowca wynikajÄ‚â€žĂ˘â‚¬Â¦ce z konta (np. imiÄ‚â€žĂ˘â€žË, telefon, email, oddziaĂ„Ä…Ă˘â‚¬Ĺˇ). Pole tylko do odczytu.">Handlowiec</div>
               <input class="zq-input" id="zq-seller" type="text" readonly>
             </div>
           </div>
 
           <div class="zq-actionsbar">
-            <button class="zq-btn secondary" id="zq-save-offer" type="button">Zapisz ofertę</button>
-            <button class="zq-btn secondary" id="zq-overwrite-offer" type="button" style="display:none" disabled>Nadpisz ofertę</button>
+            <button class="zq-btn secondary" id="zq-save-offer" type="button">Zapisz ofertÄ‚â€žĂ˘â€žË</button>
+            <button class="zq-btn secondary" id="zq-overwrite-offer" type="button" style="display:none" disabled>Nadpisz ofertÄ‚â€žĂ˘â€žË</button>
 </div>
         </div>
 
         <div class="zq-card" id="zq-history-card">
   <div class="zq-card-head">
-    <h3 class="zq-h" data-zq-help="Lista zapisanych ofert. Możesz je filtrować, sortować i zarządzać statusem (jeśli masz uprawnienia).">Historia ofert</h3>
-    <button class="zq-btn secondary" id="zq-refresh-history" type="button">Odśwież</button>
+    <h3 class="zq-h" data-zq-help="Lista zapisanych ofert. MoĂ„Ä…Ă„Ëťesz je filtrowaÄ‚â€žĂ˘â‚¬Ë‡, sortowaÄ‚â€žĂ˘â‚¬Ë‡ i zarzÄ‚â€žĂ˘â‚¬Â¦dzaÄ‚â€žĂ˘â‚¬Ë‡ statusem (jeĂ„Ä…Ă˘â‚¬Ĺźli masz uprawnienia).">Historia ofert</h3>
+    <button class="zq-btn secondary" id="zq-refresh-history" type="button">OdĂ„Ä…Ă˘â‚¬ĹźwieĂ„Ä…Ă„Ëť</button>
   </div>
 
   <div class="zq-row zq-history-search-row">
     <div class="zq-col zq-9">
-      <div class="zq-label" data-zq-help="Filtruje historię po fragmencie nazwy oferty.">Wyszukaj w historii</div>
+      <div class="zq-label" data-zq-help="Filtruje historiÄ‚â€žĂ˘â€žË po fragmencie nazwy oferty.">Wyszukaj w historii</div>
       <input class="zq-input" id="zq-history-search" type="text" placeholder="Wpisz fragment nazwy...">
     </div>
     <div class="zq-col zq-3">
       <div class="zq-label">&nbsp;</div>
-      <button class="zq-btn ghost zq-w-full" id="zq-history-clear" type="button">Wyczyść</button>
+      <button class="zq-btn ghost zq-w-full" id="zq-history-clear" type="button">WyczyĂ„Ä…Ă˘â‚¬ĹźÄ‚â€žĂ˘â‚¬Ë‡</button>
     </div>
   </div>
 
@@ -889,17 +889,17 @@ final class ZQOS_Panel {
       <select class="zq-select" id="zq-history-status-filter">
         <option value="all">Wszystkie</option>
         <option value="new">Nowa</option>
-        <option value="sent">Wysłana</option>
+        <option value="sent">WysĂ„Ä…Ă˘â‚¬Ĺˇana</option>
         <option value="in_progress">W trakcie</option>
         <option value="needs_update">Wymaga zaktualizowania</option>
         <option value="won">Zrealizowana (sukces)</option>
-        <option value="lost">Odrzucona (porażka)</option>
+        <option value="lost">Odrzucona (poraĂ„Ä…Ă„Ëťka)</option>
         <option value="canceled">Anulowana</option>
         <option value="unset">Brak statusu</option>
       </select>
     </div>
     <div class="zq-col zq-6">
-      <div class="zq-label" data-zq-help="Sposób sortowania ofert w historii (np. najnowsze/najstarsze).">Sortowanie</div>
+      <div class="zq-label" data-zq-help="SposĂ„â€šÄąâ€šb sortowania ofert w historii (np. najnowsze/najstarsze).">Sortowanie</div>
       <select class="zq-select" id="zq-history-sort">
         <option value="newest">Najnowsze</option>
         <option value="oldest">Najstarsze</option>
@@ -918,16 +918,16 @@ final class ZQOS_Panel {
   <div id="zq-history-mini-wrap" class="zq-history-mini-wrap">
     <div id="zq-history-mini" class="zq-history zq-history-mini"></div>
 
-    <!-- Gradientowy przycisk rozwijania (widoczny tylko gdy jest więcej niż 5 wyników) -->
-    <button id="zq-history-expand" class="zq-history-expand" type="button" aria-controls="zq-history-details">Pokaż więcej</button>
+    <!-- Gradientowy przycisk rozwijania (widoczny tylko gdy jest wiÄ‚â€žĂ˘â€žËcej niĂ„Ä…Ă„Ëť 5 wynikĂ„â€šÄąâ€šw) -->
+    <button id="zq-history-expand" class="zq-history-expand" type="button" aria-controls="zq-history-details">PokaĂ„Ä…Ă„Ëť wiÄ‚â€žĂ˘â€žËcej</button>
 
-    <!-- Licznik (używany w JS do wyświetlenia +N; w UI ukryty) -->
+    <!-- Licznik (uĂ„Ä…Ă„Ëťywany w JS do wyĂ„Ä…Ă˘â‚¬Ĺźwietlenia +N; w UI ukryty) -->
     <span id="zq-history-more-count" class="zq-sr-only" aria-hidden="true"></span>
   </div>
 
   <details id="zq-history-details" class="zq-details">
     <summary class="zq-summary" aria-hidden="true">
-      <span id="zq-history-toggle-label">Pokaż więcej</span>
+      <span id="zq-history-toggle-label">PokaĂ„Ä…Ă„Ëť wiÄ‚â€žĂ˘â€žËcej</span>
     </summary>
 
     <div class="zq-details-body">
@@ -937,9 +937,9 @@ final class ZQOS_Panel {
     </div>
   </details>
 
-  <!-- Przycisk zwijania (dokowany do modala, widoczny tylko gdy lista jest rozwinięta i sekcja Historii jest w viewport) -->
+  <!-- Przycisk zwijania (dokowany do modala, widoczny tylko gdy lista jest rozwiniÄ‚â€žĂ˘â€žËta i sekcja Historii jest w viewport) -->
   <div id="zq-history-collapse-wrap" class="zq-history-collapse-wrap" aria-hidden="true">
-    <button class="zq-btn ghost zq-history-collapse" id="zq-history-collapse" type="button">Zwiń listę</button>
+    <button class="zq-btn ghost zq-history-collapse" id="zq-history-collapse" type="button">ZwiĂ„Ä…Ă˘â‚¬Ĺľ listÄ‚â€žĂ˘â€žË</button>
   </div>
 </div>
 
@@ -1108,7 +1108,7 @@ button,input,select{font-family:inherit;}
 
 .zq-label{font-size:12px;color:var(--muted);margin:0 0 6px;min-height:14px;}
 
-/* Help tooltips (ikonka ? + podpowiedź) */
+/* Help tooltips (ikonka ? + podpowiedĂ„Ä…ÄąĹş) */
 .zq-label[data-zq-help],.zq-h[data-zq-help]{display:flex;align-items:center;gap:8px;}
 .zq-label[data-zq-help]{flex-wrap:wrap;}
 
@@ -1128,7 +1128,7 @@ button,input,select{font-family:inherit;}
 .zq-help:hover{background:#eef2f7;color:var(--text);}
 .zq-help:focus-visible{outline:none;box-shadow:var(--focus);border-color:rgba(37,99,235,.55);}
 
-/* Tooltip - jasny, pozycjonowany przez JS (bez ucinania przy krawędziach) */
+/* Tooltip - jasny, pozycjonowany przez JS (bez ucinania przy krawÄ‚â€žĂ˘â€žËdziach) */
 .zq-tip{
   position:fixed;
   left:0; top:0;
@@ -1215,7 +1215,7 @@ button,input,select{font-family:inherit;}
 
 .zq-err{margin:10px 0 0;color:var(--danger);font-size:13px;white-space:pre-wrap;}
 #zq-form-err:empty{display:none;}
-/* Toast notifications (lewy-dół widoku - zawsze w zasięgu wzroku) */
+/* Toast notifications (lewy-dĂ„â€šÄąâ€šĂ„Ä…Ă˘â‚¬Ĺˇ widoku - zawsze w zasiÄ‚â€žĂ˘â€žËgu wzroku) */
 .zq-toasts{
   position:fixed;
   left:16px;
@@ -1281,7 +1281,7 @@ button,input,select{font-family:inherit;}
 .zq-toast.is-info{border-left-color:rgba(37,99,235,.65);}
 .zq-toast.is-success{border-left-color:rgba(22,163,74,.65);}
 
-/* Ostrzeżenia/błędy - czerwone i bardziej czytelne */
+/* OstrzeĂ„Ä…Ă„Ëťenia/bĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â€žËdy - czerwone i bardziej czytelne */
 .zq-toast.is-warn,
 .zq-toast.is-error{
   background:var(--danger-bg);
@@ -1483,7 +1483,7 @@ button,input,select{font-family:inherit;}
   margin:0;
   pointer-events:none;
 
-  /* Wsuwanie od dołu - widoczne tylko na końcu listy */
+  /* Wsuwanie od doĂ„Ä…Ă˘â‚¬Ĺˇu - widoczne tylko na koĂ„Ä…Ă˘â‚¬Ĺľcu listy */
   opacity:0;
   visibility:hidden;
   transform:translateY(18px);
@@ -1516,7 +1516,7 @@ button,input,select{font-family:inherit;}
 .zq-histbtn:disabled{opacity:.55;cursor:not-allowed;}
 .zq-histbtn svg{width:16px;height:16px;}
 
-/* Szybki podgląd oferty (lupa + kwota) */
+/* Szybki podglÄ‚â€žĂ˘â‚¬Â¦d oferty (lupa + kwota) */
 .zq-qvbtn{border:1px solid var(--stroke);background:var(--surface);color:var(--muted);height:28px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:0 10px;cursor:pointer;flex:0 0 auto;}
 .zq-qvbtn:hover{background:var(--surface-2);color:var(--text);border-color:#cfd6e4;}
 .zq-qvbtn:disabled{opacity:.55;cursor:not-allowed;}
@@ -1524,7 +1524,7 @@ button,input,select{font-family:inherit;}
 .zq-qvamt{font-size:12px;font-weight:800;color:var(--text);line-height:1;}
 .zq-qvamt.is-muted{color:var(--muted);font-weight:700;}
 
-/* Modal: podgląd oferty */
+/* Modal: podglÄ‚â€žĂ˘â‚¬Â¦d oferty */
 .zq-qvm-body{display:flex;flex-direction:column;gap:12px;}
 .zq-qvm-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
 @media (max-width:640px){.zq-qvm-grid{grid-template-columns:1fr;}}
@@ -1565,7 +1565,7 @@ button,input,select{font-family:inherit;}
 .zq-hitem > div:first-child > div:first-child{font-size:13px;font-weight:700;white-space:nowrap;}
 
 @media (max-width:920px){
-  /* na tablet chowamy kolumnę 'Cena jedn.' (hide-md) */
+  /* na tablet chowamy kolumnÄ‚â€žĂ˘â€žË 'Cena jedn.' (hide-md) */
   .zq-lines-head,.zq-line{grid-template-columns:2.6fr 0.9fr 0.8fr 1fr 1fr 0.9fr;min-width:0;gap:10px;}
   .hide-md{display:none;}
   .zq-legend-box{min-width:0;}
@@ -1578,7 +1578,7 @@ button,input,select{font-family:inherit;}
   .zq-lines-head{display:none;}
   .zq-lines{overflow:visible;}
 
-  /* Pozycje: kompaktowy układ 2-kolumnowy (mobile) */
+  /* Pozycje: kompaktowy ukĂ„Ä…Ă˘â‚¬Ĺˇad 2-kolumnowy (mobile) */
   .zq-line{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px;min-width:0;}
   .zq-line > div.zq-name{grid-column:1 / -1;display:block;}
   .zq-name .main{flex-wrap:wrap;align-items:flex-start;}
@@ -1609,7 +1609,7 @@ button,input,select{font-family:inherit;}
   /* Topbar: elementy zawsze bez ucinania */
   .zq-topbar-right{width:100%;justify-content:flex-end;gap:8px;}
   .zq-userbtn{padding:8px 10px;}
-  /* Menu przełączania konta - jako "bottom sheet" */
+  /* Menu przeĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦czania konta - jako "bottom sheet" */
   .zq-usermenu{
     position:fixed;
     left:10px; right:10px;
@@ -1626,12 +1626,12 @@ button,input,select{font-family:inherit;}
 }
 
 @media (max-width:600px){
-  /* większe hitboxy na dotyk */
+  /* wiÄ‚â€žĂ˘â€žËksze hitboxy na dotyk */
   .zq-ico{width:36px;height:36px;border-radius:12px;}
   .zq-pmode{width:34px;height:34px;border-radius:12px;}
 }
 
-/* Modale - lepsza obsługa telefonów (bottom sheet + safe area) */
+/* Modale - lepsza obsĂ„Ä…Ă˘â‚¬Ĺˇuga telefonĂ„â€šÄąâ€šw (bottom sheet + safe area) */
 @media (max-width:520px){
   .zq-modal{align-items:flex-end;padding:10px 10px calc(10px + env(safe-area-inset-bottom));}
   .zq-modal-card{
@@ -1662,7 +1662,7 @@ button,input,select{font-family:inherit;}
   border-color:rgba(15,23,42,.10);
 }
 
-/* Transport: na bardzo wąskich ekranach nie rozwalaj gridu dopłat */
+/* Transport: na bardzo wÄ‚â€žĂ˘â‚¬Â¦skich ekranach nie rozwalaj gridu dopĂ„Ä…Ă˘â‚¬Ĺˇat */
 @media (max-width:420px){
   .zq-transport-extras{grid-template-columns:1fr;}
 }
@@ -1678,7 +1678,7 @@ html.zq-embed,body.zq-embed{height:100%;background:transparent;}
 .zq-embed .zq-offer-modal{width:100%;height:100%;max-height:none;border-radius:var(--radius);box-shadow:none;border:0;background:transparent;overflow:hidden;}
 .zq-embed .zq-offer-head{display:none;}
 
-/* ====== Profil (karta nad "Dodaj pozycję") ====== */
+/* ====== Profil (karta nad "Dodaj pozycjÄ‚â€žĂ˘â€žË") ====== */
 .zq-prof{
   padding:16px;
   overflow:hidden;
@@ -1832,7 +1832,7 @@ CSS;
 (function(){
   'use strict';
 
-  // iOS/Android: stabilny viewport dla 92vh (adres bar) – używane w CSS jako --zq-vh
+  // iOS/Android: stabilny viewport dla 92vh (adres bar) Ä‚ËĂ˘â€šÂ¬Ă˘â‚¬Ĺ› uĂ„Ä…Ă„Ëťywane w CSS jako --zq-vh
   (function(){
     var docEl = document.documentElement;
     var raf = 0;
@@ -1916,7 +1916,7 @@ CSS;
   };
 
 
-  // Help tooltips (? + podpowiedź)
+  // Help tooltips (? + podpowiedĂ„Ä…ÄąĹş)
   function initHelpTooltips(){
     try{
       var nodes = DOC.querySelectorAll('[data-zq-help]');
@@ -1932,7 +1932,7 @@ CSS;
         var btn = DOC.createElement('button');
         btn.type = 'button';
         btn.className = 'zq-help';
-        btn.setAttribute('aria-label', 'Podpowiedź');
+        btn.setAttribute('aria-label', 'PodpowiedĂ„Ä…ÄąĹş');
         btn.setAttribute('aria-expanded', 'false');
         btn.textContent = '?';
 
@@ -2048,7 +2048,7 @@ CSS;
   function openHelp(btn, pinned){
     if (!btn || !btn.getAttribute) return;
 
-    // Jeżeli jest przypięta inna chmurka, nie otwieraj hoverem kolejnej
+    // JeĂ„Ä…Ă„Ëťeli jest przypiÄ‚â€žĂ˘â€žËta inna chmurka, nie otwieraj hoverem kolejnej
     if (!pinned){
       var pinnedBtn = getPinnedHelp();
       if (pinnedBtn && pinnedBtn !== btn) return;
@@ -2148,7 +2148,7 @@ CSS;
       refreshClients();
       refreshHistory();
 
-      // Auto-sync tylko jeśli jeszcze nie mamy danych (backend sam odświeża cache co 5-10 min).
+      // Auto-sync tylko jeĂ„Ä…Ă˘â‚¬Ĺźli jeszcze nie mamy danych (backend sam odĂ„Ä…Ă˘â‚¬ĹźwieĂ„Ä…Ă„Ëťa cache co 5-10 min).
       var hasAny = false;
       try{ hasAny = !!(state.data && state.activeSheet && state.data[state.activeSheet] && state.data[state.activeSheet].items && state.data[state.activeSheet].items.length); }catch(e){ hasAny = false; }
       if (!state.syncedAt || !hasAny){ syncAll(false); }
@@ -2168,8 +2168,8 @@ CSS;
       DOC.body.classList.add('zq-embed');
     }
 
-    // token: prefer payload (źródło prawdy), potem override (po switch), potem istniejący.
-    // BUGFIX: stary override nie może nadpisywać świeżego tokenu z hosta (powodowało 401 po zalogowaniu).
+    // token: prefer payload (Ă„Ä…ÄąĹşrĂ„â€šÄąâ€šdĂ„Ä…Ă˘â‚¬Ĺˇo prawdy), potem override (po switch), potem istniejÄ‚â€žĂ˘â‚¬Â¦cy.
+    // BUGFIX: stary override nie moĂ„Ä…Ă„Ëťe nadpisywaÄ‚â€žĂ˘â‚¬Ë‡ Ă„Ä…Ă˘â‚¬ĹźwieĂ„Ä…Ă„Ëťego tokenu z hosta (powodowaĂ„Ä…Ă˘â‚¬Ĺˇo 401 po zalogowaniu).
     var token = '';
     try{
       lastPayload = (payload === undefined) ? lastPayload : payload;
@@ -2180,7 +2180,7 @@ CSS;
       if (pTok){
         token = pTok;
 
-        // jeśli mamy zapisany override z innej sesji/konta - usuń (żeby nie wracał po refresh)
+        // jeĂ„Ä…Ă˘â‚¬Ĺźli mamy zapisany override z innej sesji/konta - usuĂ„Ä…Ă˘â‚¬Ĺľ (Ă„Ä…Ă„Ëťeby nie wracaĂ„Ä…Ă˘â‚¬Ĺˇ po refresh)
         try{
           if (ovTok && String(ovTok) !== token){ clearTokenOverride(); }
         }catch(e){}
@@ -2195,7 +2195,7 @@ CSS;
       token = state.authToken ? String(state.authToken) : '';
     }
 
-    // dedupe: najpierw po host_seq (źródło prawdy z hosta), potem po tokenie/czasie.
+    // dedupe: najpierw po host_seq (Ă„Ä…ÄąĹşrĂ„â€šÄąâ€šdĂ„Ä…Ă˘â‚¬Ĺˇo prawdy z hosta), potem po tokenie/czasie.
     if (hostSeq && hostSeq === lastOpenHostSeq){
       try{
         if (window.parent && window.parent !== window){
@@ -2224,7 +2224,7 @@ CSS;
       }
     }catch(e){}
 
-    // refetch klient+historia po otwarciu (współdzielona obietnica - brak lawiny równoległych requestów)
+    // refetch klient+historia po otwarciu (wspĂ„â€šÄąâ€šĂ„Ä…Ă˘â‚¬Ĺˇdzielona obietnica - brak lawiny rĂ„â€šÄąâ€šwnolegĂ„Ä…Ă˘â‚¬Ĺˇych requestĂ„â€šÄąâ€šw)
     runOpenRefresh();
 
     try{
@@ -2254,7 +2254,7 @@ CSS;
       try{ ev.source && ev.source.postMessage({ type:'zq:offer:pong', open:true }, '*'); }catch(e){}
     }
     if (d.type === 'zq:offer:export:done'){
-      // nonce check (chroni przed spóźnioną odpowiedzią po timeout)
+      // nonce check (chroni przed spĂ„â€šÄąâ€šĂ„Ä…ÄąĹşnionÄ‚â€žĂ˘â‚¬Â¦ odpowiedziÄ‚â€žĂ˘â‚¬Â¦ po timeout)
       var rNonce = (d.payload && d.payload.nonce) ? String(d.payload.nonce) : '';
       if (state.exportNonce && rNonce && String(state.exportNonce) !== rNonce){
         return;
@@ -2267,13 +2267,13 @@ CSS;
       var expTitle = (d.payload && d.payload.title) ? String(d.payload.title) : '';
       var errMsg = (d.payload && d.payload.message) ? String(d.payload.message) : 'export';
 
-      // Wyzeruj nonce, żeby nie blokować kolejnych eksportów
+      // Wyzeruj nonce, Ă„Ä…Ă„Ëťeby nie blokowaÄ‚â€žĂ˘â‚¬Ë‡ kolejnych eksportĂ„â€šÄąâ€šw
       state.exportNonce = null;
 
-      setExportStatus(ok ? 'OK: zapisano PDF.' : ('Błąd: ' + errMsg));
+      setExportStatus(ok ? 'OK: zapisano PDF.' : ('BĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦d: ' + errMsg));
 
       if (ok && expId){
-        // Aktualizuj historię - pdf_path musi pojawić się w ofercie (bez tworzenia duplikatu).
+        // Aktualizuj historiÄ‚â€žĂ˘â€žË - pdf_path musi pojawiÄ‚â€žĂ˘â‚¬Ë‡ siÄ‚â€žĂ˘â€žË w ofercie (bez tworzenia duplikatu).
         refreshHistory({bust:true});
 
         // Pobierz PDF (zawsze to samo ID oferty)
@@ -2288,7 +2288,7 @@ CSS;
     }
   });
 
-  // inform host że jesteśmy gotowi
+  // inform host Ă„Ä…Ă„Ëťe jesteĂ„Ä…Ă˘â‚¬Ĺźmy gotowi
   try{
     if (window.parent && window.parent !== window){
       window.parent.postMessage({ type:'zq:offer:ready' }, '*');
@@ -2311,7 +2311,7 @@ CSS;
   }
 
 
-  // Token override (po przełączeniu konta w panelu). Używane gdy host (kalkulator) nie zaktualizował tokenu.
+  // Token override (po przeĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦czeniu konta w panelu). UĂ„Ä…Ă„Ëťywane gdy host (kalkulator) nie zaktualizowaĂ„Ä…Ă˘â‚¬Ĺˇ tokenu.
   function kTokenOverride(){ return 'zqos_token_override_v1'; }
   function readTokenOverride(){
     try{
@@ -2331,7 +2331,7 @@ CSS;
         return null;
       }
 
-      // jeśli host podał innego użytkownika - wyczyść override
+      // jeĂ„Ä…Ă˘â‚¬Ĺźli host podaĂ„Ä…Ă˘â‚¬Ĺˇ innego uĂ„Ä…Ă„Ëťytkownika - wyczyĂ„Ä…Ă˘â‚¬ĹźÄ‚â€žĂ˘â‚¬Ë‡ override
       try{
         if (lastPayload && lastPayload.user && actorLogin && String(lastPayload.user) !== actorLogin){
           clearTokenOverride();
@@ -2356,7 +2356,7 @@ CSS;
   }
 
 
-// Toasty (notyfikacje) - lewy dół widoku (na wysokości aktualnie przeglądanego panelu)
+// Toasty (notyfikacje) - lewy dĂ„â€šÄąâ€šĂ„Ä…Ă˘â‚¬Ĺˇ widoku (na wysokoĂ„Ä…Ă˘â‚¬Ĺźci aktualnie przeglÄ‚â€žĂ˘â‚¬Â¦danego panelu)
 function positionToastHost(host){
   try{
     host = host || $('zq-toasts');
@@ -2373,7 +2373,7 @@ function positionToastHost(host){
     var left = Math.round(r.left + pad);
     var bottom = Math.round((vh - r.bottom) + pad);
 
-    // clamp do viewport (żeby nigdy nie zniknęło poza ekranem)
+    // clamp do viewport (Ă„Ä…Ă„Ëťeby nigdy nie zniknÄ‚â€žĂ˘â€žËĂ„Ä…Ă˘â‚¬Ĺˇo poza ekranem)
     left = Math.max(8, Math.min(left, Math.max(8, vw - 200)));
     bottom = Math.max(8, Math.min(bottom, Math.max(8, vh - 120)));
 
@@ -2397,11 +2397,11 @@ function ensureToastHost(){
   host.setAttribute('aria-live', 'polite');
   host.setAttribute('aria-relevant', 'additions text');
 
-  // position:fixed -> mount może być dowolny, ale trzymajmy w modalu dla porządku DOM
+  // position:fixed -> mount moĂ„Ä…Ă„Ëťe byÄ‚â€žĂ˘â‚¬Ë‡ dowolny, ale trzymajmy w modalu dla porzÄ‚â€žĂ˘â‚¬Â¦dku DOM
   var mount = DOC.querySelector('.zq-offer-modal') || $('zq-offer-backdrop') || DOC.body;
   mount.appendChild(host);
 
-  // utrzymuj pozycję przy zmianie rozmiaru / przewijaniu (embed/iframe potrafi przewijać viewport)
+  // utrzymuj pozycjÄ‚â€žĂ˘â€žË przy zmianie rozmiaru / przewijaniu (embed/iframe potrafi przewijaÄ‚â€žĂ˘â‚¬Ë‡ viewport)
   try{
     window.addEventListener('resize', function(){ positionToastHost(host); }, { passive:true });
     window.addEventListener('scroll', function(){ positionToastHost(host); }, { passive:true, capture:true });
@@ -2448,7 +2448,7 @@ function toast(type, msg, opts){
 
   var ico = DOC.createElement('div');
   ico.className = 'i';
-  ico.textContent = (type === 'success') ? '✓' : (type === 'warn' ? '!' : (type === 'error' ? '!' : 'i'));
+  ico.textContent = (type === 'success') ? 'Ä‚ËÄąâ€şĂ˘â‚¬Ĺ›' : (type === 'warn' ? '!' : (type === 'error' ? '!' : 'i'));
 
   var txt = DOC.createElement('div');
   txt.className = 't';
@@ -2458,7 +2458,7 @@ function toast(type, msg, opts){
   close.type = 'button';
   close.className = 'x';
   close.setAttribute('aria-label', 'Zamknij');
-  close.textContent = '×';
+  close.textContent = 'Ă„â€šĂ˘â‚¬â€ť';
 
   var tmr = null;
 
@@ -2502,29 +2502,29 @@ function toast(type, msg, opts){
 function enhanceErrMessage(txt){
   var t = String(txt == null ? '' : txt).trim();
   if (!t) return '';
-  if (t === 'Wybierz kategorię i produkt.'){
-    return 'Nie dodano pozycji - wybierz Kategorię i Produkt (albo użyj pola „Szukaj produktu”), a następnie kliknij „Dodaj pozycję”.';
+  if (t === 'Wybierz kategoriÄ‚â€žĂ˘â€žË i produkt.'){
+    return 'Nie dodano pozycji - wybierz KategoriÄ‚â€žĂ˘â€žË i Produkt (albo uĂ„Ä…Ă„Ëťyj pola Ä‚ËĂ˘â€šÂ¬ÄąÄľSzukaj produktuÄ‚ËĂ˘â€šÂ¬ÄąÄ„), a nastÄ‚â€žĂ˘â€žËpnie kliknij Ä‚ËĂ˘â€šÂ¬ÄąÄľDodaj pozycjÄ‚â€žĂ˘â€žËÄ‚ËĂ˘â€šÂ¬ÄąÄ„.';
   }
   if (t === 'Wybierz RAL.'){
-    return 'Ten produkt wymaga wyboru koloru RAL - wybierz RAL z listy i spróbuj ponownie.';
+    return 'Ten produkt wymaga wyboru koloru RAL - wybierz RAL z listy i sprĂ„â€šÄąâ€šbuj ponownie.';
   }
   if (t === 'Nazwa kalkulacji jest wymagana.'){
-    return 'Uzupełnij nazwę kalkulacji (tytuł oferty) - bez tego nie zapiszę ani nie wyeksportuję oferty.';
+    return 'UzupeĂ„Ä…Ă˘â‚¬Ĺˇnij nazwÄ‚â€žĂ˘â€žË kalkulacji (tytuĂ„Ä…Ă˘â‚¬Ĺˇ oferty) - bez tego nie zapiszÄ‚â€žĂ˘â€žË ani nie wyeksportujÄ‚â€žĂ˘â€žË oferty.';
   }
   if (t === 'Brak pozycji do zapisania.'){
-    return 'Nie ma czego zapisać - dodaj przynajmniej jedną pozycję (wybierz produkt i kliknij „Dodaj pozycję”).';
+    return 'Nie ma czego zapisaÄ‚â€žĂ˘â‚¬Ë‡ - dodaj przynajmniej jednÄ‚â€žĂ˘â‚¬Â¦ pozycjÄ‚â€žĂ˘â€žË (wybierz produkt i kliknij Ä‚ËĂ˘â€šÂ¬ÄąÄľDodaj pozycjÄ‚â€žĂ˘â€žËÄ‚ËĂ˘â€šÂ¬ÄąÄ„).';
   }
   if (t === 'Brak pozycji do eksportu.'){
-    return 'Nie ma czego wyeksportować - dodaj przynajmniej jedną pozycję (wybierz produkt i kliknij „Dodaj pozycję”).';
+    return 'Nie ma czego wyeksportowaÄ‚â€žĂ˘â‚¬Ë‡ - dodaj przynajmniej jednÄ‚â€žĂ˘â‚¬Â¦ pozycjÄ‚â€žĂ˘â€žË (wybierz produkt i kliknij Ä‚ËĂ˘â€šÂ¬ÄąÄľDodaj pozycjÄ‚â€žĂ˘â€žËÄ‚ËĂ˘â€šÂ¬ÄąÄ„).';
   }
-  if (t === 'Brak pozycji na liście.'){
-    return 'Lista jest pusta - dodaj pozycje w sekcji „Dodaj pozycję” albo przywróć szkic, jeśli jest dostępny.';
+  if (t === 'Brak pozycji na liĂ„Ä…Ă˘â‚¬Ĺźcie.'){
+    return 'Lista jest pusta - dodaj pozycje w sekcji Ä‚ËĂ˘â€šÂ¬ÄąÄľDodaj pozycjÄ‚â€žĂ˘â€žËÄ‚ËĂ˘â€šÂ¬ÄąÄ„ albo przywrĂ„â€šÄąâ€šÄ‚â€žĂ˘â‚¬Ë‡ szkic, jeĂ„Ä…Ă˘â‚¬Ĺźli jest dostÄ‚â€žĂ˘â€žËpny.';
   }
   if (t === 'Wybierz status oferty.'){
-    return 'Wybierz status oferty z listy (np. „Nowa”, „Wysłana”) - bez statusu nie zapiszę zmian.';
+    return 'Wybierz status oferty z listy (np. Ä‚ËĂ˘â€šÂ¬ÄąÄľNowaÄ‚ËĂ˘â€šÂ¬ÄąÄ„, Ä‚ËĂ˘â€šÂ¬ÄąÄľWysĂ„Ä…Ă˘â‚¬ĹˇanaÄ‚ËĂ˘â€šÂ¬ÄąÄ„) - bez statusu nie zapiszÄ‚â€žĂ˘â€žË zmian.';
   }
   if (t === 'Nie znaleziono pozycji w danych (po synchronizacji).'){
-    return 'Nie znaleziono tej pozycji w danych po synchronizacji - uruchom synchronizację ponownie lub wybierz inny produkt.';
+    return 'Nie znaleziono tej pozycji w danych po synchronizacji - uruchom synchronizacjÄ‚â€žĂ˘â€žË ponownie lub wybierz inny produkt.';
   }
   return t;
 }
@@ -2544,7 +2544,7 @@ function setErr(txt, level, opts){
   function setExportLock(on, btnEl){
     state.exportLock = !!on;
 
-    // Jeżeli wskazano przycisk - traktuj go jako „aktywny” dla bieżącego eksportu (np. w historii).
+    // JeĂ„Ä…Ă„Ëťeli wskazano przycisk - traktuj go jako Ä‚ËĂ˘â€šÂ¬ÄąÄľaktywnyÄ‚ËĂ˘â€šÂ¬ÄąÄ„ dla bieĂ„Ä…Ă„ËťÄ‚â€žĂ˘â‚¬Â¦cego eksportu (np. w historii).
     if (btnEl) state.exportFromBtn = btnEl;
 
     var btn = btnEl || state.exportFromBtn;
@@ -2557,8 +2557,8 @@ function setErr(txt, level, opts){
   }
   function toMoney(n){
     var v = (typeof n === 'number' && isFinite(n)) ? n : 0;
-    try{ return v.toLocaleString('pl-PL',{minimumFractionDigits:2,maximumFractionDigits:2}) + ' zł'; }
-    catch(e){ return (Math.round(v*100)/100).toFixed(2) + ' zł'; }
+    try{ return v.toLocaleString('pl-PL',{minimumFractionDigits:2,maximumFractionDigits:2}) + ' zĂ„Ä…Ă˘â‚¬Ĺˇ'; }
+    catch(e){ return (Math.round(v*100)/100).toFixed(2) + ' zĂ„Ä…Ă˘â‚¬Ĺˇ'; }
   }
 
   function accountSuffix(){
@@ -2579,11 +2579,11 @@ function setErr(txt, level, opts){
   var OFFER_STATUS_META = {
     unset:       { label: 'Brak statusu', cls: 'zq-st-unset' },
     new:         { label: 'Nowa', cls: 'zq-st-new' },
-    sent:        { label: 'Wysłana', cls: 'zq-st-sent' },
+    sent:        { label: 'WysĂ„Ä…Ă˘â‚¬Ĺˇana', cls: 'zq-st-sent' },
     in_progress: { label: 'W trakcie', cls: 'zq-st-in_progress' },
     needs_update:{ label: 'Wymaga zaktualizowania', cls: 'zq-st-needs_update' },
     won:         { label: 'Zrealizowana (sukces)', cls: 'zq-st-won' },
-    lost:        { label: 'Odrzucona (porażka)', cls: 'zq-st-lost' },
+    lost:        { label: 'Odrzucona (poraĂ„Ä…Ă„Ëťka)', cls: 'zq-st-lost' },
     canceled:    { label: 'Anulowana', cls: 'zq-st-canceled' }
   };
 
@@ -2670,10 +2670,10 @@ function setErr(txt, level, opts){
       addOpt('unset', 'Wybierz status...', true);
     }
     addOpt('new', 'Nowa', false);
-    addOpt('sent', 'Wysłana', false);
+    addOpt('sent', 'WysĂ„Ä…Ă˘â‚¬Ĺˇana', false);
     addOpt('in_progress', 'W trakcie', false);
     addOpt('won', 'Zrealizowana (sukces)', false);
-    addOpt('lost', 'Odrzucona (porażka)', false);
+    addOpt('lost', 'Odrzucona (poraĂ„Ä…Ă„Ëťka)', false);
     addOpt('canceled', 'Anulowana', false);
 
     sel.value = (cur && cur !== 'unset' && cur !== 'needs_update') ? cur : ((cur === 'unset' && includeUnset) ? 'unset' : 'new');
@@ -2712,7 +2712,7 @@ function setErr(txt, level, opts){
   }
 
   function loadTransportProfile(){
-    // Profil transportu: zapisany lokalnie per konto (stawki/minima/dopłaty i ustawienia)
+    // Profil transportu: zapisany lokalnie per konto (stawki/minima/dopĂ„Ä…Ă˘â‚¬Ĺˇaty i ustawienia)
     try{
       var raw = localStorage.getItem(kTransport());
       if (!raw) return null;
@@ -2812,12 +2812,30 @@ function setErr(txt, level, opts){
     saveRecents();
   }
 
+  function postHostDirty(isDirty){
+    var dirty = !!isDirty;
+    if (state._hostDirtySent === dirty) return;
+    state._hostDirtySent = dirty;
+    try{
+      if (window.parent && window.parent !== window){
+        window.parent.postMessage({ type:'zq:offer:dirty', payload:{ dirty: dirty } }, '*');
+      }
+    }catch(e){}
+  }
+
+  function syncHostDirtyFromDraft(){
+    var hasDraft = false;
+    try{ hasDraft = !!localStorage.getItem(kDraft()); }catch(e){ hasDraft = false; }
+    postHostDirty(hasDraft);
+  }
+
   function clearDraft(){
     state.draftMeta = null;
     state.draftToRestore = null;
     state._draftBannerShown = false;
     try{ localStorage.removeItem(kDraft()); }catch(e){}
     hideDraftBanner();
+    postHostDirty(false);
   }
 
   function hideDraftBanner(){
@@ -2827,12 +2845,13 @@ function setErr(txt, level, opts){
 
   var draftSaveT = 0;
   function scheduleDraftSave(){
+    postHostDirty(true);
     if (draftSaveT) clearTimeout(draftSaveT);
     draftSaveT = setTimeout(function(){ draftSaveT = 0; saveDraftNow(); }, 450);
   }
 
   function saveDraftNow(){
-    // szkic zapisujemy tylko jeśli są jakieś dane (linijki albo klient albo tytuł)
+    // szkic zapisujemy tylko jeĂ„Ä…Ă˘â‚¬Ĺźli sÄ‚â€žĂ˘â‚¬Â¦ jakieĂ„Ä…Ă˘â‚¬Ĺź dane (linijki albo klient albo tytuĂ„Ä…Ă˘â‚¬Ĺˇ)
     var has = false;
     try{ has = !!(state.offerLines && state.offerLines.length); }catch(e){ has = false; }
     var title = ($('zq-offer-title') && $('zq-offer-title').value) ? $('zq-offer-title').value.trim() : '';
@@ -2843,6 +2862,7 @@ function setErr(txt, level, opts){
 
     if (!has){
       try{ localStorage.removeItem(kDraft()); }catch(e){}
+      postHostDirty(false);
       return;
     }
 
@@ -2877,11 +2897,12 @@ function setErr(txt, level, opts){
       })
 };
     try{ localStorage.setItem(kDraft(), JSON.stringify(payload)); }catch(e){}
+    postHostDirty(true);
   }
 
   function maybeShowDraftBanner(){
     if (state._draftBannerShown) return;
-    // banner pokazujemy tylko jeśli bieżąca lista jest pusta
+    // banner pokazujemy tylko jeĂ„Ä…Ă˘â‚¬Ĺźli bieĂ„Ä…Ă„ËťÄ‚â€žĂ˘â‚¬Â¦ca lista jest pusta
     if (state.offerLines && state.offerLines.length) return;
     var raw = null;
     try{ raw = localStorage.getItem(kDraft()); }catch(e){ raw = null; }
@@ -2897,6 +2918,7 @@ function setErr(txt, level, opts){
 
     state.draftMeta = d;
     state._draftBannerShown = true;
+    postHostDirty(true);
 
     var dt = new Date(parseNumber(d.t) || Date.now());
     var txt = 'Wykryto szkic oferty (' + dt.toLocaleString('pl-PL') + ').';
@@ -2909,7 +2931,7 @@ function setErr(txt, level, opts){
   function restoreDraft(){
     var d = state.draftMeta;
     if (!d || !Array.isArray(d.lines)) return;
-    // wymaga danych z arkusza, więc jeśli jeszcze nie zsynchronizowane - wymuś sync
+    // wymaga danych z arkusza, wiÄ‚â€žĂ˘â€žËc jeĂ„Ä…Ă˘â‚¬Ĺźli jeszcze nie zsynchronizowane - wymuĂ„Ä…Ă˘â‚¬Ĺź sync
     state.draftToRestore = d;
     hideDraftBanner();
     if (!state.syncedAt){
@@ -3000,7 +3022,7 @@ function setErr(txt, level, opts){
     persistOffer();
     renderLines();
     setErr('');
-    setExportStatus('Przywrócono szkic.');
+    setExportStatus('PrzywrĂ„â€šÄąâ€šcono szkic.');
   }
   
   function applyPermsToUI(){
@@ -3048,10 +3070,10 @@ function setErr(txt, level, opts){
         state.specialOffer = false;
       }
       // hint
-      specEl.title = allowed ? '' : ('Brak uprawnień do "Oferta specjalna"');
+      specEl.title = allowed ? '' : ('Brak uprawnieĂ„Ä…Ă˘â‚¬Ĺľ do "Oferta specjalna"');
     }
 
-    // tabs: jeśli ograniczone, przebuduj
+    // tabs: jeĂ„Ä…Ă˘â‚¬Ĺźli ograniczone, przebuduj
     var allowedTabs = getAllowedTabs();
     if (allowedTabs && allowedTabs.length){
       state._allowedTabs = allowedTabs;
@@ -3060,7 +3082,7 @@ function setErr(txt, level, opts){
     }
     buildTabs();
     populateCascades();
-    // indeks wyszukiwania zależy od allowed_tabs
+    // indeks wyszukiwania zaleĂ„Ä…Ă„Ëťy od allowed_tabs
     state.searchIndex = null;
     if (state.syncedAt) buildSearchIndexAsync();
     renderLines();
@@ -3074,21 +3096,21 @@ function setErr(txt, level, opts){
     if (typeof x === 'number' && isFinite(x)) return x;
     var s = String(x).trim();
     if (!s) return null;
-    s = s.replace(/\\s+/g,'').replace(/zł/ig,'').replace(/pln/ig,'');
+    s = s.replace(/\\s+/g,'').replace(/zĂ„Ä…Ă˘â‚¬Ĺˇ/ig,'').replace(/pln/ig,'');
     s = s.replace(',', '.');
     s = s.replace(/[^0-9.+-]/g,'');
     var n = parseFloat(s);
     return isFinite(n) ? n : null;
   }
 
-  // "50x/60 zł" -> { qty:50, price:60 }
+  // "50x/60 zĂ„Ä…Ă˘â‚¬Ĺˇ" -> { qty:50, price:60 }
   function parsePackCell(x){
     if (x == null) return null;
     var s = String(x).trim();
     if (!s) return null;
 
-    // usuń spacje i walutę
-    var raw = s.replace(/\s+/g,'').replace(/zł/ig,'').replace(/pln/ig,'');
+    // usuĂ„Ä…Ă˘â‚¬Ĺľ spacje i walutÄ‚â€žĂ˘â€žË
+    var raw = s.replace(/\s+/g,'').replace(/zĂ„Ä…Ă˘â‚¬Ĺˇ/ig,'').replace(/pln/ig,'');
 
     // 1) format pakietowy: "50x/60" -> { qty:50, price:60 }
     var m = raw.match(/^(\d+)x\/(\d+(?:[.,]\d+)?)$/i);
@@ -3202,8 +3224,8 @@ function setErr(txt, level, opts){
       if (state._authLostAt && (now - state._authLostAt) < 3000) return;
       state._authLostAt = now;
 
-      setStatus('Synchronizacja: błąd');
-      setErr('Brak autoryzacji. Zaloguj się ponownie w kalkulatorze i otwórz panel jeszcze raz.', 'error', { sticky:true, timeout:0 });
+      setStatus('Synchronizacja: bĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦d');
+      setErr('Brak autoryzacji. Zaloguj siÄ™ ponownie w ERP i otwĂłrz moduĹ‚ ofert jeszcze raz.', 'error', { sticky:true, timeout:0 });
 
       try{
         if (window.parent && window.parent !== window){
@@ -3212,8 +3234,8 @@ function setErr(txt, level, opts){
       }catch(e){}
     }
 
-    // 401-heal: jeśli mamy nieaktualny token w JS (np. localStorage override),
-    // wyczyść go i spróbuj raz jeszcze bez headerów (cookie fallback).
+    // 401-heal: jeĂ„Ä…Ă˘â‚¬Ĺźli mamy nieaktualny token w JS (np. localStorage override),
+    // wyczyĂ„Ä…Ă˘â‚¬ĹźÄ‚â€žĂ˘â‚¬Ë‡ go i sprĂ„â€šÄąâ€šbuj raz jeszcze bez headerĂ„â€šÄąâ€šw (cookie fallback).
     return fetch(urlStr, opts).then(function(r){
       if (r && r.status === 401){
         var hadTok = !!state.authToken;
@@ -3330,13 +3352,13 @@ function setErr(txt, level, opts){
     menu.style.display = 'block';
 
     if (!state._switch.list){
-      menu.innerHTML = '<div class="zq-um-title">Ładowanie kont...</div>';
+      menu.innerHTML = '<div class="zq-um-title">Ă„Ä…Ă‚Âadowanie kont...</div>';
       apiFetch('/accounts', {method:'GET'}).then(function(r){ return r.json().catch(function(){return null;}).then(function(j){
         if (!r.ok || !j || !j.ok) throw new Error((j && j.message) ? j.message : 'accounts');
         state._switch.list = Array.isArray(j.accounts) ? j.accounts : [];
         renderUserMenu();
       }); }).catch(function(e){
-        menu.innerHTML = '<div class="zq-um-title">Błąd: ' + (e && e.message ? e.message : 'accounts') + '</div>';
+        menu.innerHTML = '<div class="zq-um-title">BĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦d: ' + (e && e.message ? e.message : 'accounts') + '</div>';
       });
     } else {
       renderUserMenu();
@@ -3364,7 +3386,7 @@ function setErr(txt, level, opts){
 
     var curId = state.account && state.account.id ? parseInt(state.account.id, 10) : 0;
 
-    var html = '<div class="zq-um-title">Przełącz konto</div>';
+    var html = '<div class="zq-um-title">PrzeĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦cz konto</div>';
     for (var i=0;i<list.length;i++){
       var a = list[i] || {};
       var id = a.id != null ? parseInt(a.id, 10) : 0;
@@ -3399,7 +3421,7 @@ function setErr(txt, level, opts){
 
     closeUserMenu();
     setErr('');
-    setExportStatus('Przełączam konto...');
+    setExportStatus('PrzeĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦czam konto...');
 
     apiFetch('/switch', { json: { account_id: targetId } }).then(function(r){
       return r.json().catch(function(){return null;}).then(function(j){
@@ -3409,7 +3431,7 @@ function setErr(txt, level, opts){
         state.authToken = String(j.token);
         var actorLogin = '';
         try{
-          // aktor = SA (jeśli jest) inaczej obecne konto
+          // aktor = SA (jeĂ„Ä…Ă˘â‚¬Ĺźli jest) inaczej obecne konto
           actorLogin = (state.actor && state.actor.login) ? String(state.actor.login) : ((state.account && state.account.login) ? String(state.account.login) : '');
         }catch(e){ actorLogin = ''; }
         setTokenOverride(state.authToken, actorLogin);
@@ -3422,18 +3444,18 @@ function setErr(txt, level, opts){
           }
         }catch(e){}
 
-        // odśwież UI pod nowe konto
-        state._switch.list = null; // wymuś świeżą listę (żeby aktywne odznaczyło)
+        // odĂ„Ä…Ă˘â‚¬ĹźwieĂ„Ä…Ă„Ëť UI pod nowe konto
+        state._switch.list = null; // wymuĂ„Ä…Ă˘â‚¬Ĺź Ă„Ä…Ă˘â‚¬ĹźwieĂ„Ä…Ă„ËťÄ‚â€žĂ˘â‚¬Â¦ listÄ‚â€žĂ˘â€žË (Ă„Ä…Ă„Ëťeby aktywne odznaczyĂ„Ä…Ă˘â‚¬Ĺˇo)
         return refreshMe().then(function(){
           return syncAll(false);
         }).then(function(){
           refreshClients();
           refreshHistory();
-          setExportStatus('OK: przełączono konto.');
+          setExportStatus('OK: przeĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦czono konto.');
         });
       });
     }).catch(function(e){
-      setExportStatus('Błąd: ' + (e && e.message ? e.message : 'switch'));
+      setExportStatus('BĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦d: ' + (e && e.message ? e.message : 'switch'));
     });
   }
 
@@ -3473,10 +3495,10 @@ function setErr(txt, level, opts){
     var coverUrl  = (prof.cover_url && typeof prof.cover_url === 'string') ? prof.cover_url : '';
 
     var elName = $('zq-prof-name');
-    if (elName) elName.textContent = name || '—';
+    if (elName) elName.textContent = name || 'Ä‚ËĂ˘â€šÂ¬Ă˘â‚¬ĹĄ';
 
     var elRole = $('zq-prof-role');
-    if (elRole) elRole.textContent = role || '—';
+    if (elRole) elRole.textContent = role || 'Ä‚ËĂ˘â€šÂ¬Ă˘â‚¬ĹĄ';
 
     var elAvatar = $('zq-prof-avatar');
     if (elAvatar){
@@ -3506,7 +3528,7 @@ function setErr(txt, level, opts){
         elPhone.href = 'tel:' + p.replace(/\s+/g,'');
         elPhone.style.display = '';
       } else {
-        elPhone.textContent = '—';
+        elPhone.textContent = 'Ä‚ËĂ˘â€šÂ¬Ă˘â‚¬ĹĄ';
         elPhone.href = '#';
         elPhone.style.display = '';
       }
@@ -3520,7 +3542,7 @@ function setErr(txt, level, opts){
         elEmail.href = 'mailto:' + e;
         elEmail.style.display = '';
       } else {
-        elEmail.textContent = '—';
+        elEmail.textContent = 'Ä‚ËĂ˘â€šÂ¬Ă˘â‚¬ĹĄ';
         elEmail.href = '#';
         elEmail.style.display = '';
       }
@@ -3530,7 +3552,7 @@ function setErr(txt, level, opts){
     if ($('zq-prof-stat-clients')) $('zq-prof-stat-clients').textContent = String((stats.clients_count != null) ? stats.clients_count : 0);
     if ($('zq-prof-stat-time')) $('zq-prof-stat-time').textContent = formatDuration((stats.time_total_sec != null) ? stats.time_total_sec : 0);
 
-    // KPI statusów
+    // KPI statusĂ„â€šÄąâ€šw
     var bar = $('zq-prof-statusbar');
     if (bar){
       while (bar.firstChild) bar.removeChild(bar.firstChild);
@@ -3545,10 +3567,10 @@ function setErr(txt, level, opts){
 
 
 	      function jumpToNeedsUpdateHistory(){
-	        // Zamknij profil i przenieś do historii z filtrem "Wymaga zaktualizowania"
+	        // Zamknij profil i przenieĂ„Ä…Ă˘â‚¬Ĺź do historii z filtrem "Wymaga zaktualizowania"
 	        try{ closeProfileModal(); }catch(e){}
 
-	        // Uwaga: render historii opiera się o state.historyStatusFilter ustawiany w handlerze "change".
+	        // Uwaga: render historii opiera siÄ‚â€žĂ˘â€žË o state.historyStatusFilter ustawiany w handlerze "change".
 	        // Samo przypisanie hf.value nie wystarcza.
 	        var run = function(){
 	          var hf = $('zq-history-status-filter');
@@ -3560,7 +3582,7 @@ function setErr(txt, level, opts){
 	            try{
 	              hf.dispatchEvent(new Event('change', { bubbles:true }));
 	            }catch(e){
-	              // starsze przeglądarki
+	              // starsze przeglÄ‚â€žĂ˘â‚¬Â¦darki
 	              try{ var ev = DOC.createEvent('Event'); ev.initEvent('change', true, true); hf.dispatchEvent(ev); }catch(e2){}
 	            }
 	          } else {
@@ -3568,19 +3590,19 @@ function setErr(txt, level, opts){
 	            try{ state.historyStatusFilter = normHistoryFilter('needs_update'); persistHistoryPrefs(); renderHistory(); renderHistoryMini(); }catch(e){}
 	          }
 
-	          // przewiń do historii (kotwica w DOM)
+	          // przewiĂ„Ä…Ă˘â‚¬Ĺľ do historii (kotwica w DOM)
 	          var anchor = $('zq-refresh-history') || $('zq-history-details') || $('zq-history') || $('zq-history-mini');
 	          if (anchor && anchor.scrollIntoView){
 	            try{ anchor.scrollIntoView({ behavior:'smooth', block:'start' }); }catch(e){ try{ anchor.scrollIntoView(true); }catch(e2){} }
 	          }
 
-	          // fokus na filtr statusu dla jasności
+	          // fokus na filtr statusu dla jasnoĂ„Ä…Ă˘â‚¬Ĺźci
 	          if (hf && hf.focus){
 	            try{ hf.focus({ preventScroll:true }); }catch(e){ try{ hf.focus(); }catch(e2){} }
 	          }
 	        };
 
-	        // Daj DOMowi chwilę na zamknięcie profilu (overlay/scroll-lock), potem ustaw filtr i scroll.
+	        // Daj DOMowi chwilÄ‚â€žĂ˘â€žË na zamkniÄ‚â€žĂ˘â€žËcie profilu (overlay/scroll-lock), potem ustaw filtr i scroll.
 	        try{ setTimeout(run, 80); }catch(e){ try{ run(); }catch(e2){} }
 	      }
 
@@ -3612,7 +3634,7 @@ function setErr(txt, level, opts){
       addKpi('Sukces: ' + won, 'zq-badge--status zq-st-won');
       addKpi('W trakcie: ' + prog, 'zq-badge--status zq-st-in_progress');
 	      if (need > 0) addKpi('Wymaga aktualizacji: ' + need, 'zq-badge--status zq-st-needs_update zq-pulse', jumpToNeedsUpdateHistory);
-      addKpi('Wysłane: ' + sent, 'zq-badge--status zq-st-sent');
+      addKpi('WysĂ„Ä…Ă˘â‚¬Ĺˇane: ' + sent, 'zq-badge--status zq-st-sent');
       addKpi('Nowe: ' + neu, 'zq-badge--status zq-st-new');
       if (unset > 0) addKpi('Brak statusu: ' + unset, 'zq-badge--status zq-st-unset');
 
@@ -3620,7 +3642,7 @@ function setErr(txt, level, opts){
       if (denom > 0){
         var rate = Math.round((won / denom) * 100);
         var kcls = 'zq-badge--status ' + (rate >= 60 ? 'zq-st-won' : (rate >= 30 ? 'zq-st-in_progress' : 'zq-st-lost'));
-        addKpi('Skuteczność: ' + rate + '%', kcls);
+        addKpi('SkutecznoĂ„Ä…Ă˘â‚¬ĹźÄ‚â€žĂ˘â‚¬Ë‡: ' + rate + '%', kcls);
       }
     }
   }
@@ -3716,7 +3738,7 @@ function setErr(txt, level, opts){
     apiFetch('/profile', { json: payload }).then(function(r){
       return r.json().catch(function(){ return null; }).then(function(j){
         if (!r.ok || !j || !j.ok){
-          if ($('zq-prof-status')) $('zq-prof-status').textContent = 'Błąd: nie udało się zapisać profilu.';
+          if ($('zq-prof-status')) $('zq-prof-status').textContent = 'BĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦d: nie udaĂ„Ä…Ă˘â‚¬Ĺˇo siÄ‚â€žĂ˘â€žË zapisaÄ‚â€žĂ˘â‚¬Ë‡ profilu.';
           return;
         }
         // refresh account + profile
@@ -3726,7 +3748,7 @@ function setErr(txt, level, opts){
         window.setTimeout(function(){ closeProfileModal(); }, 220);
       });
     }).catch(function(){
-      if ($('zq-prof-status')) $('zq-prof-status').textContent = 'Błąd: sieć.';
+      if ($('zq-prof-status')) $('zq-prof-status').textContent = 'BĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦d: sieÄ‚â€žĂ˘â‚¬Ë‡.';
     });
   }
 
@@ -3842,10 +3864,10 @@ function renderClients(){
 
     var opt0 = DOC.createElement('option');
     opt0.value = '';
-    opt0.textContent = allowManual ? '- ręcznie -' : 'Wybierz klienta...';
+    opt0.textContent = allowManual ? '- rÄ‚â€žĂ˘â€žËcznie -' : 'Wybierz klienta...';
     if (!allowManual){
       opt0.disabled = true;
-      // jeśli nic nie jest wybrane, trzymaj placeholder
+      // jeĂ„Ä…Ă˘â‚¬Ĺźli nic nie jest wybrane, trzymaj placeholder
       opt0.selected = true;
     }
     sel.appendChild(opt0);
@@ -3885,7 +3907,7 @@ function renderClients(){
 
 
 function collectClient(){
-  // jeśli konto ma klienta stałego - zawsze zwracaj fixed_client
+  // jeĂ„Ä…Ă˘â‚¬Ĺźli konto ma klienta staĂ„Ä…Ă˘â‚¬Ĺˇego - zawsze zwracaj fixed_client
   if (isClientLocked() && state.account && state.account.fixed_client){
     var fc = state.account.fixed_client;
     return {
@@ -3935,18 +3957,18 @@ function isClientEditAllowed(){
   if (isClientLocked()) return false;
   var p = (state.account && state.account.perms && typeof state.account.perms === 'object') ? state.account.perms : null;
   if (p && Object.prototype.hasOwnProperty.call(p, 'can_edit_client')) return !!p.can_edit_client;
-  // domyślnie: tylko konta admin (Wszyscy klienci)
+  // domyĂ„Ä…Ă˘â‚¬Ĺźlnie: tylko konta admin (Wszyscy klienci)
   return !!(p && p.can_view_all_clients);
 }
 
 function isClientManualAllowed(){
-  // Jeśli użytkownik ma tylko wybór klienta (bez add/edit) - wyłącz ręczne wpisywanie.
+  // JeĂ„Ä…Ă˘â‚¬Ĺźli uĂ„Ä…Ă„Ëťytkownik ma tylko wybĂ„â€šÄąâ€šr klienta (bez add/edit) - wyĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦cz rÄ‚â€žĂ˘â€žËczne wpisywanie.
   if (isClientLocked()) return false;
   var canSel = isClientSelectAllowed();
   var canAdd = isClientAddAllowed();
   var canEdit = isClientEditAllowed();
   if (canSel && !canAdd && !canEdit) return false;
-  // w pozostałych przypadkach zostaw ręczne jako fallback
+  // w pozostaĂ„Ä…Ă˘â‚¬Ĺˇych przypadkach zostaw rÄ‚â€žĂ˘â€žËczne jako fallback
   return true;
 }
 
@@ -3993,19 +4015,19 @@ function applyClientAccessUI(){
 
 if (note){
     if (locked){
-      note.textContent = 'To konto ma przypisanego stałego klienta - zmiana danych klienta jest zablokowana.';
+      note.textContent = 'To konto ma przypisanego staĂ„Ä…Ă˘â‚¬Ĺˇego klienta - zmiana danych klienta jest zablokowana.';
     } else if (!canSel && !canAdd && !canEdit){
-      note.textContent = 'Brak uprawnień do bazy klientów (wybór/dodawanie/edycja). Uzupełnij dane ręcznie.';
+      note.textContent = 'Brak uprawnieĂ„Ä…Ă˘â‚¬Ĺľ do bazy klientĂ„â€šÄąâ€šw (wybĂ„â€šÄąâ€šr/dodawanie/edycja). UzupeĂ„Ä…Ă˘â‚¬Ĺˇnij dane rÄ‚â€žĂ˘â€žËcznie.';
     } else if (!canSel && (canAdd || canEdit)){
-      note.textContent = 'Brak uprawnień do wyboru klienta z bazy. Możesz uzupełnić dane ręcznie i zapisać jako nowego klienta.';
+      note.textContent = 'Brak uprawnieĂ„Ä…Ă˘â‚¬Ĺľ do wyboru klienta z bazy. MoĂ„Ä…Ă„Ëťesz uzupeĂ„Ä…Ă˘â‚¬ĹˇniÄ‚â€žĂ˘â‚¬Ë‡ dane rÄ‚â€žĂ˘â€žËcznie i zapisaÄ‚â€žĂ˘â‚¬Ë‡ jako nowego klienta.';
     } else if (canSel && !canAdd && !canEdit){
-      note.textContent = 'Możesz wybierać klientów z bazy. Brak uprawnień do dodawania i edycji danych klienta.';
+      note.textContent = 'MoĂ„Ä…Ă„Ëťesz wybieraÄ‚â€žĂ˘â‚¬Ë‡ klientĂ„â€šÄąâ€šw z bazy. Brak uprawnieĂ„Ä…Ă˘â‚¬Ĺľ do dodawania i edycji danych klienta.';
     } else if (canSel && !canAdd && canEdit){
-      note.textContent = 'Możesz wybierać klientów z bazy i edytować dane wybranego klienta. Brak uprawnień do dodawania nowych.';
+      note.textContent = 'MoĂ„Ä…Ă„Ëťesz wybieraÄ‚â€žĂ˘â‚¬Ë‡ klientĂ„â€šÄąâ€šw z bazy i edytowaÄ‚â€žĂ˘â‚¬Ë‡ dane wybranego klienta. Brak uprawnieĂ„Ä…Ă˘â‚¬Ĺľ do dodawania nowych.';
     } else if (canSel && canAdd && !canEdit){
-      note.textContent = 'Możesz wybierać klientów z bazy i dodawać nowych. Brak uprawnień do edycji istniejących.';
+      note.textContent = 'MoĂ„Ä…Ă„Ëťesz wybieraÄ‚â€žĂ˘â‚¬Ë‡ klientĂ„â€šÄąâ€šw z bazy i dodawaÄ‚â€žĂ˘â‚¬Ë‡ nowych. Brak uprawnieĂ„Ä…Ă˘â‚¬Ĺľ do edycji istniejÄ‚â€žĂ˘â‚¬Â¦cych.';
     } else {
-      note.textContent = 'Możesz wybrać klienta z bazy, dodać nowego lub edytować dane wybranego klienta.';
+      note.textContent = 'MoĂ„Ä…Ă„Ëťesz wybraÄ‚â€žĂ˘â‚¬Ë‡ klienta z bazy, dodaÄ‚â€žĂ˘â‚¬Ë‡ nowego lub edytowaÄ‚â€žĂ˘â‚¬Ë‡ dane wybranego klienta.';
     }
   }
 }
@@ -4024,7 +4046,7 @@ if (note){
     var full = (c.full_name || '').trim();
     var comp = (c.company || '').trim();
     if (!full && !comp){
-      return { ok:false, message:'Podaj imię i nazwisko lub nazwę firmy.' };
+      return { ok:false, message:'Podaj imiÄ‚â€žĂ˘â€žË i nazwisko lub nazwÄ‚â€žĂ˘â€žË firmy.' };
     }
 
     var email = (c.email || '').trim();
@@ -4032,7 +4054,7 @@ if (note){
       return { ok:false, message:'Niepoprawny adres email.' };
     }
 
-    // NIP: jeśli podany, preferuj cyfry (typowy zapis: 123-456-78-90)
+    // NIP: jeĂ„Ä…Ă˘â‚¬Ĺźli podany, preferuj cyfry (typowy zapis: 123-456-78-90)
     var nip = (c.nip || '').trim();
     if (nip){
       var nipDigits = nip.replace(/[^0-9]/g, '');
@@ -4068,7 +4090,7 @@ if (note){
   
     if (mode === 'edit'){
       if (title) title.textContent = 'Edytuj dane klienta';
-      if (sub) sub.textContent = 'Zmiany zostaną zapisane w bazie danych klientów.';
+      if (sub) sub.textContent = 'Zmiany zostanÄ‚â€žĂ˘â‚¬Â¦ zapisane w bazie danych klientĂ„â€šÄąâ€šw.';
       if (btn) btn.textContent = 'Zapisz zmiany';
     } else {
       if (title) title.textContent = 'Dodaj nowego klienta';
@@ -4141,9 +4163,9 @@ if (note){
     unitNet = (typeof unitNet === 'number' && isFinite(unitNet)) ? unitNet : 0;
     return {
       sheet: '__CUSTOM__',
-      kategoria: 'Usługi',
+      kategoria: 'UsĂ„Ä…Ă˘â‚¬Ĺˇugi',
       podkategoria: '',
-      produkt: 'Usługi transportowe',
+      produkt: 'UsĂ„Ä…Ă˘â‚¬Ĺˇugi transportowe',
       wymiar: '',
       cenaNetto: unitNet,
       ceny: {},
@@ -4173,12 +4195,12 @@ if (note){
     var btn = $('zq-custom-save');
 
     if (mode === 'edit'){
-      if (title) title.textContent = 'Edytuj niestandardową pozycję';
-      if (sub) sub.textContent = 'Zmiany zostaną zastosowane tylko w tej ofercie.';
+      if (title) title.textContent = 'Edytuj niestandardowÄ‚â€žĂ˘â‚¬Â¦ pozycjÄ‚â€žĂ˘â€žË';
+      if (sub) sub.textContent = 'Zmiany zostanÄ‚â€žĂ˘â‚¬Â¦ zastosowane tylko w tej ofercie.';
       if (btn) btn.textContent = 'Zapisz';
     } else {
-      if (title) title.textContent = 'Dodaj niestandardową pozycję';
-      if (sub) sub.textContent = 'Pozycja zostanie dodana do listy poniżej jako nowy produkt.';
+      if (title) title.textContent = 'Dodaj niestandardowÄ‚â€žĂ˘â‚¬Â¦ pozycjÄ‚â€žĂ˘â€žË';
+      if (sub) sub.textContent = 'Pozycja zostanie dodana do listy poniĂ„Ä…Ă„Ëťej jako nowy produkt.';
       if (btn) btn.textContent = 'Dodaj';
     }
 
@@ -4218,7 +4240,7 @@ if (note){
 
 
 
-  /* -------------------- Usługi transportowe (Transport line) -------------------- */
+  /* -------------------- UsĂ„Ä…Ă˘â‚¬Ĺˇugi transportowe (Transport line) -------------------- */
   function openTransportLineModal(mode, line){
     if (state.transportLineModalBusy) return;
 
@@ -4239,12 +4261,12 @@ if (note){
     var btn = $('zq-transport-save');
 
     if (mode === 'edit'){
-      if (title) title.textContent = 'Edytuj usługi transportowe';
-      if (sub) sub.textContent = 'Zmiany zostaną zastosowane tylko w tej ofercie.';
+      if (title) title.textContent = 'Edytuj usĂ„Ä…Ă˘â‚¬Ĺˇugi transportowe';
+      if (sub) sub.textContent = 'Zmiany zostanÄ‚â€žĂ˘â‚¬Â¦ zastosowane tylko w tej ofercie.';
       if (btn) btn.textContent = 'Zapisz';
     } else {
-      if (title) title.textContent = 'Dodaj usługi transportowe';
-      if (sub) sub.textContent = 'Pozycja zostanie dodana do listy poniżej jako nowy produkt.';
+      if (title) title.textContent = 'Dodaj usĂ„Ä…Ă˘â‚¬Ĺˇugi transportowe';
+      if (sub) sub.textContent = 'Pozycja zostanie dodana do listy poniĂ„Ä…Ă„Ëťej jako nowy produkt.';
       if (btn) btn.textContent = 'Dodaj';
     }
 
@@ -4255,15 +4277,15 @@ if (note){
     km = clampNum(parseNumber(km) || 1, 1, 999999);
     km = Math.round(km);
 
-    // Domyślne ustawienia: profil per konto (localStorage)
+    // DomyĂ„Ä…Ă˘â‚¬Ĺźlne ustawienia: profil per konto (localStorage)
     var baseProf = state.transportProfile || loadTransportProfile() || {};
     baseProf = normalizeTransportProfile(baseProf);
 
-    // Edycja istniejącej pozycji ma pierwszeństwo przed profilem
+    // Edycja istniejÄ‚â€žĂ˘â‚¬Â¦cej pozycji ma pierwszeĂ„Ä…Ă˘â‚¬Ĺľstwo przed profilem
     var t = (line && line.transport && typeof line.transport === 'object') ? normalizeTransportProfile(line.transport) : baseProf;
 
-    // W trybie "oferta specjalna" użytkownik mógł ręcznie edytować stawkę w tabeli
-    // - w modalu pokazujemy to jako stawkę stałą.
+    // W trybie "oferta specjalna" uĂ„Ä…Ă„Ëťytkownik mĂ„â€šÄąâ€šgĂ„Ä…Ă˘â‚¬Ĺˇ rÄ‚â€žĂ˘â€žËcznie edytowaÄ‚â€žĂ˘â‚¬Ë‡ stawkÄ‚â€žĂ˘â€žË w tabeli
+    // - w modalu pokazujemy to jako stawkÄ‚â€žĂ˘â€žË staĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦.
     if (line && state.specialOffer && line.manualUnitNet != null && isFinite(line.manualUnitNet)){
       t.mode = 'flat';
       t.flat_rate = clampNum(parseNumber(line.manualUnitNet) || 0, 0, 999999999);
@@ -4404,18 +4426,18 @@ if (note){
     var netBefore = baseNet + extrasTotal;
     var netAfter = netBefore * (1 - (discPct/100));
 
-    // opis: zwięzły, ale informacyjny
+    // opis: zwiÄ‚â€žĂ˘â€žËzĂ„Ä…Ă˘â‚¬Ĺˇy, ale informacyjny
     var parts = [];
-    parts.push('Transport: ' + km + ' km × ' + fmtNum(rateUsed) + ' zł/km = ' + toMoney(baseRaw));
+    parts.push('Transport: ' + km + ' km Ă„â€šĂ˘â‚¬â€ť ' + fmtNum(rateUsed) + ' zĂ„Ä…Ă˘â‚¬Ĺˇ/km = ' + toMoney(baseRaw));
     if (minApplied){
       parts.push('min. ' + toMoney(t.min_net) + ' -> ' + toMoney(baseNet));
     }
     var exParts = [];
     if (ex.hds && ex.hds > 0) exParts.push('HDS ' + toMoney(ex.hds));
-    if (ex.unload && ex.unload > 0) exParts.push('Rozładunek ' + toMoney(ex.unload));
+    if (ex.unload && ex.unload > 0) exParts.push('RozĂ„Ä…Ă˘â‚¬Ĺˇadunek ' + toMoney(ex.unload));
     if (ex.sat && ex.sat > 0) exParts.push('Sobota ' + toMoney(ex.sat));
     if (exParts.length){
-      parts.push('dopłaty: ' + exParts.join(', '));
+      parts.push('dopĂ„Ä…Ă˘â‚¬Ĺˇaty: ' + exParts.join(', '));
     }
     if (discPct > 0){
       parts.push('rabat: ' + fmtNum(discPct) + '%');
@@ -4447,7 +4469,7 @@ if (note){
     if (fr) fr.style.display = (mode === 'flat') ? '' : 'none';
     if (tr) tr.style.display = (mode === 'tier') ? '' : 'none';
 
-    // sync min between inputs (żeby nie gubić wartości przy przełączaniu)
+    // sync min between inputs (Ă„Ä…Ă„Ëťeby nie gubiÄ‚â€žĂ˘â‚¬Ë‡ wartoĂ„Ä…Ă˘â‚¬Ĺźci przy przeĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦czaniu)
     var m1 = $('zq-transport-min-net');
     var m2 = $('zq-transport-min-net2');
     if (m1 && m2){
@@ -4551,7 +4573,7 @@ if (note){
     var comment = ($('zq-transport-comment') && $('zq-transport-comment').value != null) ? String($('zq-transport-comment').value).trim() : '';
     if (comment && comment.length > 500) comment = comment.slice(0, 500);
 
-    // walidacja minimalna (bez wyświetlania błędów w podglądzie)
+    // walidacja minimalna (bez wyĂ„Ä…Ă˘â‚¬Ĺźwietlania bĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â€žËdĂ„â€šÄąâ€šw w podglÄ‚â€žĂ˘â‚¬Â¦dzie)
     if (!isFinite(km) || km < 1) return silent ? null : { km: 1, disc: disc, transport: normalizeTransportProfile({ mode: mode, flat_rate: flatRate, km1: km1, km2: km2, rate1: rate1, rate2: rate2, rate3: rate3, min_net: minNet, extras: {hds:exHds, unload:exUnload, sat:exSat}, no_global_disc: noGlobal }), comment: comment };
 
     return {
@@ -4589,25 +4611,25 @@ if (note){
     }
 
     if (!isFinite(data.km) || data.km < 1){
-      setTransportLineModalErr('Liczba KM musi być liczbą >= 1.');
+      setTransportLineModalErr('Liczba KM musi byÄ‚â€žĂ˘â‚¬Ë‡ liczbÄ‚â€žĂ˘â‚¬Â¦ >= 1.');
       return;
     }
 
     // sanity: progi
     if (data.transport && data.transport.mode === 'tier'){
       if (!isFinite(data.transport.km1) || data.transport.km1 < 1){
-        setTransportLineModalErr('Próg KM1 musi być liczbą >= 1.');
+        setTransportLineModalErr('PrĂ„â€šÄąâ€šg KM1 musi byÄ‚â€žĂ˘â‚¬Ë‡ liczbÄ‚â€žĂ˘â‚¬Â¦ >= 1.');
         return;
       }
       if (!isFinite(data.transport.km2) || data.transport.km2 <= data.transport.km1){
-        setTransportLineModalErr('Próg KM2 musi być większy od KM1.');
+        setTransportLineModalErr('PrĂ„â€šÄąâ€šg KM2 musi byÄ‚â€žĂ˘â‚¬Ë‡ wiÄ‚â€žĂ˘â€žËkszy od KM1.');
         return;
       }
     }
 
     if (mode === 'edit'){
       if (!id){
-        setTransportLineModalErr('Błąd: brak ID pozycji do edycji.');
+        setTransportLineModalErr('BĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦d: brak ID pozycji do edycji.');
         return;
       }
 
@@ -4623,13 +4645,13 @@ if (note){
         // transport meta
         l.transport = normalizeTransportProfile(data.transport);
 
-        // item (dla kompatybilności z istniejącymi renderami)
+        // item (dla kompatybilnoĂ„Ä…Ă˘â‚¬Ĺźci z istniejÄ‚â€žĂ˘â‚¬Â¦cymi renderami)
         var baseUnit = (l.transport.mode === 'tier') ? l.transport.rate1 : l.transport.flat_rate;
         if (!l.item) l.item = makeTransportItem(baseUnit);
         l.item.sheet = '__CUSTOM__';
-        l.item.kategoria = 'Usługi';
+        l.item.kategoria = 'UsĂ„Ä…Ă˘â‚¬Ĺˇugi';
         l.item.podkategoria = '';
-        l.item.produkt = 'Usługi transportowe';
+        l.item.produkt = 'UsĂ„Ä…Ă˘â‚¬Ĺˇugi transportowe';
         l.item.wymiar = '';
         l.item.cenaNetto = baseUnit;
 
@@ -4640,7 +4662,7 @@ if (note){
         l.disc = data.disc;
         l.lineComment = data.comment || '';
 
-        // w ofercie specjalnej nadal wspieramy ręczną stawkę (z tabeli)
+        // w ofercie specjalnej nadal wspieramy rÄ‚â€žĂ˘â€žËcznÄ‚â€žĂ˘â‚¬Â¦ stawkÄ‚â€žĂ˘â€žË (z tabeli)
         if (state.specialOffer && l.manualUnitNet != null && isFinite(l.manualUnitNet)){
           l.manualUnitNet = (l.transport.mode === 'tier') ? l.transport.rate1 : l.transport.flat_rate;
         }
@@ -4670,7 +4692,7 @@ if (note){
       });
     }
 
-    // zapamiętaj stawki/dopłaty jako domyślne (per konto) - bez KM i komentarza
+    // zapamiÄ‚â€žĂ˘â€žËtaj stawki/dopĂ„Ä…Ă˘â‚¬Ĺˇaty jako domyĂ„Ä…Ă˘â‚¬Ĺźlne (per konto) - bez KM i komentarza
     try{
       var prof = normalizeTransportProfile(data.transport);
       state.transportProfile = prof;
@@ -4725,13 +4747,13 @@ if (note){
       return;
     }
     if (!isFinite(data.unitNet) || data.unitNet < 0){
-      setCustomLineModalErr('Cena jednostki netto musi być liczbą >= 0.');
+      setCustomLineModalErr('Cena jednostki netto musi byÄ‚â€žĂ˘â‚¬Ë‡ liczbÄ‚â€žĂ˘â‚¬Â¦ >= 0.');
       return;
     }
 
     if (mode === 'edit'){
       if (!id){
-        setCustomLineModalErr('Błąd: brak ID pozycji do edycji.');
+        setCustomLineModalErr('BĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦d: brak ID pozycji do edycji.');
         return;
       }
 
@@ -4802,12 +4824,8 @@ if (note){
   
   function saveClientModal(){
     if (state.clientModalBusy) return;
-    if (!state.authToken){
-      setClientModalErr('Brak sesji - zaloguj się ponownie.');
-      return;
-    }
     if (isClientLocked()){
-      setClientModalErr('To konto ma stałego klienta - operacja niedozwolona.');
+      setClientModalErr('To konto ma staĂ„Ä…Ă˘â‚¬Ĺˇego klienta - operacja niedozwolona.');
       return;
     }
   
@@ -4817,7 +4835,7 @@ if (note){
   
     if (mode === 'edit'){
       if (!isClientEditAllowed()){
-        setClientModalErr('Brak uprawnień do edycji danych klienta.');
+        setClientModalErr('Brak uprawnieĂ„Ä…Ă˘â‚¬Ĺľ do edycji danych klienta.');
         return;
       }
       if (!id){
@@ -4826,7 +4844,7 @@ if (note){
       }
     } else {
       if (!isClientAddAllowed()){
-        setClientModalErr('Brak uprawnień do dodawania klientów.');
+        setClientModalErr('Brak uprawnieĂ„Ä…Ă˘â‚¬Ĺľ do dodawania klientĂ„â€šÄąâ€šw.');
         return;
       }
     }
@@ -4859,7 +4877,7 @@ if (note){
     req.then(function(r){
       return r.json().catch(function(){ return null; }).then(function(j){
         if (!r.ok || !j || !j.ok){
-          var msg = (j && j.message) ? j.message : ('Błąd zapisu klienta (' + r.status + ').');
+          var msg = (j && j.message) ? j.message : ('BĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦d zapisu klienta (' + r.status + ').');
           setClientModalErr(msg);
           onDone();
           return;
@@ -4868,7 +4886,7 @@ if (note){
         var saved = j.client || null;
         var savedId = (saved && saved.id) ? String(saved.id) : id;
   
-        // odśwież listę klientów i ustaw wybranego
+        // odĂ„Ä…Ă˘â‚¬ĹźwieĂ„Ä…Ă„Ëť listÄ‚â€žĂ˘â€žË klientĂ„â€šÄąâ€šw i ustaw wybranego
         refreshClients().then(function(){
           if (savedId && $('zq-client-select')){
             $('zq-client-select').value = savedId;
@@ -4876,7 +4894,7 @@ if (note){
           }
           if (saved) applyClient(saved);
           else {
-            // fallback: spróbuj znaleźć w state.clients
+            // fallback: sprĂ„â€šÄąâ€šbuj znaleĂ„Ä…ÄąĹşÄ‚â€žĂ˘â‚¬Ë‡ w state.clients
             if (savedId){
               for (var i=0;i<state.clients.length;i++){
                 if (state.clients[i] && String(state.clients[i].id) === String(savedId)){
@@ -4895,7 +4913,7 @@ if (note){
         onDone();
       });
     }).catch(function(){
-      setClientModalErr('Błąd sieci podczas zapisu klienta.');
+      setClientModalErr('BĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦d sieci podczas zapisu klienta.');
       onDone();
     });
   }
@@ -4903,11 +4921,11 @@ if (note){
   function saveNewClient(){
     // zgodnie z UX: przycisk otwiera modal dodawania
     if (isClientLocked()){
-      setClientStatus('To konto ma stałego klienta - nie można dodać nowego.', true);
+      setClientStatus('To konto ma staĂ„Ä…Ă˘â‚¬Ĺˇego klienta - nie moĂ„Ä…Ă„Ëťna dodaÄ‚â€žĂ˘â‚¬Ë‡ nowego.', true);
       return;
     }
     if (!isClientAddAllowed()){
-      setClientStatus('Brak uprawnień do dodawania klientów.', true);
+      setClientStatus('Brak uprawnieĂ„Ä…Ă˘â‚¬Ĺľ do dodawania klientĂ„â€šÄąâ€šw.', true);
       return;
     }
     openClientModal('add', collectClient());
@@ -4917,16 +4935,16 @@ if (note){
   
   function editSelectedClient(){
     if (isClientLocked()){
-      setClientStatus('To konto ma stałego klienta - edycja zablokowana.', true);
+      setClientStatus('To konto ma staĂ„Ä…Ă˘â‚¬Ĺˇego klienta - edycja zablokowana.', true);
       return;
     }
     if (!isClientEditAllowed()){
-      setClientStatus('Brak uprawnień do edycji danych klienta.', true);
+      setClientStatus('Brak uprawnieĂ„Ä…Ă˘â‚¬Ĺľ do edycji danych klienta.', true);
       return;
     }
     var c = getSelectedClient();
     if (!c){
-      setClientStatus('Wybierz klienta z listy, aby edytować.', true);
+      setClientStatus('Wybierz klienta z listy, aby edytowaÄ‚â€žĂ˘â‚¬Ë‡.', true);
       return;
     }
     openClientModal('edit', c);
@@ -4959,7 +4977,7 @@ if (note){
       sub: idx(['podkategoria','subkategoria','sub','subcategory']),
       prod: idx(['produkt','product','nazwa']),
       dim: idx(['wymiar','rozmiar','wymiar/rozmiar','size','variant','wariant']),
-      // Cena netto (PLN) - docelowe źródło ceny (ignoruj "Paleta"/"Tir")
+      // Cena netto (PLN) - docelowe Ă„Ä…ÄąĹşrĂ„â€šÄąâ€šdĂ„Ä…Ă˘â‚¬Ĺˇo ceny (ignoruj "Paleta"/"Tir")
       priceNet: (function(){
         // exacty
         for (var j=0; j<H.length; j++){
@@ -4975,7 +4993,7 @@ if (note){
         // ostateczny fallback
         return idx(['price net','unit net','netto [pln]','netto pln','cena [pln]']);
       })(),
-      // Cena netto (PLN) - warianty logistyczne (np. "50x/60 zł")
+      // Cena netto (PLN) - warianty logistyczne (np. "50x/60 zĂ„Ä…Ă˘â‚¬Ĺˇ")
       priceNetPaleta: idx(['cena netto [pln] paleta','cena netto paleta','netto paleta','paleta']),
       priceNetTir: idx(['cena netto [pln] tir','cena netto tir','netto tir','tir']),
       // Kolumny RAL (w aktualnym arkuszu: SKU/kod per RAL)
@@ -5030,7 +5048,7 @@ if (note){
       var unitNetCol = (col.priceNet >= 0) ? parseNumber(r[col.priceNet]) : null;
       var hasUnitNet = (unitNetCol != null && isFinite(unitNetCol));
 
-      // warianty: paleta/tir (format: "50x/60 zł")
+      // warianty: paleta/tir (format: "50x/60 zĂ„Ä…Ă˘â‚¬Ĺˇ")
       var pal = (col.priceNetPaleta >= 0) ? parsePackCell(r[col.priceNetPaleta]) : null;
       var tir = (col.priceNetTir >= 0) ? parsePackCell(r[col.priceNetTir]) : null;
 
@@ -5066,16 +5084,16 @@ if (note){
       for (var k2 in prices){
         if (prices[k2] == null || !isFinite(prices[k2])) prices[k2] = any;
       }
-      // "Brak" (Nr towaru) dziedziczy cenę bazową
+      // "Brak" (Nr towaru) dziedziczy cenÄ‚â€žĂ˘â€žË bazowÄ‚â€žĂ˘â‚¬Â¦
       if (!Object.prototype.hasOwnProperty.call(prices, 'Brak') || prices['Brak'] == null || !isFinite(prices['Brak'])) prices['Brak'] = any;
 
       function skuVal(x){
         x = normalizeSku(x);
-        if (!x || x === '-' || x === '—' || x === '–') return '';
+        if (!x || x === '-' || x === 'Ä‚ËĂ˘â€šÂ¬Ă˘â‚¬ĹĄ' || x === 'Ä‚ËĂ˘â€šÂ¬Ă˘â‚¬Ĺ›') return '';
         return x;
       }
 
-      // SKU per RAL (jeśli mamy kolumny "nr/kod 6005" - użyj ich; inaczej (przy hasUnitNet) bierz z kolumn RAL)
+      // SKU per RAL (jeĂ„Ä…Ă˘â‚¬Ĺźli mamy kolumny "nr/kod 6005" - uĂ„Ä…Ă„Ëťyj ich; inaczej (przy hasUnitNet) bierz z kolumn RAL)
       var ralMap = {
         'Brak': (col.nrPlain >= 0) ? skuVal(r[col.nrPlain]) : '',
         'RAL 6005': (col.n6005 >= 0) ? skuVal(r[col.n6005]) : (hasUnitNet ? ((col.p6005 >= 0) ? skuVal(r[col.p6005]) : '') : ''),
@@ -5152,7 +5170,7 @@ if (note){
       var sname = tabs[ti];
       var s = state.data[sname];
       if (s && Array.isArray(s.items) && s.items.length){
-        // items już zawierają it.sheet = sname
+        // items juĂ„Ä…Ă„Ëť zawierajÄ‚â€žĂ˘â‚¬Â¦ it.sheet = sname
         items = items.concat(s.items);
       }
     }
@@ -5205,11 +5223,11 @@ if (note){
   // ---- Search helpers (kontekstowe dopasowanie) ----
   function zqNormalizeSearchStr(s){
     s = String(s || '');
-    // ujednolicenia znaków (PL + typografia)
-    s = s.replace(/[\u00D7]/g, 'x'); // ×
-    s = s.replace(/[łŁ]/g, 'l');
+    // ujednolicenia znakĂ„â€šÄąâ€šw (PL + typografia)
+    s = s.replace(/[\u00D7]/g, 'x'); // Ă„â€šĂ˘â‚¬â€ť
+    s = s.replace(/[Ă„Ä…Ă˘â‚¬ĹˇĂ„Ä…Ă‚Â]/g, 'l');
     try{
-      // usuń znaki diakrytyczne (NFD)
+      // usuĂ„Ä…Ă˘â‚¬Ĺľ znaki diakrytyczne (NFD)
       s = s.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     }catch(e){}
     s = s.toLowerCase();
@@ -5248,10 +5266,10 @@ if (note){
     if (!norm) return [];
     var toks = norm.split(' ').filter(Boolean);
 
-    // odfiltruj zbyt krótkie tokeny (ale zostaw np. "3d")
+    // odfiltruj zbyt krĂ„â€šÄąâ€štkie tokeny (ale zostaw np. "3d")
     toks = toks.filter(function(t){
       if (!t) return false;
-      if (/^\d+$/.test(t)) return t.length >= 3; // same cyfry są zbyt szerokie (np. 50)
+      if (/^\d+$/.test(t)) return t.length >= 3; // same cyfry sÄ‚â€žĂ˘â‚¬Â¦ zbyt szerokie (np. 50)
       if (t.length >= 2) return true;
       return false;
     });
@@ -5275,25 +5293,25 @@ if (note){
       matched++;
       // bazowy punkt
       score += 10;
-      // lepsze: na początku etykiety
+      // lepsze: na poczÄ‚â€žĂ˘â‚¬Â¦tku etykiety
       if (labelN.indexOf(t) === 0) score += 8;
       // lepsze: dopasowanie SKU
       if (skuN && (skuN === t)) score += 25;
       else if (skuN && skuN.indexOf(t) === 0) score += 12;
       // lepsze: dopasowanie RAL
       if (/^ral\d{4}$/.test(t) && ralN === t) score += 15;
-      // lekkie dociążenie dla pierwszego tokena
+      // lekkie dociÄ‚â€žĂ˘â‚¬Â¦Ă„Ä…Ă„Ëťenie dla pierwszego tokena
       if (i === 0) score += 2;
     }
     // preferuj bardziej kompletne dopasowania
     score += matched * 3;
-    // bardzo lekka preferencja krótszych etykiet (zwykle bardziej precyzyjne)
+    // bardzo lekka preferencja krĂ„â€šÄąâ€štszych etykiet (zwykle bardziej precyzyjne)
     score += Math.max(0, 30 - (labelN ? labelN.length : 0)) * 0.05;
     return { matched: matched, score: score };
   }
 
   function buildSearchIndexSync(){
-    // buduj indeks tylko dla dozwolonych zakładek
+    // buduj indeks tylko dla dozwolonych zakĂ„Ä…Ă˘â‚¬Ĺˇadek
     var tabs = getTabs();
     var out = [];
     for (var ti=0; ti<tabs.length; ti++){
@@ -5333,7 +5351,7 @@ if (note){
   }
 
   function buildSearchIndexAsync(cb){
-    // async + chunking: nie blokuj UI na dużych arkuszach
+    // async + chunking: nie blokuj UI na duĂ„Ä…Ă„Ëťych arkuszach
     if (state.searchIndex && Array.isArray(state.searchIndex) && state.searchIndex.length){
       try{ if (cb) cb(); }catch(e){}
       return;
@@ -5429,7 +5447,7 @@ if (note){
     setTimeout(step, 0);
   }
 
-  // zgodność wstecz (gdyby coś wywoływało sync build)
+  // zgodnoĂ„Ä…Ă˘â‚¬ĹźÄ‚â€žĂ˘â‚¬Ë‡ wstecz (gdyby coĂ„Ä…Ă˘â‚¬Ĺź wywoĂ„Ä…Ă˘â‚¬ĹˇywaĂ„Ä…Ă˘â‚¬Ĺˇo sync build)
   function buildSearchIndex(){
     buildSearchIndexSync();
   }
@@ -5518,7 +5536,7 @@ if (note){
         star.setAttribute('data-zq-star', '1');
         var on = isFav(sig);
         if (on) star.classList.add('is-on');
-        star.textContent = on ? '★' : '☆';
+        star.textContent = on ? 'Ä‚ËĂ‚ÂĂ˘â‚¬Â¦' : 'Ä‚ËĂ‚ÂĂ˘â‚¬Â ';
         star.title = 'Ulubione';
         right.appendChild(star);
 
@@ -5536,7 +5554,7 @@ if (note){
       l.className = 'l';
       var tt = DOC.createElement('div');
       tt.className = 't';
-      tt.textContent = 'Brak wyników.';
+      tt.textContent = 'Brak wynikĂ„â€šÄąâ€šw.';
       l.appendChild(tt);
       p.appendChild(l);
       frag.appendChild(p);
@@ -5550,14 +5568,14 @@ if (note){
   function applySelectionFromSig(sig){
     var p = parseSig(sig);
     if (!p.sheet || !p.cat || !p.prod || !p.ral) return;
-    // tryb ALL: nie przełączamy zakładek (wszystkie kategorie aktywne)
+    // tryb ALL: nie przeĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦czamy zakĂ„Ä…Ă˘â‚¬Ĺˇadek (wszystkie kategorie aktywne)
 
     // kaskady
     populateCascades();
     var catSel = $('zq-cat');
     if (catSel) catSel.value = p.cat;
     updateSubcats(p.sub, p.prod, p.dim, p.ral);
-    // dopnij wartości na koniec (dla pewności)
+    // dopnij wartoĂ„Ä…Ă˘â‚¬Ĺźci na koniec (dla pewnoĂ„Ä…Ă˘â‚¬Ĺźci)
     if ($('zq-subcat')) $('zq-subcat').value = p.sub;
     if ($('zq-prod')) $('zq-prod').value = p.prod;
     if ($('zq-dim')) $('zq-dim').value = p.dim;
@@ -5589,21 +5607,21 @@ if (note){
       return;
     }
 
-    // tokenizacja (kolejność nie ma znaczenia, tokeny nie muszą tworzyć ciągłego fragmentu)
+    // tokenizacja (kolejnoĂ„Ä…Ă˘â‚¬ĹźÄ‚â€žĂ˘â‚¬Ë‡ nie ma znaczenia, tokeny nie muszÄ‚â€žĂ˘â‚¬Â¦ tworzyÄ‚â€žĂ˘â‚¬Ë‡ ciÄ‚â€žĂ˘â‚¬Â¦gĂ„Ä…Ă˘â‚¬Ĺˇego fragmentu)
     var tokens = zqTokenizeSearchQuery(q);
     if (!tokens.length){
       renderSearchHint('Brak frazy do wyszukania.');
       return;
     }
 
-    // indeks budujemy asynchronicznie (żeby nie blokować UI)
+    // indeks budujemy asynchronicznie (Ă„Ä…Ă„Ëťeby nie blokowaÄ‚â€žĂ˘â‚¬Ë‡ UI)
     if (!state.searchIndex || !Array.isArray(state.searchIndex) || !state.searchIndex.length){
       buildSearchIndexAsync(function(){
-        // uruchom ponownie tylko jeśli użytkownik nadal ma tę samą frazę w polu
+        // uruchom ponownie tylko jeĂ„Ä…Ă˘â‚¬Ĺźli uĂ„Ä…Ă„Ëťytkownik nadal ma tÄ‚â€žĂ˘â€žË samÄ‚â€žĂ˘â‚¬Â¦ frazÄ‚â€žĂ˘â€žË w polu
         var cur = $('zq-search') ? String($('zq-search').value || '').trim() : '';
         if (cur === q) runSearchAsync(q, tokens);
       });
-      renderSearchHint('Indeksowanie bazy produktów...');
+      renderSearchHint('Indeksowanie bazy produktĂ„â€šÄąâ€šw...');
       return;
     }
 
@@ -5653,7 +5671,7 @@ if (note){
       var approxMode = (!strict.length && approx.length);
 
       if (!list.length){
-        renderSearchHint('Brak wyników.');
+        renderSearchHint('Brak wynikĂ„â€šÄąâ€šw.');
         return;
       }
 
@@ -5667,7 +5685,7 @@ if (note){
       var res = [];
       for (var k=0; k<list.length && res.length < 50; k++) res.push(list[k].x);
 
-      var title = approxMode ? ('Wyniki (przybliżone) (' + res.length + ')') : ('Wyniki (' + res.length + ')');
+      var title = approxMode ? ('Wyniki (przybliĂ„Ä…Ă„Ëťone) (' + res.length + ')') : ('Wyniki (' + res.length + ')');
       renderSearchDrop([{ title: title, items: res }]);
     }
 
@@ -5702,7 +5720,7 @@ if (note){
 
   function getTabs(){
     var t = (window.ZQOS && Array.isArray(window.ZQOS.tabs)) ? window.ZQOS.tabs : [];
-    if (!t.length) t = ['Ogrodzenia Panelowe','Ogrodzenia Palisadowe','Słupki','Akcesoria'];
+    if (!t.length) t = ['Ogrodzenia Panelowe','Ogrodzenia Palisadowe','SĂ„Ä…Ă˘â‚¬Ĺˇupki','Akcesoria'];
     // ograniczenie per konto
     if (state._allowedTabs && Array.isArray(state._allowedTabs) && state._allowedTabs.length){
       var out = [];
@@ -5713,7 +5731,7 @@ if (note){
   }
 
   function buildTabs(){
-    // UI zakładek usunięte: działamy na połączonym zbiorze (wszystkie dozwolone zakładki naraz)
+    // UI zakĂ„Ä…Ă˘â‚¬Ĺˇadek usuniÄ‚â€žĂ˘â€žËte: dziaĂ„Ä…Ă˘â‚¬Ĺˇamy na poĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦czonym zbiorze (wszystkie dozwolone zakĂ„Ä…Ă˘â‚¬Ĺˇadki naraz)
     state.activeSheet = '__ALL__';
     var wrap = $('zq-tabs');
     if (wrap){
@@ -5846,7 +5864,7 @@ function findItem(sheetName, cat, sub, prod, dim){
     if (disc > maxD) disc = maxD;
 
     if (!cat || !prod){
-      setErr('Wybierz kategorię i produkt.');
+      setErr('Wybierz kategoriÄ‚â€žĂ˘â€žË i produkt.');
       return;
     }
     if (!ral){
@@ -5860,13 +5878,13 @@ function findItem(sheetName, cat, sub, prod, dim){
       return;
     }
 
-    // ustaw cenę dla wybranego RAL
+    // ustaw cenÄ‚â€žĂ˘â€žË dla wybranego RAL
     var p = (item.ceny && Object.prototype.hasOwnProperty.call(item.ceny, ral)) ? item.ceny[ral] : null;
     if (p == null) p = 0;
     var cloned = JSON.parse(JSON.stringify(item));
     cloned.cenaNetto = p;
 
-    // w trybie ALL item.sheet zawiera prawdziwą zakładkę źródłową
+    // w trybie ALL item.sheet zawiera prawdziwÄ‚â€žĂ˘â‚¬Â¦ zakĂ„Ä…Ă˘â‚¬ĹˇadkÄ‚â€žĂ˘â€žË Ă„Ä…ÄąĹşrĂ„â€šÄąâ€šdĂ„Ä…Ă˘â‚¬ĹˇowÄ‚â€žĂ˘â‚¬Â¦
     var actualSheet = (cloned && cloned.sheet) ? cloned.sheet : sheetName;
 
     state.offerLines.push({ id: lineId(), item: cloned, ral: ral, qty: qty, disc: disc, manualUnitNet: null, priceMode: 'unit' });
@@ -5919,7 +5937,7 @@ function findItem(sheetName, cat, sub, prod, dim){
       ? normalizeTransportProfile(line.transport)
       : normalizeTransportProfile({ mode:'flat', flat_rate: baseRate, min_net: 0, extras:{hds:0,unload:0,sat:0}, no_global_disc:true });
 
-    // oferta specjalna: ręczna stawka w tabeli -> traktujemy jako flat
+    // oferta specjalna: rÄ‚â€žĂ˘â€žËczna stawka w tabeli -> traktujemy jako flat
     if (state.specialOffer && line && line.manualUnitNet != null && isFinite(line.manualUnitNet)){
       meta.mode = 'flat';
       meta.flat_rate = clampNum(parseNumber(line.manualUnitNet) || 0, 0, 999999999);
@@ -5927,7 +5945,7 @@ function findItem(sheetName, cat, sub, prod, dim){
 
     var t = computeTransportFromMeta(qtyKm, disc, meta);
 
-    // Dla spójności UI: unitNet = stawka użyta (zależna od progu)
+    // Dla spĂ„â€šÄąâ€šjnoĂ„Ä…Ă˘â‚¬Ĺźci UI: unitNet = stawka uĂ„Ä…Ă„Ëťyta (zaleĂ„Ä…Ă„Ëťna od progu)
     var unitNet = t.rate_used;
     var unitNetAfter = unitNet * (1 - (disc/100));
 
@@ -5966,7 +5984,7 @@ function findItem(sheetName, cat, sub, prod, dim){
     if (state.specialOffer && line.manualUnitNet != null && isFinite(line.manualUnitNet)){
       unitNet = clampNum(line.manualUnitNet, 0, 999999999);
     } else {
-      // cena bazowa zależna od trybu (pojedynczy/paleta/tir)
+      // cena bazowa zaleĂ„Ä…Ă„Ëťna od trybu (pojedynczy/paleta/tir)
       var mode = getLineMode(line);
       if (mode !== 'unit' && item && item.tiers && item.tiers[mode] && typeof item.tiers[mode].unit_net === 'number' && isFinite(item.tiers[mode].unit_net)){
         unitNet = item.tiers[mode].unit_net;
@@ -5977,20 +5995,20 @@ function findItem(sheetName, cat, sub, prod, dim){
 
     var unitNetAfter = unitNet * (1 - (disc/100));
 
-    // Ilość: zawsze oznacza sztuki (także w trybie Paleta/TIR).
+    // IloĂ„Ä…Ă˘â‚¬ĹźÄ‚â€žĂ˘â‚¬Ë‡: zawsze oznacza sztuki (takĂ„Ä…Ă„Ëťe w trybie Paleta/TIR).
     var modeNow = getLineMode(line);
     var packQty = 1;
     var units = qty;
 
-    // wartości przed rabatem
+    // wartoĂ„Ä…Ă˘â‚¬Ĺźci przed rabatem
     var netBefore = unitNet * units;
     var grossBefore = netBefore * (1 + getVatRate());
 
-    // wartości po rabacie (zgodnie z dotychczasową logiką)
+    // wartoĂ„Ä…Ă˘â‚¬Ĺźci po rabacie (zgodnie z dotychczasowÄ‚â€žĂ˘â‚¬Â¦ logikÄ‚â€žĂ˘â‚¬Â¦)
     var netAfter = unitNetAfter * units;
     var grossAfter = netAfter * (1 + getVatRate());
 
-    // kompatybilność wsteczna: net/gross oznacza "po rabacie"
+    // kompatybilnoĂ„Ä…Ă˘â‚¬ĹźÄ‚â€žĂ˘â‚¬Ë‡ wsteczna: net/gross oznacza "po rabacie"
     return {
       qty: qty,
       units: units,
@@ -6012,13 +6030,13 @@ function findItem(sheetName, cat, sub, prod, dim){
     if (!item || !ralLabel) return '';
     var v = (item.ralMap && Object.prototype.hasOwnProperty.call(item.ralMap, ralLabel)) ? item.ralMap[ralLabel] : '';
     v = normalizeSku(v);
-    if (!v || v === '-' || v === '—' || v === '–') return '';
+    if (!v || v === '-' || v === 'Ä‚ËĂ˘â€šÂ¬Ă˘â‚¬ĹĄ' || v === 'Ä‚ËĂ˘â€šÂ¬Ă˘â‚¬Ĺ›') return '';
     return v;
   }
 
   function formatSku(v){
     v = normalizeSku(v);
-    if (!v || v === '-' || v === '—' || v === '–') return 'brak kodu';
+    if (!v || v === '-' || v === 'Ä‚ËĂ˘â€šÂ¬Ă˘â‚¬ĹĄ' || v === 'Ä‚ËĂ˘â€šÂ¬Ă˘â‚¬Ĺ›') return 'brak kodu';
     return v;
   }
 
@@ -6180,7 +6198,7 @@ function findItem(sheetName, cat, sub, prod, dim){
     if ($('zq-total-gross-before')) $('zq-total-gross-before').textContent = toMoney(grossBefore);
     if ($('zq-total-gross-after')) $('zq-total-gross-after').textContent = toMoney(grossAfter);
 
-    // kompatybilność (jeśli gdzieś zostały stare ID)
+    // kompatybilnoĂ„Ä…Ă˘â‚¬ĹźÄ‚â€žĂ˘â‚¬Ë‡ (jeĂ„Ä…Ă˘â‚¬Ĺźli gdzieĂ„Ä…Ă˘â‚¬Ĺź zostaĂ„Ä…Ă˘â‚¬Ĺˇy stare ID)
     if ($('zq-total-net')) $('zq-total-net').textContent = toMoney(netAfter);
     if ($('zq-total-gross')) $('zq-total-gross').textContent = toMoney(grossAfter);
   }
@@ -6201,8 +6219,8 @@ function findItem(sheetName, cat, sub, prod, dim){
     }
     empty.style.display = 'none';
 
-    // Układ stały tabeli: pokazujemy netto/brutto przed i po rabacie.
-    // Select "Podgląd cen" zostaje (UX), ale tutaj nie przełączamy kolumn.
+    // UkĂ„Ä…Ă˘â‚¬Ĺˇad staĂ„Ä…Ă˘â‚¬Ĺˇy tabeli: pokazujemy netto/brutto przed i po rabacie.
+    // Select "PodglÄ‚â€žĂ˘â‚¬Â¦d cen" zostaje (UX), ale tutaj nie przeĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦czamy kolumn.
 
     var cntEl = $('zq-lines-count');
     if (cntEl) cntEl.textContent = String(state.offerLines.length);
@@ -6238,7 +6256,7 @@ function findItem(sheetName, cat, sub, prod, dim){
         var t = (item && item.tiers && item.tiers[mode]) ? item.tiers[mode] : null;
         if (t && typeof t.unit_net === 'number' && isFinite(t.unit_net)){
           var base = (mode === 'paleta' ? 'Paleta' : 'TIR') + ': ' + toMoney(t.unit_net) + ' netto/szt';
-          // Jeśli w arkuszu jest format "50x/60", pokaż informacyjnie "50x" bez sugerowania przelicznika ilości.
+          // JeĂ„Ä…Ă˘â‚¬Ĺźli w arkuszu jest format "50x/60", pokaĂ„Ä…Ă„Ëť informacyjnie "50x" bez sugerowania przelicznika iloĂ„Ä…Ă˘â‚¬Ĺźci.
           if (t.qty && isFinite(t.qty) && t.qty > 1){
             base += ' (wg arkusza: ' + String(t.qty) + 'x)';
           }
@@ -6299,7 +6317,7 @@ function findItem(sheetName, cat, sub, prod, dim){
 
       var c3 = DOC.createElement('div');
       c3.className = 'zq-cell zq-qty';
-      c3.setAttribute('data-l', isTransportLine(line) ? 'Ilość (km)' : 'Ilość (szt.)');
+      c3.setAttribute('data-l', isTransportLine(line) ? 'IloĂ„Ä…Ă˘â‚¬ĹźÄ‚â€žĂ˘â‚¬Ë‡ (km)' : 'IloĂ„Ä…Ă˘â‚¬ĹźÄ‚â€žĂ˘â‚¬Ë‡ (szt.)');
       var qtyIn = DOC.createElement('input');
       qtyIn.type='number'; qtyIn.min='1'; qtyIn.step='1';
       qtyIn.className='zq-input';
@@ -6354,7 +6372,7 @@ function findItem(sheetName, cat, sub, prod, dim){
 
       var cNetBefore = DOC.createElement('div');
       cNetBefore.className = 'zq-cell zq-value zq-before hide-md';
-      cNetBefore.setAttribute('data-l','Wartość Netto');
+      cNetBefore.setAttribute('data-l','WartoĂ„Ä…Ă˘â‚¬ĹźÄ‚â€žĂ˘â‚¬Ë‡ Netto');
       cNetBefore.textContent = toMoney(calc.netBefore);
 
       var cNetAfter = DOC.createElement('div');
@@ -6364,7 +6382,7 @@ function findItem(sheetName, cat, sub, prod, dim){
 
       var cGrossBefore = DOC.createElement('div');
       cGrossBefore.className = 'zq-cell zq-value zq-before hide-md';
-      cGrossBefore.setAttribute('data-l','Wartość Brutto');
+      cGrossBefore.setAttribute('data-l','WartoĂ„Ä…Ă˘â‚¬ĹźÄ‚â€žĂ˘â‚¬Ë‡ Brutto');
       cGrossBefore.textContent = toMoney(calc.grossBefore);
 
       var cGrossAfter = DOC.createElement('div');
@@ -6380,8 +6398,8 @@ function findItem(sheetName, cat, sub, prod, dim){
       var dup = DOC.createElement('button');
       dup.type='button';
       dup.className='zq-ico';
-      dup.title='Duplikuj pozycję';
-      dup.setAttribute('aria-label','Duplikuj pozycję');
+      dup.title='Duplikuj pozycjÄ‚â€žĂ˘â€žË';
+      dup.setAttribute('aria-label','Duplikuj pozycjÄ‚â€žĂ˘â€žË');
       dup.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><rect x="2" y="2" width="13" height="13" rx="2"/></svg>';
       dup.addEventListener('click', function(){ duplicateLine(line.id); });
       acts.appendChild(dup);
@@ -6390,8 +6408,8 @@ function findItem(sheetName, cat, sub, prod, dim){
         var edit = DOC.createElement('button');
         edit.type='button';
         edit.className='zq-ico';
-        edit.title='Edytuj pozycję';
-        edit.setAttribute('aria-label','Edytuj pozycję');
+        edit.title='Edytuj pozycjÄ‚â€žĂ˘â€žË';
+        edit.setAttribute('aria-label','Edytuj pozycjÄ‚â€žĂ˘â€žË');
         edit.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>';
         edit.addEventListener('click', function(){ if (isTransportLine(line)) { openTransportLineModal('edit', line); } else { openCustomLineModal('edit', line); } });
         acts.appendChild(edit);
@@ -6402,7 +6420,7 @@ function findItem(sheetName, cat, sub, prod, dim){
       var fav = DOC.createElement('button');
       fav.type='button';
       fav.className='zq-ico' + (favOn ? ' is-on' : '');
-      fav.title = favOn ? 'Usuń z ulubionych' : 'Dodaj do ulubionych';
+      fav.title = favOn ? 'UsuĂ„Ä…Ă˘â‚¬Ĺľ z ulubionych' : 'Dodaj do ulubionych';
       fav.setAttribute('aria-label', fav.title);
       fav.innerHTML = favOn
         ? '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>'
@@ -6416,8 +6434,8 @@ function findItem(sheetName, cat, sub, prod, dim){
       var del = DOC.createElement('button');
       del.type='button';
       del.className='zq-ico is-danger';
-      del.title='Usuń pozycję';
-      del.setAttribute('aria-label','Usuń pozycję');
+      del.title='UsuĂ„Ä…Ă˘â‚¬Ĺľ pozycjÄ‚â€žĂ˘â€žË';
+      del.setAttribute('aria-label','UsuĂ„Ä…Ă˘â‚¬Ĺľ pozycjÄ‚â€žĂ˘â€žË');
       del.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>';
       del.addEventListener('click', function(){ removeLine(line.id); });
       acts.appendChild(del);
@@ -6458,18 +6476,18 @@ function findItem(sheetName, cat, sub, prod, dim){
           var msg = (json && (json.message || json.error)) ? (json.message || json.error) : ('HTTP ' + res.status);
           throw new Error(msg);
         }
-        if (!json) throw new Error('Niepoprawna odpowiedź JSON.');
-        // fallback: force sync może zwrócić ok=false + cache
+        if (!json) throw new Error('Niepoprawna odpowiedĂ„Ä…ÄąĹş JSON.');
+        // fallback: force sync moĂ„Ä…Ă„Ëťe zwrĂ„â€šÄąâ€šciÄ‚â€žĂ˘â‚¬Ë‡ ok=false + cache
         if (json.ok !== true){
           if (json.cache && json.cache.data){
-            setErr((json && json.message) ? String(json.message) : 'Sync błąd - używam ostatniego cache.', 'error');
+            setErr((json && json.message) ? String(json.message) : 'Sync bĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦d - uĂ„Ä…Ă„Ëťywam ostatniego cache.', 'error');
             json = { ok:true, data: json.cache.data, meta: {
               fetched_at: (json.cache && json.cache.fetched_at) ? json.cache.fetched_at : null,
               data_hash: (json.cache && json.cache.data_hash) ? json.cache.data_hash : null,
               errors: (json.cache && json.cache.errors) ? json.cache.errors : []
             }};
           } else {
-            throw new Error((json && json.message) ? String(json.message) : 'Niepoprawna odpowiedź JSON.');
+            throw new Error((json && json.message) ? String(json.message) : 'Niepoprawna odpowiedĂ„Ä…ÄąĹş JSON.');
           }
         }
         if (!json.data){
@@ -6477,17 +6495,17 @@ function findItem(sheetName, cat, sub, prod, dim){
         }
 
         var tabs = getTabs();
-        // reset danych, żeby nie mieszać starych zakładek
+        // reset danych, Ă„Ä…Ă„Ëťeby nie mieszaÄ‚â€žĂ˘â‚¬Ë‡ starych zakĂ„Ä…Ă˘â‚¬Ĺˇadek
         state.data = {};
         tabs.forEach(function(name){
           var matrix = json.data[name];
           if (!matrix || !matrix.headers || !matrix.rows){
-            // jeśli konto ma ograniczone kategorie, backend zwróci tylko część danych
+            // jeĂ„Ä…Ă˘â‚¬Ĺźli konto ma ograniczone kategorie, backend zwrĂ„â€šÄąâ€šci tylko czÄ‚â€žĂ˘â€žËĂ„Ä…Ă˘â‚¬ĹźÄ‚â€žĂ˘â‚¬Ë‡ danych
             return;
           }
           state.data[name] = buildItems(name, matrix);
         });
-        // tryb ALL: scalamy do jednego zbioru dla dropdownów
+        // tryb ALL: scalamy do jednego zbioru dla dropdownĂ„â€šÄąâ€šw
         state.data['__ALL__'] = buildAllMerged();
         state.activeSheet = '__ALL__';
 
@@ -6510,8 +6528,8 @@ function findItem(sheetName, cat, sub, prod, dim){
         renderLines();
       });
     }).catch(function(err){
-      state.lastSyncAttemptErr = (err && err.message) ? String(err.message) : 'Błąd synchronizacji.';
-      setStatus('Synchronizacja: błąd');
+      state.lastSyncAttemptErr = (err && err.message) ? String(err.message) : 'BĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦d synchronizacji.';
+      setStatus('Synchronizacja: bĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦d');
       setErr(state.lastSyncAttemptErr, 'error');
     }).finally(function(){
       syncInFlight = null;
@@ -6643,13 +6661,13 @@ function updateOverwriteAvailability(){
 
   if (okTitle && okClient){
     btn.disabled = false;
-    btn.title = 'Nadpisze wybraną ofertę w historii (bez tworzenia nowej).';
+    btn.title = 'Nadpisze wybranÄ‚â€žĂ˘â‚¬Â¦ ofertÄ‚â€žĂ˘â€žË w historii (bez tworzenia nowej).';
   } else {
     btn.disabled = true;
     var why = [];
-    if (!okTitle) why.push('zmieniono tytuł');
+    if (!okTitle) why.push('zmieniono tytuĂ„Ä…Ă˘â‚¬Ĺˇ');
     if (!okClient) why.push('zmieniono dane klienta');
-    btn.title = 'Nie można nadpisać: ' + why.join(' i ') + '. Zapisz jako nową ofertę.';
+    btn.title = 'Nie moĂ„Ä…Ă„Ëťna nadpisaÄ‚â€žĂ˘â‚¬Ë‡: ' + why.join(' i ') + '. Zapisz jako nowÄ‚â€žĂ˘â‚¬Â¦ ofertÄ‚â€žĂ˘â€žË.';
   }
 }
 
@@ -6677,26 +6695,26 @@ function overwriteOffer(){
   updateOverwriteAvailability();
   var btn = $('zq-overwrite-offer');
   if (btn && btn.disabled){
-    setErr('Nie można nadpisać: zmieniono tytuł lub dane klienta. Zapisz jako nową ofertę.');
+    setErr('Nie moĂ„Ä…Ă„Ëťna nadpisaÄ‚â€žĂ˘â‚¬Ë‡: zmieniono tytuĂ„Ä…Ă˘â‚¬Ĺˇ lub dane klienta. Zapisz jako nowÄ‚â€žĂ˘â‚¬Â¦ ofertÄ‚â€žĂ˘â€žË.');
     return;
   }
 
   setErr('');
-  setExportStatus('Nadpisuję...');
+  setExportStatus('NadpisujÄ‚â€žĂ˘â€žË...');
   rememberOfferStatus(st);
 
   var id = String(state.editingOffer.id);
   apiFetch('/offers/' + encodeURIComponent(id), { method:'PUT', json: { title: title, comment: comment, status: st, data: buildOfferData() } }).then(function(r){
     return r.json().catch(function(){return null;}).then(function(j){
       if (!r.ok || !j || !j.ok){
-        throw new Error((j && j.message) ? j.message : 'Błąd nadpisania.');
+        throw new Error((j && j.message) ? j.message : 'BĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦d nadpisania.');
       }
       setExportStatus('OK: nadpisano "' + (j.title || title) + '"');
       clearDraft();
       refreshHistory();
     });
   }).catch(function(e){
-    setExportStatus('Błąd: ' + (e && e.message ? e.message : 'overwrite'));
+    setExportStatus('BĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦d: ' + (e && e.message ? e.message : 'overwrite'));
   });
 }
 
@@ -6717,19 +6735,19 @@ function overwriteOffer(){
     if (!st) return;
 
     setErr('');
-    setExportStatus('Zapisuję...');
+    setExportStatus('ZapisujÄ‚â€žĂ˘â€žË...');
     rememberOfferStatus(st);
     apiFetch('/offers', { json: { title: title, comment: comment, status: st, data: buildOfferData() } }).then(function(r){
       return r.json().catch(function(){return null;}).then(function(j){
         if (!r.ok || !j || !j.ok){
-          throw new Error((j && j.message) ? j.message : 'Błąd zapisu.');
+          throw new Error((j && j.message) ? j.message : 'BĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦d zapisu.');
         }
         setExportStatus('OK: zapisano "' + j.title + '"');
         clearDraft();
         refreshHistory();
       });
     }).catch(function(e){
-      setExportStatus('Błąd: ' + (e && e.message ? e.message : 'save'));
+      setExportStatus('BĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦d: ' + (e && e.message ? e.message : 'save'));
     });
   }
 
@@ -6780,7 +6798,7 @@ function overwriteOffer(){
     var err = $('zq-osm-err');
 
     if (!id){
-      if (err) err.textContent = 'Błąd: brak ID oferty.';
+      if (err) err.textContent = 'BĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦d: brak ID oferty.';
       return;
     }
     if (!next || next === 'unset'){
@@ -6797,7 +6815,7 @@ function overwriteOffer(){
         renderHistory();
         renderHistoryMini();
       } else {
-        if (err) err.textContent = 'Nie udało się zapisać statusu.';
+        if (err) err.textContent = 'Nie udaĂ„Ä…Ă˘â‚¬Ĺˇo siÄ‚â€žĂ˘â€žË zapisaÄ‚â€žĂ˘â‚¬Ë‡ statusu.';
       }
     });
   }
@@ -6840,7 +6858,7 @@ function overwriteOffer(){
     modal.setAttribute('aria-hidden', 'false');
     try{ if (ta) ta.focus(); }catch(e){}
 
-    // Pobierz świeżą wartość (best-effort), bez nadpisywania jeśli użytkownik już edytuje.
+    // Pobierz Ă„Ä…Ă˘â‚¬ĹźwieĂ„Ä…Ă„ËťÄ‚â€žĂ˘â‚¬Â¦ wartoĂ„Ä…Ă˘â‚¬ĹźÄ‚â€žĂ˘â‚¬Ë‡ (best-effort), bez nadpisywania jeĂ„Ä…Ă˘â‚¬Ĺźli uĂ„Ä…Ă„Ëťytkownik juĂ„Ä…Ă„Ëť edytuje.
     apiFetch('/offers/' + encodeURIComponent(state._snm.id) + '/sales-note', { method:'GET' }).then(function(r){
       return r.json().catch(function(){return null;}).then(function(j){
         if (!r.ok || !j || !j.ok) return;
@@ -6874,7 +6892,7 @@ function overwriteOffer(){
     var err = $('zq-snm-err');
 
     if (!id){
-      if (err) err.textContent = 'Błąd: brak ID oferty.';
+      if (err) err.textContent = 'BĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦d: brak ID oferty.';
       return;
     }
     if (err) err.textContent = '';
@@ -6912,12 +6930,12 @@ function overwriteOffer(){
     }).catch(function(){
       if (ta) ta.disabled = false;
       if (saveBtn) saveBtn.disabled = false;
-      if (err) err.textContent = 'Błąd: network';
+      if (err) err.textContent = 'BĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦d: network';
     });
   }
 
 
-  // Modal: potwierdzenie (działa w iframe sandbox - bez confirm())
+  // Modal: potwierdzenie (dziaĂ„Ä…Ă˘â‚¬Ĺˇa w iframe sandbox - bez confirm())
   function initConfirmModal(){
     if (!state._confirm) state._confirm = { inited:false, open:false, resolve:null, opts:null };
     if (state._confirm.inited) return;
@@ -6957,7 +6975,7 @@ function overwriteOffer(){
     if (btnCancel) btnCancel.addEventListener('click', onCancel);
     if (btnOk) btnOk.addEventListener('click', onOk);
 
-    // klik na tło NIE zamyka (zamknięcie tylko przyciskami/ESC)
+    // klik na tĂ„Ä…Ă˘â‚¬Ĺˇo NIE zamyka (zamkniÄ‚â€žĂ˘â€žËcie tylko przyciskami/ESC)
 
     // ESC zamyka, Enter = potwierdza (gdy focus w modalu)
     DOC.addEventListener('keydown', function(ev){
@@ -6968,7 +6986,7 @@ function overwriteOffer(){
         onCancel(ev);
       }
       if (ev.key === 'Enter'){
-        // gdy focus nie jest w textarea - zatwierdź
+        // gdy focus nie jest w textarea - zatwierdĂ„Ä…ÄąĹş
         try{
           var a = DOC.activeElement;
           var tag = a && a.tagName ? String(a.tagName).toUpperCase() : '';
@@ -6983,7 +7001,7 @@ function overwriteOffer(){
 
   function zqConfirm(opts){
     opts = (opts && typeof opts === 'object') ? opts : {};
-    var title = (opts.title != null) ? String(opts.title) : 'Potwierdź';
+    var title = (opts.title != null) ? String(opts.title) : 'PotwierdĂ„Ä…ÄąĹş';
     var sub = (opts.sub != null) ? String(opts.sub) : '';
     var msg = (opts.message != null) ? String(opts.message) : 'Czy na pewno?';
     var okText = (opts.okText != null) ? String(opts.okText) : 'OK';
@@ -7034,7 +7052,7 @@ function overwriteOffer(){
 
 
 
-  // Modal: oferty wymagające aktualizacji (pokazywany przy starcie panelu gdy są takie oferty)
+  // Modal: oferty wymagajÄ‚â€žĂ˘â‚¬Â¦ce aktualizacji (pokazywany przy starcie panelu gdy sÄ‚â€žĂ˘â‚¬Â¦ takie oferty)
   function initNeedsUpdateModal(){
     if (!state._num) state._num = { inited:false, open:false };
     if (state._num.inited) return;
@@ -7052,8 +7070,8 @@ function overwriteOffer(){
     }
 
     function showInHistory(){
-      // Zamknij modal i przenieś do historii z filtrem "Wymaga zaktualizowania".
-      // Uwaga: render historii opiera się o state.historyStatusFilter ustawiany w handlerze "change".
+      // Zamknij modal i przenieĂ„Ä…Ă˘â‚¬Ĺź do historii z filtrem "Wymaga zaktualizowania".
+      // Uwaga: render historii opiera siÄ‚â€žĂ˘â€žË o state.historyStatusFilter ustawiany w handlerze "change".
       // Samo przypisanie hf.value nie wystarcza.
 
       close();
@@ -7068,7 +7086,7 @@ function overwriteOffer(){
           try{
             hf.dispatchEvent(new Event('change', { bubbles:true }));
           }catch(e){
-            // starsze przeglądarki
+            // starsze przeglÄ‚â€žĂ˘â‚¬Â¦darki
             try{ var ev = DOC.createEvent('Event'); ev.initEvent('change', true, true); hf.dispatchEvent(ev); }catch(e2){}
           }
         } else {
@@ -7076,7 +7094,7 @@ function overwriteOffer(){
           try{ state.historyStatusFilter = normHistoryFilter('needs_update'); persistHistoryPrefs(); renderHistory(); renderHistoryMini(); }catch(e){}
         }
 
-        // przewiń do historii (kotwica w DOM)
+        // przewiĂ„Ä…Ă˘â‚¬Ĺľ do historii (kotwica w DOM)
         var anchor = $('zq-refresh-history') || $('zq-history-details') || $('zq-history') || $('zq-history-mini');
         if (anchor && anchor.scrollIntoView){
           try{ anchor.scrollIntoView({ behavior:'smooth', block:'start' }); }
@@ -7089,7 +7107,7 @@ function overwriteOffer(){
         }
       };
 
-      // Daj DOMowi chwilę na zdjęcie overlay/scroll-lock po zamknięciu modala
+      // Daj DOMowi chwilÄ‚â€žĂ˘â€žË na zdjÄ‚â€žĂ˘â€žËcie overlay/scroll-lock po zamkniÄ‚â€žĂ˘â€žËciu modala
       try{ setTimeout(run, 80); }catch(e){ try{ run(); }catch(e2){} }
     }
 
@@ -7101,7 +7119,7 @@ function overwriteOffer(){
     if (btnOk) btnOk.addEventListener('click', function(ev){ try{ ev.preventDefault(); }catch(e){} close(); });
     if (btnShow) btnShow.addEventListener('click', function(ev){ try{ ev.preventDefault(); }catch(e){} showInHistory(); });
 
-    // klik na tło NIE zamyka
+    // klik na tĂ„Ä…Ă˘â‚¬Ĺˇo NIE zamyka
     DOC.addEventListener('keydown', function(ev){
       if (!state._num || !state._num.open) return;
       if (!ev) return;
@@ -7161,7 +7179,7 @@ function overwriteOffer(){
   }
 
   function maybeShowNeedsUpdatePopupOnBoot(){
-    // pokazuj przy każdym wejściu do panelu (jednorazowo na sesję panelu)
+    // pokazuj przy kaĂ„Ä…Ă„Ëťdym wejĂ„Ä…Ă˘â‚¬Ĺźciu do panelu (jednorazowo na sesjÄ‚â€žĂ˘â€žË panelu)
     if (state._numShownThisBoot) return;
     state._numShownThisBoot = true;
 
@@ -7265,7 +7283,7 @@ function overwriteOffer(){
     btn.type = 'button';
     btn.className = 'zq-lockbtn ' + (locked ? 'is-locked' : 'is-unlocked');
     btn.innerHTML = lockSvg(locked);
-    btn.setAttribute('aria-label', locked ? 'Odblokuj ofertę' : 'Zablokuj ofertę');
+    btn.setAttribute('aria-label', locked ? 'Odblokuj ofertÄ‚â€žĂ˘â€žË' : 'Zablokuj ofertÄ‚â€žĂ˘â€žË');
 
     var can = canLockOffers();
     var isFinal = isFinalOfferStatus(o && o.status);
@@ -7273,17 +7291,17 @@ function overwriteOffer(){
 
     if (!can){
       btn.disabled = true;
-      btn.title = locked ? 'Oferta zablokowana (brak uprawnień do zmiany)' : 'Oferta odblokowana (brak uprawnień do zmiany)';
+      btn.title = locked ? 'Oferta zablokowana (brak uprawnieĂ„Ä…Ă˘â‚¬Ĺľ do zmiany)' : 'Oferta odblokowana (brak uprawnieĂ„Ä…Ă˘â‚¬Ĺľ do zmiany)';
       return btn;
     }
 
     if (locked && isFinal && !isSA){
       btn.disabled = true;
-      btn.title = 'Status końcowy - tylko Super Admin może odblokować';
+      btn.title = 'Status koĂ„Ä…Ă˘â‚¬Ĺľcowy - tylko Super Admin moĂ„Ä…Ă„Ëťe odblokowaÄ‚â€žĂ˘â‚¬Ë‡';
       return btn;
     }
 
-    btn.title = locked ? 'Kliknij, aby odblokować' : 'Kliknij, aby zablokować';
+    btn.title = locked ? 'Kliknij, aby odblokowaÄ‚â€žĂ˘â‚¬Ë‡' : 'Kliknij, aby zablokowaÄ‚â€žĂ˘â‚¬Ë‡';
 
     btn.addEventListener('click', function(ev){
       try{ ev.preventDefault(); ev.stopPropagation(); }catch(e){}
@@ -7343,14 +7361,14 @@ function makeOfferQuickPreviewButton(o){
   btn.type = 'button';
   btn.className = 'zq-qvbtn';
   btn.innerHTML = previewSvg();
-  btn.setAttribute('aria-label', 'Szybki podgląd oferty');
-  btn.title = 'Szybki podgląd oferty';
+  btn.setAttribute('aria-label', 'Szybki podglÄ‚â€žĂ˘â‚¬Â¦d oferty');
+  btn.title = 'Szybki podglÄ‚â€žĂ˘â‚¬Â¦d oferty';
 
   var amt = DOC.createElement('span');
   amt.className = 'zq-qvamt';
   var n = offerNetForList(o);
   if (n == null){
-    amt.textContent = '—';
+    amt.textContent = 'Ä‚ËĂ˘â€šÂ¬Ă˘â‚¬ĹĄ';
     amt.classList.add('is-muted');
   } else {
     amt.textContent = toMoney(n);
@@ -7396,7 +7414,7 @@ function openOfferPreviewModal(offer){
     fastClear(body);
     var p = DOC.createElement('div');
     p.className = 'zq-muted';
-    p.textContent = 'Ładuję podgląd...';
+    p.textContent = 'Ă„Ä…Ă‚ÂadujÄ‚â€žĂ˘â€žË podglÄ‚â€žĂ˘â‚¬Â¦d...';
     body.appendChild(p);
   }
 
@@ -7420,7 +7438,7 @@ function openOfferPreviewModal(offer){
   }).catch(function(){
     if (!state._qvm || !state._qvm.open) return;
     if (state._qvm.nonce !== nonce) return;
-    if (err) err.textContent = 'Błąd: network';
+    if (err) err.textContent = 'BĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦d: network';
     if (body) fastClear(body);
   });
 
@@ -7454,7 +7472,7 @@ function renderOfferPreview(preview){
     kk.textContent = k;
     var vv = DOC.createElement('div');
     vv.className = 'v';
-    vv.textContent = (v != null && String(v).trim() !== '') ? String(v) : '—';
+    vv.textContent = (v != null && String(v).trim() !== '') ? String(v) : 'Ä‚ËĂ˘â€šÂ¬Ă˘â‚¬ĹĄ';
     box.appendChild(kk);
     box.appendChild(vv);
     return box;
@@ -7469,7 +7487,7 @@ function renderOfferPreview(preview){
     var vv = DOC.createElement('div');
     vv.className = 'v';
     if (node) vv.appendChild(node);
-    else vv.textContent = '—';
+    else vv.textContent = 'Ä‚ËĂ˘â€šÂ¬Ă˘â‚¬ĹĄ';
     box.appendChild(kk);
     box.appendChild(vv);
     return box;
@@ -7488,15 +7506,15 @@ function renderOfferPreview(preview){
     var nip = (cl.nip && String(cl.nip).trim()) ? String(cl.nip).trim() : '';
     if (nip) clLabel += (clLabel ? ' | NIP: ' : 'NIP: ') + nip;
   }
-  grid.appendChild(kvText('Klient', clLabel || '—'));
+  grid.appendChild(kvText('Klient', clLabel || 'Ä‚ËĂ˘â€šÂ¬Ă˘â‚¬ĹĄ'));
 
   // Pozycje
   var lc = (preview && preview.lines_count != null) ? String(preview.lines_count) : '0';
   grid.appendChild(kvText('Pozycji', lc));
 
-  // Ważność
-  var vd = (preview && preview.validity_days != null) ? (String(preview.validity_days) + ' dni') : '—';
-  grid.appendChild(kvText('Ważność', vd));
+  // WaĂ„Ä…Ă„ËťnoĂ„Ä…Ă˘â‚¬ĹźÄ‚â€žĂ˘â‚¬Ë‡
+  var vd = (preview && preview.validity_days != null) ? (String(preview.validity_days) + ' dni') : 'Ä‚ËĂ˘â€šÂ¬Ă˘â‚¬ĹĄ';
+  grid.appendChild(kvText('WaĂ„Ä…Ă„ËťnoĂ„Ä…Ă˘â‚¬ĹźÄ‚â€žĂ˘â‚¬Ë‡', vd));
 
   // Handlowiec
   var seller = (preview && preview.seller && typeof preview.seller === 'object') ? preview.seller : null;
@@ -7506,7 +7524,7 @@ function renderOfferPreview(preview){
     if (!sLabel && seller.login) sLabel = String(seller.login);
     if (seller.branch) sLabel += (sLabel ? (' | ' + String(seller.branch)) : String(seller.branch));
   }
-  grid.appendChild(kvText('Handlowiec', sLabel || '—'));
+  grid.appendChild(kvText('Handlowiec', sLabel || 'Ä‚ËĂ˘â€šÂ¬Ă˘â‚¬ĹĄ'));
 
   // Kwoty netto
   var tot = (preview && preview.totals && typeof preview.totals === 'object') ? preview.totals : null;
@@ -7515,14 +7533,14 @@ function renderOfferPreview(preview){
   var hd = tot ? !!tot.has_discount : false;
 
   if (hd){
-    grid.appendChild(kvText('Razem netto (po rabacie)', (na != null && isFinite(na)) ? toMoney(na) : ((nb != null && isFinite(nb)) ? toMoney(nb) : '—')));
+    grid.appendChild(kvText('Razem netto (po rabacie)', (na != null && isFinite(na)) ? toMoney(na) : ((nb != null && isFinite(nb)) ? toMoney(nb) : 'Ä‚ËĂ˘â€šÂ¬Ă˘â‚¬ĹĄ')));
   } else {
-    grid.appendChild(kvText('Razem netto', (nb != null && isFinite(nb)) ? toMoney(nb) : ((na != null && isFinite(na)) ? toMoney(na) : '—')));
+    grid.appendChild(kvText('Razem netto', (nb != null && isFinite(nb)) ? toMoney(nb) : ((na != null && isFinite(na)) ? toMoney(na) : 'Ä‚ËĂ˘â€šÂ¬Ă˘â‚¬ĹĄ')));
   }
 
   // Daty
-  grid.appendChild(kvText('Utworzono', (preview && preview.created_at) ? String(preview.created_at) : '—'));
-  grid.appendChild(kvText('Ostatnia edycja', (preview && preview.updated_at) ? String(preview.updated_at) : '—'));
+  grid.appendChild(kvText('Utworzono', (preview && preview.created_at) ? String(preview.created_at) : 'Ä‚ËĂ˘â€šÂ¬Ă˘â‚¬ĹĄ'));
+  grid.appendChild(kvText('Ostatnia edycja', (preview && preview.updated_at) ? String(preview.updated_at) : 'Ä‚ËĂ˘â€šÂ¬Ă˘â‚¬ĹĄ'));
 
   body.appendChild(grid);
 
@@ -7538,7 +7556,7 @@ function renderOfferPreview(preview){
       var total = parseInt(preview.lines_count, 10) || lines.length;
       if (total > lines.length) more = ' (+' + String(total - lines.length) + ')';
     }catch(e){}
-    h.textContent = 'Pozycje - podgląd' + more;
+    h.textContent = 'Pozycje - podglÄ‚â€žĂ˘â‚¬Â¦d' + more;
     box2.appendChild(h);
 
     lines.forEach(function(L){
@@ -7553,14 +7571,14 @@ function renderOfferPreview(preview){
       var qtyLine = DOC.createElement('div');
       var qv = (L && L.qty != null) ? String(L.qty) : '1';
       var disc = (L && L.disc != null && parseNumber(L.disc) > 0) ? (' | rabat ' + String(L.disc) + '%') : '';
-      qtyLine.textContent = 'Ilość: ' + qv + disc;
+      qtyLine.textContent = 'IloĂ„Ä…Ă˘â‚¬ĹźÄ‚â€žĂ˘â‚¬Ë‡: ' + qv + disc;
       qt.appendChild(qtyLine);
 
       var valLine = DOC.createElement('div');
       valLine.className = 'qv';
-      var lv = (L && L.net_display != null && isFinite(parseNumber(L.net_display))) ? toMoney(parseNumber(L.net_display)) : '—';
+      var lv = (L && L.net_display != null && isFinite(parseNumber(L.net_display))) ? toMoney(parseNumber(L.net_display)) : 'Ä‚ËĂ˘â€šÂ¬Ă˘â‚¬ĹĄ';
       var lh = !!(L && L.has_discount);
-      valLine.textContent = (lh ? 'Wartość netto (po rabacie): ' : 'Wartość netto: ') + lv;
+      valLine.textContent = (lh ? 'WartoĂ„Ä…Ă˘â‚¬ĹźÄ‚â€žĂ˘â‚¬Ë‡ netto (po rabacie): ' : 'WartoĂ„Ä…Ă˘â‚¬ĹźÄ‚â€žĂ˘â‚¬Ë‡ netto: ') + lv;
       qt.appendChild(valLine);
 
       row.appendChild(nm);
@@ -7603,7 +7621,7 @@ function renderOfferPreview(preview){
       while (listEl.firstChild) listEl.removeChild(listEl.firstChild);
       var p = DOC.createElement('div');
       p.className = 'zq-muted';
-      p.textContent = 'Ładuję historię...';
+      p.textContent = 'Ă„Ä…Ă‚ÂadujÄ‚â€žĂ˘â€žË historiÄ‚â€žĂ˘â€žË...';
       listEl.appendChild(p);
     }
 
@@ -7631,7 +7649,7 @@ function renderOfferPreview(preview){
     }).catch(function(e){
       if (!state._ohm || !state._ohm.open) return;
       if (state._ohm.nonce !== nonce) return;
-      if (err) err.textContent = 'Błąd: network';
+      if (err) err.textContent = 'BĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦d: network';
       if (listEl){
         while (listEl.firstChild) listEl.removeChild(listEl.firstChild);
       }
@@ -7661,23 +7679,23 @@ function renderOfferPreview(preview){
     var ev = row && row.event ? String(row.event) : '';
     var meta = (row && row.meta && typeof row.meta === 'object') ? row.meta : null;
 
-    if (ev === 'offer_saved') return 'Utworzono ofertę';
-    if (ev === 'offer_overwritten') return 'Edytowano ofertę (nadpisanie)';
-    if (ev === 'offer_sales_note_updated') return 'Zmieniono notatkę handlową';
-    if (ev === 'offer_duplicated') return 'Utworzono kopię oferty';
-    if (ev === 'offer_deleted') return 'Usunięto ofertę';
-    if (ev === 'offer_exported') return 'Wyeksportowano PDF i zapisano ofertę';
+    if (ev === 'offer_saved') return 'Utworzono ofertÄ‚â€žĂ˘â€žË';
+    if (ev === 'offer_overwritten') return 'Edytowano ofertÄ‚â€žĂ˘â€žË (nadpisanie)';
+    if (ev === 'offer_sales_note_updated') return 'Zmieniono notatkÄ‚â€žĂ˘â€žË handlowÄ‚â€žĂ˘â‚¬Â¦';
+    if (ev === 'offer_duplicated') return 'Utworzono kopiÄ‚â€žĂ˘â€žË oferty';
+    if (ev === 'offer_deleted') return 'UsuniÄ‚â€žĂ˘â€žËto ofertÄ‚â€žĂ˘â€žË';
+    if (ev === 'offer_exported') return 'Wyeksportowano PDF i zapisano ofertÄ‚â€žĂ˘â€žË';
     if (ev === 'offer_pdf_exported') return 'Wyeksportowano PDF';
     if (ev === 'offer_export_deduped') return 'Eksport odrzucony (duplikat)';
-    if (ev === 'offer_exported_status_unset') return 'Eksport: status był "Brak statusu"';
+    if (ev === 'offer_exported_status_unset') return 'Eksport: status byĂ„Ä…Ă˘â‚¬Ĺˇ "Brak statusu"';
     if (ev === 'offer_lock_toggled'){
       var locked = meta && (meta.locked == 1 || meta.locked === true);
-      return locked ? 'Zablokowano ofertę' : 'Odblokowano ofertę';
+      return locked ? 'Zablokowano ofertÄ‚â€žĂ˘â€žË' : 'Odblokowano ofertÄ‚â€žĂ˘â€žË';
     }
     if (ev === 'offer_status_changed'){
       var oldSt = meta ? meta.old : null;
       var newSt = meta ? meta.new : null;
-      return 'Zmieniono status: ' + offerStatusLabel(oldSt) + ' → ' + offerStatusLabel(newSt);
+      return 'Zmieniono status: ' + offerStatusLabel(oldSt) + ' Ä‚ËĂ˘â‚¬Â Ă˘â‚¬â„˘ ' + offerStatusLabel(newSt);
     }
     if (ev === 'offer_marked_needs_update'){
       var o = meta ? meta.old : null;
@@ -7700,7 +7718,7 @@ function renderOfferPreview(preview){
       var newSt = meta ? meta.new : null;
       el.appendChild(DOC.createTextNode('Zmieniono status: '));
       el.appendChild(makeStatusBadge(oldSt));
-      el.appendChild(DOC.createTextNode(' → '));
+      el.appendChild(DOC.createTextNode(' Ä‚ËĂ˘â‚¬Â Ă˘â‚¬â„˘ '));
       el.appendChild(makeStatusBadge(newSt));
       return;
     }
@@ -7725,7 +7743,7 @@ function renderOfferPreview(preview){
     var meta = (row && row.meta && typeof row.meta === 'object') ? row.meta : null;
     var parts = [];
 
-    // kto wykonał
+    // kto wykonaĂ„Ä…Ă˘â‚¬Ĺˇ
     var who = (row && row.account_login) ? String(row.account_login) : '';
     var actor = meta && meta._actor_login ? String(meta._actor_login) : '';
     if (meta && meta.system) who = 'System';
@@ -7739,9 +7757,9 @@ function renderOfferPreview(preview){
 
     // detale meta (tylko wybrane)
     if (meta){
-      if (meta.len != null) parts.push('Długość notatki: ' + String(meta.len));
-      if (meta.src_id != null) parts.push('Źródło: #' + String(meta.src_id));
-      if (meta.reason) parts.push('Powód: ' + String(meta.reason));
+      if (meta.len != null) parts.push('DĂ„Ä…Ă˘â‚¬ĹˇugoĂ„Ä…Ă˘â‚¬ĹźÄ‚â€žĂ˘â‚¬Ë‡ notatki: ' + String(meta.len));
+      if (meta.src_id != null) parts.push('Ă„Ä…Ă„â€¦rĂ„â€šÄąâ€šdĂ„Ä…Ă˘â‚¬Ĺˇo: #' + String(meta.src_id));
+      if (meta.reason) parts.push('PowĂ„â€šÄąâ€šd: ' + String(meta.reason));
     }
 
     return parts.join(' | ');
@@ -7791,7 +7809,7 @@ function renderOfferPreview(preview){
         body.appendChild(p2);
       }
 
-      // meta debug (opcjonalnie) - tylko jeśli ktoś będzie chciał, można łatwo włączyć
+      // meta debug (opcjonalnie) - tylko jeĂ„Ä…Ă˘â‚¬Ĺźli ktoĂ„Ä…Ă˘â‚¬Ĺź bÄ‚â€žĂ˘â€žËdzie chciaĂ„Ä…Ă˘â‚¬Ĺˇ, moĂ„Ä…Ă„Ëťna Ă„Ä…Ă˘â‚¬Ĺˇatwo wĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦czyÄ‚â€žĂ˘â‚¬Ë‡
       // var meta = (row && row.meta && typeof row.meta === 'object') ? row.meta : null;
 
       it.appendChild(body);
@@ -7831,7 +7849,7 @@ function renderHistory(){
       var c = countStatuses(list);
       var parts = [];
       var filtered = ((view.query && view.query.length) || (view.filter && view.filter !== 'all'));
-      parts.push(filtered ? ('Wyniki: ' + list.length + ' / ' + all.length) : ('Łącznie: ' + all.length));
+      parts.push(filtered ? ('Wyniki: ' + list.length + ' / ' + all.length) : ('Ă„Ä…Ă‚ÂÄ‚â€žĂ˘â‚¬Â¦cznie: ' + all.length));
       parts.push('Sukces: ' + c.won);
       parts.push('W trakcie: ' + c.in_progress);
       parts.push('Odrzucone: ' + c.lost);
@@ -7853,7 +7871,7 @@ function renderHistory(){
     if (!list.length){
       var p1 = DOC.createElement('div');
       p1.className='zq-muted';
-      var msg = 'Brak wyników.';
+      var msg = 'Brak wynikĂ„â€šÄąâ€šw.';
       if (view.query) msg += ' Szukano: "' + state.historyQuery + '".';
       if (view.filter && view.filter !== 'all') msg += ' Filtr statusu: ' + (OFFER_STATUS_META[view.filter] ? OFFER_STATUS_META[view.filter].label : view.filter) + '.';
       p1.textContent = msg;
@@ -7873,26 +7891,26 @@ function renderHistory(){
       try{ t.appendChild(makeOfferHistoryButton(o)); }catch(e){}
       try{ t.appendChild(makeOfferQuickPreviewButton(o)); }catch(e){}
 
-      // Status obok kłódki (w tytule) - jedna instancja badge, bez duplikowania w meta.
+      // Status obok kĂ„Ä…Ă˘â‚¬ĹˇĂ„â€šÄąâ€šdki (w tytule) - jedna instancja badge, bez duplikowania w meta.
       var badge = makeStatusBadge(o.status, o && o.status_change_count);
       var _locked = isOfferLocked(o);
       var _isSA = actorIsSuperAdmin();
       if (!_locked || _isSA){
         badge.classList.add('is-click');
-        badge.title = 'Kliknij, aby zmienić status';
+        badge.title = 'Kliknij, aby zmieniÄ‚â€žĂ˘â‚¬Ë‡ status';
         badge.addEventListener('click', function(ev){
           try{ ev.preventDefault(); ev.stopPropagation(); }catch(e){}
           openOfferStatusModal(o);
         });
       } else {
-        badge.title = 'Oferta zablokowana - status nie może być zmieniony';
+        badge.title = 'Oferta zablokowana - status nie moĂ„Ä…Ă„Ëťe byÄ‚â€žĂ˘â‚¬Ë‡ zmieniony';
       }
       t.appendChild(badge);
 
       if (normOfferStatus(o && o.status) === 'needs_update'){
         var ni = DOC.createElement('span');
         ni.innerHTML = needsUpdateIcon();
-        // innerHTML tworzy wrapper - wyciągnij pierwszy element
+        // innerHTML tworzy wrapper - wyciÄ‚â€žĂ˘â‚¬Â¦gnij pierwszy element
         try{ if (ni.firstChild) t.appendChild(ni.firstChild); }catch(e){}
       }
       var tTxt = DOC.createElement('span');
@@ -7926,7 +7944,7 @@ function renderHistory(){
         if (author){
           var by = DOC.createElement('span');
           by.className='zq-by';
-          by.textContent = 'Przygotował: ' + author;
+          by.textContent = 'PrzygotowaĂ„Ä…Ă˘â‚¬Ĺˇ: ' + author;
           m2.appendChild(by);
         }
         if (cmt){
@@ -7956,7 +7974,7 @@ function renderHistory(){
       var stBtn = DOC.createElement('button');
       stBtn.type='button';
       stBtn.className='zq-mini';
-      stBtn.textContent='Zmień status';
+      stBtn.textContent='ZmieĂ„Ä…Ă˘â‚¬Ĺľ status';
       if (__locked && !__isSA){
         stBtn.disabled = true;
         stBtn.title = 'Oferta zablokowana';
@@ -7976,7 +7994,7 @@ function renderHistory(){
       var dupOfferBtn = DOC.createElement('button');
       dupOfferBtn.type='button'; dupOfferBtn.className='zq-mini';
       dupOfferBtn.textContent='Duplikuj jako nowy';
-      dupOfferBtn.title='Utwórz kopię jako nową ofertę';
+      dupOfferBtn.title='UtwĂ„â€šÄąâ€šrz kopiÄ‚â€žĂ˘â€žË jako nowÄ‚â€žĂ˘â‚¬Â¦ ofertÄ‚â€žĂ˘â€žË';
       dupOfferBtn.addEventListener('click', function(){ duplicateOffer(o.id); });
       right.appendChild(dupOfferBtn);
 
@@ -7984,7 +8002,7 @@ function renderHistory(){
       var noteBtn = DOC.createElement('button');
       noteBtn.type='button'; noteBtn.className='zq-mini';
       noteBtn.textContent='Notatka';
-      noteBtn.title='Notatka handlowa (wewnętrzna)';
+      noteBtn.title='Notatka handlowa (wewnÄ‚â€žĂ˘â€žËtrzna)';
       if (__locked && !__isSA){
         noteBtn.disabled = true;
         noteBtn.title = 'Oferta zablokowana';
@@ -8016,15 +8034,15 @@ function renderHistory(){
         var del = DOC.createElement('button');
         del.type='button';
         del.className='zq-mini danger';
-        del.textContent='Usuń';
-        del.title = canDeleteOffersAny() ? 'Usuń ofertę (admin)' : 'Usuń ofertę';
+        del.textContent='UsuĂ„Ä…Ă˘â‚¬Ĺľ';
+        del.title = canDeleteOffersAny() ? 'UsuĂ„Ä…Ă˘â‚¬Ĺľ ofertÄ‚â€žĂ˘â€žË (admin)' : 'UsuĂ„Ä…Ă˘â‚¬Ĺľ ofertÄ‚â€žĂ˘â€žË';
         if (__locked && !__isSA){
           del.disabled = true;
           del.title = 'Oferta zablokowana';
         }
         del.addEventListener('click', function(){
-          var msg = 'Usunąć ofertę "' + String(o.title || '').replace(/"/g, '\\"') + '"?';
-          zqConfirm({ title:'Usuń ofertę', message: msg, okText:'Usuń', cancelText:'Anuluj', okClass:'danger' }).then(function(ok){
+          var msg = 'UsunÄ‚â€žĂ˘â‚¬Â¦Ä‚â€žĂ˘â‚¬Ë‡ ofertÄ‚â€žĂ˘â€žË "' + String(o.title || '').replace(/"/g, '\\"') + '"?';
+          zqConfirm({ title:'UsuĂ„Ä…Ă˘â‚¬Ĺľ ofertÄ‚â€žĂ˘â€žË', message: msg, okText:'UsuĂ„Ä…Ă˘â‚¬Ĺľ', cancelText:'Anuluj', okClass:'danger' }).then(function(ok){
             if (!ok) return;
 
             del.disabled = true;
@@ -8049,7 +8067,7 @@ function renderHistory(){
     wrap.appendChild(frag);
   
 
-    // Sync UI po renderze pełnej listy.
+    // Sync UI po renderze peĂ„Ä…Ă˘â‚¬Ĺˇnej listy.
     try{ syncHistoryDetailsUi(); }catch(e){}
     try{ if (window.__zqosCheckHistoryEnd) window.__zqosCheckHistoryEnd(); }catch(e2){}
 }
@@ -8063,15 +8081,15 @@ function renderHistory(){
     var collapseWrap = $('zq-history-collapse-wrap');
     var label = $('zq-history-toggle-label');
 
-    // Jeśli nie ma detali (lub są ukryte), traktuj jak stan zwinięty.
+    // JeĂ„Ä…Ă˘â‚¬Ĺźli nie ma detali (lub sÄ‚â€žĂ˘â‚¬Â¦ ukryte), traktuj jak stan zwiniÄ‚â€žĂ˘â€žËty.
     var isDetVisible = !!(det && det.style && det.style.display !== 'none');
     var isOpen = !!(det && det.open && isDetVisible);
 
-    // Mini (ostatnie 5 + gradient) znika gdy lista jest rozwinięta.
+    // Mini (ostatnie 5 + gradient) znika gdy lista jest rozwiniÄ‚â€žĂ˘â€žËta.
     if (miniWrap) miniWrap.style.display = isOpen ? 'none' : '';
     if (miniHead) miniHead.style.display = isOpen ? 'none' : '';
 
-    // Przycisk zwijania: widoczny tylko gdy lista jest rozwinięta i użytkownik dojechał do końca listy.
+    // Przycisk zwijania: widoczny tylko gdy lista jest rozwiniÄ‚â€žĂ˘â€žËta i uĂ„Ä…Ă„Ëťytkownik dojechaĂ„Ä…Ă˘â‚¬Ĺˇ do koĂ„Ä…Ă˘â‚¬Ĺľca listy.
 var atEnd = false;
 var inView = false;
 try{
@@ -8083,7 +8101,7 @@ try{
 
 var showCollapse = !!(isOpen && atEnd && inView);
     if (collapseWrap){
-      // Upewnij się, że nie trzymamy starego inline display (sterujemy klasą + CSS).
+      // Upewnij siÄ‚â€žĂ˘â€žË, Ă„Ä…Ă„Ëťe nie trzymamy starego inline display (sterujemy klasÄ‚â€žĂ˘â‚¬Â¦ + CSS).
       try{ collapseWrap.style.display = ''; }catch(e0){}
       try{
         if (showCollapse) collapseWrap.classList.add('is-active');
@@ -8093,17 +8111,17 @@ var showCollapse = !!(isOpen && atEnd && inView);
     }
 
     // Legacy: label w <summary> (summary jest ukryty w UI).
-    if (label) label.textContent = isOpen ? 'Pokaż mniej' : 'Pokaż więcej';
+    if (label) label.textContent = isOpen ? 'PokaĂ„Ä…Ă„Ëť mniej' : 'PokaĂ„Ä…Ă„Ëť wiÄ‚â€žĂ˘â€žËcej';
   }
 
-  // Dokowanie przycisku "Zwiń listę" do modala + wykrywanie czy użytkownik jest na końcu listy historii.
+  // Dokowanie przycisku "ZwiĂ„Ä…Ă˘â‚¬Ĺľ listÄ‚â€žĂ˘â€žË" do modala + wykrywanie czy uĂ„Ä…Ă„Ëťytkownik jest na koĂ„Ä…Ă˘â‚¬Ĺľcu listy historii.
   var _zqHistoryDock = { inited:false, atEnd:false, inView:false };
 
   function _zqUpdateHistoryDockRect(){
     var modal = DOC.querySelector('.zq-offer-modal');
     if (!modal) return;
     var r = modal.getBoundingClientRect();
-    // Dopasowanie do wewnętrznych paddingów modala (head/border)
+    // Dopasowanie do wewnÄ‚â€žĂ˘â€žËtrznych paddingĂ„â€šÄąâ€šw modala (head/border)
     var left = Math.round((r.left || 0) + 16);
     var width = Math.max(240, Math.round((r.width || 0) - 32));
     var bottom = Math.round(Math.max((window.innerHeight - (r.bottom || 0)) + 16, 12));
@@ -8126,7 +8144,7 @@ var showCollapse = !!(isOpen && atEnd && inView);
 
     _zqUpdateHistoryDockRect();
 
-    // resize/orientation -> przelicz pozycję (modal ma stały rect w viewport) + odśwież stan końca listy
+    // resize/orientation -> przelicz pozycjÄ‚â€žĂ˘â€žË (modal ma staĂ„Ä…Ă˘â‚¬Ĺˇy rect w viewport) + odĂ„Ä…Ă˘â‚¬ĹźwieĂ„Ä…Ă„Ëť stan koĂ„Ä…Ă˘â‚¬Ĺľca listy
     (function(){
       var t = 0;
       function onR(){
@@ -8171,7 +8189,7 @@ var showCollapse = !!(isOpen && atEnd && inView);
       return DOC.scrollingElement || DOC.documentElement;
     }
 
-    // Sprawdza: (1) czy historia jest w viewport scroll-roota, (2) czy jesteśmy na końcu listy (sentinel).
+    // Sprawdza: (1) czy historia jest w viewport scroll-roota, (2) czy jesteĂ„Ä…Ă˘â‚¬Ĺźmy na koĂ„Ä…Ă˘â‚¬Ĺľcu listy (sentinel).
     function checkEnd(){
       try{
         if (!isDetOpen()){
@@ -8182,7 +8200,7 @@ var showCollapse = !!(isOpen && atEnd && inView);
         var root = findScrollRoot();
         var rr = root && root.getBoundingClientRect ? root.getBoundingClientRect() : { top:0, bottom: (window.innerHeight || 0) };
 
-        // Historia w widoku? (żeby przycisk nie wisiał, gdy user jest powyżej/poniżej sekcji Historii)
+        // Historia w widoku? (Ă„Ä…Ă„Ëťeby przycisk nie wisiaĂ„Ä…Ă˘â‚¬Ĺˇ, gdy user jest powyĂ„Ä…Ă„Ëťej/poniĂ„Ä…Ă„Ëťej sekcji Historii)
         var target = historyCard || det;
         var inView = false;
         if (target && target.getBoundingClientRect){
@@ -8190,7 +8208,7 @@ var showCollapse = !!(isOpen && atEnd && inView);
           inView = (hr.bottom > (rr.top + 40)) && (hr.top < (rr.bottom - 40));
         }
 
-        // Koniec listy: sentinel widoczny i "dosięga" do dołu viewportu scroll-roota.
+        // Koniec listy: sentinel widoczny i "dosiÄ‚â€žĂ˘â€žËga" do doĂ„Ä…Ă˘â‚¬Ĺˇu viewportu scroll-roota.
         var atEnd = false;
         if (sentinel && sentinel.getBoundingClientRect){
           var sr = sentinel.getBoundingClientRect();
@@ -8206,10 +8224,10 @@ var showCollapse = !!(isOpen && atEnd && inView);
       }
     }
 
-    // Upublicznij dla renderów (po zmianie DOM listy).
+    // Upublicznij dla renderĂ„â€šÄąâ€šw (po zmianie DOM listy).
     try{ window.__zqosCheckHistoryEnd = checkEnd; }catch(e3){}
 
-    // Bulletproof: łap scroll z dowolnego scroll-roota (scroll nie bubluje, ale działa na capture).
+    // Bulletproof: Ă„Ä…Ă˘â‚¬Ĺˇap scroll z dowolnego scroll-roota (scroll nie bubluje, ale dziaĂ„Ä…Ă˘â‚¬Ĺˇa na capture).
     (function(){
       var tt = 0;
       function onAnyScroll(){
@@ -8239,7 +8257,7 @@ function renderHistoryMini(){
     var all = view.all;
     var list = view.list;
 
-    // Meta (podsumowanie) widoczne także gdy lista jest zwinięta.
+    // Meta (podsumowanie) widoczne takĂ„Ä…Ă„Ëťe gdy lista jest zwiniÄ‚â€žĂ˘â€žËta.
     (function(){
       var metaTopEl = $('zq-history-meta-top');
       if (!metaTopEl) return;
@@ -8254,7 +8272,7 @@ function renderHistoryMini(){
         }
         var parts = [];
         var filtered = ((view.query && view.query.length) || (view.filter && view.filter !== 'all'));
-        parts.push(filtered ? ('Wyniki: ' + list.length + ' / ' + all.length) : ('Łącznie: ' + all.length));
+        parts.push(filtered ? ('Wyniki: ' + list.length + ' / ' + all.length) : ('Ă„Ä…Ă‚ÂÄ‚â€žĂ˘â‚¬Â¦cznie: ' + all.length));
         parts.push('Sukces: ' + out.won);
         parts.push('W trakcie: ' + out.in_progress);
         parts.push('Odrzucone: ' + out.lost);
@@ -8278,7 +8296,7 @@ function renderHistoryMini(){
       }
     }
 
-    // Ustaw stan mini-wrap (gradient + padding) gdy jest więcej niż 5 wyników.
+    // Ustaw stan mini-wrap (gradient + padding) gdy jest wiÄ‚â€žĂ˘â€žËcej niĂ„Ä…Ă„Ëť 5 wynikĂ„â€šÄąâ€šw.
     (function(){
       var miniWrap = $('zq-history-mini-wrap');
       if (!miniWrap) return;
@@ -8289,7 +8307,7 @@ function renderHistoryMini(){
       }catch(e){}
     })();
 
-    // zsynchronizuj widok mini vs pełna lista + label przycisku
+    // zsynchronizuj widok mini vs peĂ„Ä…Ă˘â‚¬Ĺˇna lista + label przycisku
     syncHistoryDetailsUi();
 
     if (!all.length){
@@ -8303,7 +8321,7 @@ function renderHistoryMini(){
     if (!list.length){
       var p1 = DOC.createElement('div');
       p1.className='zq-muted';
-      p1.textContent='Brak wyników.';
+      p1.textContent='Brak wynikĂ„â€šÄąâ€šw.';
       wrap.appendChild(p1);
       return;
     }
@@ -8322,26 +8340,26 @@ function renderHistoryMini(){
       try{ t.appendChild(makeOfferHistoryButton(o)); }catch(e){}
       try{ t.appendChild(makeOfferQuickPreviewButton(o)); }catch(e){}
 
-      // Status obok kłódki (w tytule) - jedna instancja badge, bez duplikowania w meta.
+      // Status obok kĂ„Ä…Ă˘â‚¬ĹˇĂ„â€šÄąâ€šdki (w tytule) - jedna instancja badge, bez duplikowania w meta.
       var badge = makeStatusBadge(o.status, o && o.status_change_count);
       var _locked = isOfferLocked(o);
       var _isSA = actorIsSuperAdmin();
       if (!_locked || _isSA){
         badge.classList.add('is-click');
-        badge.title = 'Kliknij, aby zmienić status';
+        badge.title = 'Kliknij, aby zmieniÄ‚â€žĂ˘â‚¬Ë‡ status';
         badge.addEventListener('click', function(ev){
           try{ ev.preventDefault(); ev.stopPropagation(); }catch(e){}
           openOfferStatusModal(o);
         });
       } else {
-        badge.title = 'Oferta zablokowana - status nie może być zmieniony';
+        badge.title = 'Oferta zablokowana - status nie moĂ„Ä…Ă„Ëťe byÄ‚â€žĂ˘â‚¬Ë‡ zmieniony';
       }
       t.appendChild(badge);
 
       if (normOfferStatus(o && o.status) === 'needs_update'){
         var ni = DOC.createElement('span');
         ni.innerHTML = needsUpdateIcon();
-        // innerHTML tworzy wrapper - wyciągnij pierwszy element
+        // innerHTML tworzy wrapper - wyciÄ‚â€žĂ˘â‚¬Â¦gnij pierwszy element
         try{ if (ni.firstChild) t.appendChild(ni.firstChild); }catch(e){}
       }
       var tTxt = DOC.createElement('span');
@@ -8375,7 +8393,7 @@ function renderHistoryMini(){
         if (author){
           var by = DOC.createElement('span');
           by.className='zq-by';
-          by.textContent = 'Przygotował: ' + author;
+          by.textContent = 'PrzygotowaĂ„Ä…Ă˘â‚¬Ĺˇ: ' + author;
           m2.appendChild(by);
         }
         if (cmt){
@@ -8404,7 +8422,7 @@ function renderHistoryMini(){
 
       var stBtn = DOC.createElement('button');
       stBtn.type='button'; stBtn.className='zq-mini';
-      stBtn.textContent='Zmień status';
+      stBtn.textContent='ZmieĂ„Ä…Ă˘â‚¬Ĺľ status';
       if (__locked && !__isSA){
         stBtn.disabled = true;
         stBtn.title = 'Oferta zablokowana';
@@ -8424,7 +8442,7 @@ function renderHistoryMini(){
       var dupOfferBtn = DOC.createElement('button');
       dupOfferBtn.type='button'; dupOfferBtn.className='zq-mini';
       dupOfferBtn.textContent='Duplikuj jako nowy';
-      dupOfferBtn.title='Utwórz kopię jako nową ofertę';
+      dupOfferBtn.title='UtwĂ„â€šÄąâ€šrz kopiÄ‚â€žĂ˘â€žË jako nowÄ‚â€žĂ˘â‚¬Â¦ ofertÄ‚â€žĂ˘â€žË';
       dupOfferBtn.addEventListener('click', function(){ duplicateOffer(o.id); });
       right.appendChild(dupOfferBtn);
 
@@ -8432,7 +8450,7 @@ function renderHistoryMini(){
       var noteBtn = DOC.createElement('button');
       noteBtn.type='button'; noteBtn.className='zq-mini';
       noteBtn.textContent='Notatka';
-      noteBtn.title='Notatka handlowa (wewnętrzna)';
+      noteBtn.title='Notatka handlowa (wewnÄ‚â€žĂ˘â€žËtrzna)';
       if (__locked && !__isSA){
         noteBtn.disabled = true;
         noteBtn.title = 'Oferta zablokowana';
@@ -8464,15 +8482,15 @@ function renderHistoryMini(){
         var del = DOC.createElement('button');
         del.type='button';
         del.className='zq-mini danger';
-        del.textContent='Usuń';
-        del.title = canDeleteOffersAny() ? 'Usuń ofertę (admin)' : 'Usuń ofertę';
+        del.textContent='UsuĂ„Ä…Ă˘â‚¬Ĺľ';
+        del.title = canDeleteOffersAny() ? 'UsuĂ„Ä…Ă˘â‚¬Ĺľ ofertÄ‚â€žĂ˘â€žË (admin)' : 'UsuĂ„Ä…Ă˘â‚¬Ĺľ ofertÄ‚â€žĂ˘â€žË';
         if (__locked && !__isSA){
           del.disabled = true;
           del.title = 'Oferta zablokowana';
         }
         del.addEventListener('click', function(){
-          var msg = 'Usunąć ofertę "' + String(o.title || '').replace(/"/g, '\\"') + '"?';
-          zqConfirm({ title:'Usuń ofertę', message: msg, okText:'Usuń', cancelText:'Anuluj', okClass:'danger' }).then(function(ok){
+          var msg = 'UsunÄ‚â€žĂ˘â‚¬Â¦Ä‚â€žĂ˘â‚¬Ë‡ ofertÄ‚â€žĂ˘â€žË "' + String(o.title || '').replace(/"/g, '\\"') + '"?';
+          zqConfirm({ title:'UsuĂ„Ä…Ă˘â‚¬Ĺľ ofertÄ‚â€žĂ˘â€žË', message: msg, okText:'UsuĂ„Ä…Ă˘â‚¬Ĺľ', cancelText:'Anuluj', okClass:'danger' }).then(function(ok){
             if (!ok) return;
 
             del.disabled = true;
@@ -8496,17 +8514,17 @@ function renderHistoryMini(){
     });
   
 
-    // Sync UI (mini vs full + label) po każdym renderze mini.
+    // Sync UI (mini vs full + label) po kaĂ„Ä…Ă„Ëťdym renderze mini.
     try{ syncHistoryDetailsUi(); }catch(e){}
     try{ if (window.__zqosCheckHistoryEnd) window.__zqosCheckHistoryEnd(); }catch(e2){}
 }
 
   function loadOffer(id){
-    setExportStatus('Ładuję ofertę...');
+    setExportStatus('Ă„Ä…Ă‚ÂadujÄ‚â€žĂ˘â€žË ofertÄ‚â€žĂ˘â€žË...');
     apiFetch('/offers/' + encodeURIComponent(String(id)), {method:'GET'}).then(function(r){
       return r.json().catch(function(){return null;}).then(function(j){
         if (!r.ok || !j || !j.ok || !j.offer){
-          throw new Error((j && j.message) ? j.message : 'Błąd odczytu oferty.');
+          throw new Error((j && j.message) ? j.message : 'BĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦d odczytu oferty.');
         }
         var offer = j.offer;
         // klient
@@ -8535,14 +8553,14 @@ function renderHistoryMini(){
               manualUnitNet: mu
             });
           });
-          // jeżeli w danych są ręczne ceny, a flaga special_offer była false (legacy) - włącz tryb specjalny automatycznie
+          // jeĂ„Ä…Ă„Ëťeli w danych sÄ‚â€žĂ˘â‚¬Â¦ rÄ‚â€žĂ˘â€žËczne ceny, a flaga special_offer byĂ„Ä…Ă˘â‚¬Ĺˇa false (legacy) - wĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦cz tryb specjalny automatycznie
           var allowed = isSpecialAllowed();
           var wantSpecial = !!(offer.data && offer.data.special_offer);
           if (!wantSpecial && manualFound && allowed) wantSpecial = true;
           state.specialOffer = wantSpecial && allowed;
           if ($('zq-special')) $('zq-special').checked = state.specialOffer;
 
-          // jeśli konto nie ma uprawnień do trybu specjalnego, usuń ręczne ceny z pozycji
+          // jeĂ„Ä…Ă˘â‚¬Ĺźli konto nie ma uprawnieĂ„Ä…Ă˘â‚¬Ĺľ do trybu specjalnego, usuĂ„Ä…Ă˘â‚¬Ĺľ rÄ‚â€žĂ˘â€žËczne ceny z pozycji
           if (!allowed && manualFound){
             state.offerLines.forEach(function(l){ if (l) l.manualUnitNet = null; });
           }
@@ -8555,12 +8573,12 @@ function renderHistoryMini(){
         }
 
 
-// tytuł + komentarz (do edycji / nadpisania)
+// tytuĂ„Ä…Ă˘â‚¬Ĺˇ + komentarz (do edycji / nadpisania)
 if ($('zq-offer-title')) $('zq-offer-title').value = offer.title || '';
 if ($('zq-offer-comment')) $('zq-offer-comment').value = plainFromHtml(offer.comment || '');
 setEditingOfferContext(offer.id || id, offer.title || '', (offer.data && offer.data.client) ? offer.data.client : null);
 
-        // status (do zarządzania)
+        // status (do zarzÄ‚â€žĂ˘â‚¬Â¦dzania)
         var st = normOfferStatus(offer.status);
         if ($('zq-offer-status')){
           if (st && st !== 'unset') $('zq-offer-status').value = st;
@@ -8569,7 +8587,7 @@ setEditingOfferContext(offer.id || id, offer.title || '', (offer.data && offer.d
         setExportStatus('OK: wczytano "' + offer.title + '"');
       });
     }).catch(function(e){
-      setExportStatus('Błąd: ' + (e && e.message ? e.message : 'load'));
+      setExportStatus('BĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦d: ' + (e && e.message ? e.message : 'load'));
     });
   }
 
@@ -8591,7 +8609,7 @@ setEditingOfferContext(offer.id || id, offer.title || '', (offer.data && offer.d
           try{ dateTag = String(createdAt).slice(0,10).replace(/\./g,'-').replace(/\//g,'-').replace(/\s.*/,''); }catch(e){ dateTag=''; }
         }
         var safeTitle = title ? String(title) : 'oferta';
-        safeTitle = safeTitle.replace(/[^a-zA-Z0-9\-_.\sąćęłńóśźżĄĆĘŁŃÓŚŹŻ]/g, '').trim();
+        safeTitle = safeTitle.replace(/[^a-zA-Z0-9\-_.\sÄ‚â€žĂ˘â‚¬Â¦Ä‚â€žĂ˘â‚¬Ë‡Ä‚â€žĂ˘â€žËĂ„Ä…Ă˘â‚¬ĹˇĂ„Ä…Ă˘â‚¬ĹľĂ„â€šÄąâ€šĂ„Ä…Ă˘â‚¬ĹźĂ„Ä…ÄąĹşĂ„Ä…Ă„ËťÄ‚â€žĂ˘â‚¬ĹľÄ‚â€žĂ˘â‚¬Â Ä‚â€žĂ‚ÂĂ„Ä…Ă‚ÂĂ„Ä…Ă‚ÂĂ„â€šĂ˘â‚¬Ĺ›Ă„Ä…ÄąË‡Ă„Ä…Ă„â€¦Ă„Ä…Ă‚Â»]/g, '').trim();
         var fname = 'Oferta_ZEGGER_' + safeTitle + (dateTag ? ('_' + dateTag) : '') + '.pdf';
         a.download = fname;
         DOC.body.appendChild(a);
@@ -8600,7 +8618,7 @@ setEditingOfferContext(offer.id || id, offer.title || '', (offer.data && offer.d
         setExportStatus('');
       });
     }).catch(function(e){
-      setExportStatus('Błąd: ' + (e && e.message ? e.message : 'pdf'));
+      setExportStatus('BĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦d: ' + (e && e.message ? e.message : 'pdf'));
     });
   }
 
@@ -8614,7 +8632,7 @@ setEditingOfferContext(offer.id || id, offer.title || '', (offer.data && offer.d
       return r.json().catch(function(){return null;}).then(function(j){
         if (!r.ok || !j || !j.ok){
           var msg = (j && j.message) ? j.message : ('HTTP ' + r.status);
-          setExportStatus('Błąd statusu: ' + msg);
+          setExportStatus('BĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦d statusu: ' + msg);
           return false;
         }
 
@@ -8639,7 +8657,7 @@ setEditingOfferContext(offer.id || id, offer.title || '', (offer.data && offer.d
         renderHistory();
         renderHistoryMini();
 
-        // odśwież KPI w profilu (debounce)
+        // odĂ„Ä…Ă˘â‚¬ĹźwieĂ„Ä…Ă„Ëť KPI w profilu (debounce)
         try{
           if (state._profileRefreshTimer){ clearTimeout(state._profileRefreshTimer); }
         }catch(e){}
@@ -8648,7 +8666,7 @@ setEditingOfferContext(offer.id || id, offer.title || '', (offer.data && offer.d
         return true;
       });
     }).catch(function(){
-      setExportStatus('Błąd statusu: network');
+      setExportStatus('BĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦d statusu: network');
       return false;
     });
   }
@@ -8660,7 +8678,7 @@ setEditingOfferContext(offer.id || id, offer.title || '', (offer.data && offer.d
     if (!id) return Promise.resolve(false);
 
     if (!canLockOffers()){
-      toast('warn', 'Brak uprawnień do blokowania ofert.');
+      toast('warn', 'Brak uprawnieĂ„Ä…Ă˘â‚¬Ĺľ do blokowania ofert.');
       return Promise.resolve(false);
     }
 
@@ -8692,7 +8710,7 @@ setEditingOfferContext(offer.id || id, offer.title || '', (offer.data && offer.d
         return true;
       });
     }).catch(function(){
-      toast('error', 'Błąd: network');
+      toast('error', 'BĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦d: network');
       return false;
     });
   }
@@ -8711,7 +8729,7 @@ setEditingOfferContext(offer.id || id, offer.title || '', (offer.data && offer.d
         var newId = j.id ? String(j.id) : '';
         if (!newId) return null;
 
-        // odśwież historię deterministycznie i otwórz nową kopię w edycji
+        // odĂ„Ä…Ă˘â‚¬ĹźwieĂ„Ä…Ă„Ëť historiÄ‚â€žĂ˘â€žË deterministycznie i otwĂ„â€šÄąâ€šrz nowÄ‚â€žĂ˘â‚¬Â¦ kopiÄ‚â€žĂ˘â€žË w edycji
         return refreshHistory({bust:true}).then(function(){
           var has = false;
           try{
@@ -8723,18 +8741,18 @@ setEditingOfferContext(offer.id || id, offer.title || '', (offer.data && offer.d
         }).finally(function(){
           try{ loadOffer(newId); }catch(e){}
         }).then(function(){
-          toast('success', 'Utworzono kopię jako nową ofertę.');
+          toast('success', 'Utworzono kopiÄ‚â€žĂ˘â€žË jako nowÄ‚â€žĂ˘â‚¬Â¦ ofertÄ‚â€žĂ˘â€žË.');
           return newId;
         });
       });
     }).catch(function(){
-      toast('error', 'Błąd: network');
+      toast('error', 'BĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦d: network');
       return null;
     });
   }
 
 
-  // Eksport PDF z historii: generuje PDF w hoście (kalkulator) i zapisuje go do TEJ SAMEJ oferty.
+  // Eksport PDF z historii: generuje PDF w hoĂ„Ä…Ă˘â‚¬Ĺźcie (kalkulator) i zapisuje go do TEJ SAMEJ oferty.
   function exportOfferPdfFromHistory(offerId, btnEl){
     offerId = String(offerId || '').replace(/[^0-9]/g, '');
     if (!offerId) return;
@@ -8745,17 +8763,13 @@ setEditingOfferContext(offer.id || id, offer.title || '', (offer.data && offer.d
     }
 
     if (!isEmbedded()){
-      toast('error', 'Brak hosta do PDF (otwórz w kalkulatorze).');
+      toast('error', 'Brak hosta do PDF (otwĂ„â€šÄąâ€šrz w module ofert w ERP).');
       return;
     }
 
-    if (!state.authToken){
-      toast('error', 'Brak autoryzacji (token). Zaloguj się ponownie.');
-      return;
-    }
 
     setErr('');
-    setExportStatus('Generuję PDF...');
+    setExportStatus('GenerujÄ‚â€žĂ˘â€žË PDF...');
 
     setExportLock(true, btnEl);
 
@@ -8766,7 +8780,7 @@ setEditingOfferContext(offer.id || id, offer.title || '', (offer.data && offer.d
     if (state.exportTimer){ try{ clearTimeout(state.exportTimer); }catch(e){} }
     state.exportTimer = setTimeout(function(){
       if (state.exportLock && state.exportNonce){
-        setExportStatus('Błąd: timeout eksportu PDF (brak odpowiedzi hosta).');
+        setExportStatus('BĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦d: timeout eksportu PDF (brak odpowiedzi hosta).');
         state.exportNonce = null;
         state.exportFromOfferId = null;
         setExportLock(false);
@@ -8774,7 +8788,7 @@ setEditingOfferContext(offer.id || id, offer.title || '', (offer.data && offer.d
     }, 60000);
 
     fetchOfferById(offerId).then(function(off){
-      if (!off) throw new Error('Nie można pobrać danych oferty.');
+      if (!off) throw new Error('Nie moĂ„Ä…Ă„Ëťna pobraÄ‚â€žĂ˘â‚¬Ë‡ danych oferty.');
       if (!off.data) throw new Error('Brak danych oferty.');
 
       var payload = {
@@ -8793,12 +8807,12 @@ setEditingOfferContext(offer.id || id, offer.title || '', (offer.data && offer.d
           return;
         }
       }catch(e){}
-      throw new Error('Brak hosta do PDF (otwórz w kalkulatorze).');
+      throw new Error('Brak hosta do PDF (otwĂ„â€šÄąâ€šrz w module ofert w ERP).');
     }).catch(function(e){
       if (state.exportTimer){ try{ clearTimeout(state.exportTimer); }catch(ex){} state.exportTimer = 0; }
       state.exportNonce = null;
       state.exportFromOfferId = null;
-      setExportStatus('Błąd: ' + (e && e.message ? e.message : 'export'));
+      setExportStatus('BĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦d: ' + (e && e.message ? e.message : 'export'));
       setExportLock(false);
     });
   }
@@ -8825,20 +8839,20 @@ function deleteOffer(id){
       return removed;
     }
 
-    setExportStatus('Usuwam ofertę...');
+    setExportStatus('Usuwam ofertÄ‚â€žĂ˘â€žË...');
     return apiFetch('/offers/' + encodeURIComponent(String(id)), {method:'DELETE'}).then(function(r){
       return r.json().catch(function(){return null;}).then(function(j){
         if (!r.ok || !j || !j.ok){
           throw new Error((j && j.message) ? j.message : ('HTTP ' + r.status));
         }
-        setExportStatus('OK: usunięto');
-        // Natychmiastowa aktualizacja UI (bez klikania "Odśwież")
+        setExportStatus('OK: usuniÄ‚â€žĂ˘â€žËto');
+        // Natychmiastowa aktualizacja UI (bez klikania "OdĂ„Ä…Ă˘â‚¬ĹźwieĂ„Ä…Ă„Ëť")
         pruneLocalHistory();
         // Synchronizacja z backendem (best-effort)
         return refreshHistory({bust:true});
       });
     }).catch(function(e){
-      setExportStatus('Błąd: ' + (e && e.message ? e.message : 'delete'));
+      setExportStatus('BĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦d: ' + (e && e.message ? e.message : 'delete'));
       throw e;
     });
   }
@@ -8868,7 +8882,7 @@ function deleteOffer(id){
     if ($('zq-draft-restore')) $('zq-draft-restore').addEventListener('click', function(){ restoreDraft(); });
     if ($('zq-draft-discard')) $('zq-draft-discard').addEventListener('click', function(){ clearDraft(); setExportStatus('Szkic odrzucony.'); });
 
-    // search (debounce + nieblokujące wyszukiwanie)
+    // search (debounce + nieblokujÄ‚â€žĂ˘â‚¬Â¦ce wyszukiwanie)
     var searchEl = $('zq-search');
     var dropEl = $('zq-search-drop');
     function closest(el, cls){
@@ -8900,7 +8914,7 @@ function deleteOffer(id){
       });
     }
 
-    // Event delegation w dropdownie (bez setek listenerów)
+    // Event delegation w dropdownie (bez setek listenerĂ„â€šÄąâ€šw)
     if (dropEl){
       dropEl.addEventListener('click', function(ev){
         var t = ev && ev.target ? ev.target : null;
@@ -8932,11 +8946,11 @@ function deleteOffer(id){
 
           var on = isFav(sig);
           star.className = 'zq-star' + (on ? ' is-on' : '');
-          star.textContent = on ? '★' : '☆';
+          star.textContent = on ? 'Ä‚ËĂ‚ÂĂ˘â‚¬Â¦' : 'Ä‚ËĂ‚ÂĂ˘â‚¬Â ';
           return;
         }
 
-        // wybór elementu
+        // wybĂ„â€šÄąâ€šr elementu
         applySelectionFromSig(sig);
         hideSearchDrop();
         if (searchEl) searchEl.value = '';
@@ -8967,7 +8981,7 @@ function deleteOffer(id){
       v = clampNum(v, 0, maxD);
       if (el) el.value = String(v);
       if (!state.offerLines.length){
-        setErr('Brak pozycji na liście.');
+        setErr('Brak pozycji na liĂ„Ä…Ă˘â‚¬Ĺźcie.');
         return;
       }
       state.offerLines.forEach(function(l){
@@ -8996,11 +9010,11 @@ function deleteOffer(id){
       if (!isSpecialAllowed()){
         $('zq-special').checked = false;
         state.specialOffer = false;
-        setErr('Brak uprawnień do "Oferta specjalna".', 'error');
+        setErr('Brak uprawnieĂ„Ä…Ă˘â‚¬Ĺľ do "Oferta specjalna".', 'error');
         return;
       }
       state.specialOffer = !!$('zq-special').checked;
-      // jeśli wyłączono tryb specjalny, usuń ręczne ceny z pozycji (żeby zapis/eksport nie był blokowany)
+      // jeĂ„Ä…Ă˘â‚¬Ĺźli wyĂ„Ä…Ă˘â‚¬ĹˇÄ‚â€žĂ˘â‚¬Â¦czono tryb specjalny, usuĂ„Ä…Ă˘â‚¬Ĺľ rÄ‚â€žĂ˘â€žËczne ceny z pozycji (Ă„Ä…Ă„Ëťeby zapis/eksport nie byĂ„Ä…Ă˘â‚¬Ĺˇ blokowany)
       if (!state.specialOffer && state.offerLines && state.offerLines.length){
         state.offerLines.forEach(function(l){
           if (!l) return;
@@ -9050,7 +9064,7 @@ function deleteOffer(id){
         if ($('zq-client-modal-cancel')) $('zq-client-modal-cancel').addEventListener('click', closeClientModal);
         if ($('zq-client-modal-save')) $('zq-client-modal-save').addEventListener('click', saveClientModal);
     
-        // klik na tło NIE zamyka (zamknięcie tylko przyciski / ESC)
+        // klik na tĂ„Ä…Ă˘â‚¬Ĺˇo NIE zamyka (zamkniÄ‚â€žĂ˘â€žËcie tylko przyciski / ESC)
     
         // Enter w modalu -> zapisz
         ;['zq-cm-fullname','zq-cm-company','zq-cm-nip','zq-cm-phone','zq-cm-email','zq-cm-address'].forEach(function(id){
@@ -9080,9 +9094,9 @@ function deleteOffer(id){
     if ($('zq-transport-cancel')) $('zq-transport-cancel').addEventListener('click', closeTransportLineModal);
     if ($('zq-transport-save')) $('zq-transport-save').addEventListener('click', saveTransportLineModal);
 
-    // klik na tło NIE zamyka (zamknięcie tylko przyciski / ESC)
+    // klik na tĂ„Ä…Ă˘â‚¬Ĺˇo NIE zamyka (zamkniÄ‚â€žĂ˘â€žËcie tylko przyciski / ESC)
 
-    // Transport: live UI (preview + enable/disable dopłat) + Enter = zapisz (poza textarea)
+    // Transport: live UI (preview + enable/disable dopĂ„Ä…Ă˘â‚¬Ĺˇat) + Enter = zapisz (poza textarea)
     ;[
       'zq-transport-km','zq-transport-unit-net','zq-transport-min-net',
       'zq-transport-km1','zq-transport-rate1','zq-transport-km2','zq-transport-rate2','zq-transport-rate3','zq-transport-min-net2',
@@ -9109,7 +9123,7 @@ function deleteOffer(id){
       el.addEventListener('change', function(){ setTransportModeUI(getTransportModeUI()); scheduleDraftSave(); });
     });
 
-    // dopłaty on/off
+    // dopĂ„Ä…Ă˘â‚¬Ĺˇaty on/off
     ;[
       ['zq-transport-x-hds-on','zq-transport-x-hds'],
       ['zq-transport-x-unload-on','zq-transport-x-unload'],
@@ -9131,7 +9145,7 @@ function deleteOffer(id){
     if ($('zq-custom-cancel')) $('zq-custom-cancel').addEventListener('click', closeCustomLineModal);
     if ($('zq-custom-save')) $('zq-custom-save').addEventListener('click', saveCustomLineModal);
 
-    // klik na tło NIE zamyka (zamknięcie tylko przyciski / ESC)
+    // klik na tĂ„Ä…Ă˘â‚¬Ĺˇo NIE zamyka (zamkniÄ‚â€žĂ˘â€žËcie tylko przyciski / ESC)
 
     // Enter w modalu -> zapisz (poza textarea)
     ;['zq-custom-name','zq-custom-qty','zq-custom-unit-net','zq-custom-disc'].forEach(function(id){
@@ -9187,11 +9201,11 @@ function deleteOffer(id){
     }
     var hdet = $('zq-history-details');
     if (hdet){
-      // toggle odpala się przy otwarciu/zamknięciu <details>
+      // toggle odpala siÄ‚â€žĂ˘â€žË przy otwarciu/zamkniÄ‚â€žĂ˘â€žËciu <details>
       hdet.addEventListener('toggle', function(){
         syncHistoryDetailsUi();
       });
-      // Fallback: część przeglądarek/skinów nie emituje 'toggle' w przewidywalny sposób.
+      // Fallback: czÄ‚â€žĂ˘â€žËĂ„Ä…Ă˘â‚¬ĹźÄ‚â€žĂ˘â‚¬Ë‡ przeglÄ‚â€žĂ˘â‚¬Â¦darek/skinĂ„â€šÄąâ€šw nie emituje 'toggle' w przewidywalny sposĂ„â€šÄąâ€šb.
       var hsum = hdet.querySelector('summary');
       if (hsum){
         hsum.addEventListener('click', function(){
@@ -9200,7 +9214,7 @@ function deleteOffer(id){
         });
       }
     }
-    // Gradientowy przycisk: "Pokaż więcej"
+    // Gradientowy przycisk: "PokaĂ„Ä…Ă„Ëť wiÄ‚â€žĂ˘â€žËcej"
     var hexp = $('zq-history-expand');
     if (hexp){
       hexp.addEventListener('click', function(){
@@ -9212,14 +9226,14 @@ function deleteOffer(id){
       });
     }
 
-    // Sticky przycisk: "Zwiń listę"
+    // Sticky przycisk: "ZwiĂ„Ä…Ă˘â‚¬Ĺľ listÄ‚â€žĂ˘â€žË"
     var hcol = $('zq-history-collapse');
     if (hcol){
       hcol.addEventListener('click', function(){
         var det = $('zq-history-details');
         if (det) det.open = false;
         try{ syncHistoryDetailsUi(); }catch(e){}
-        // Opcjonalnie: utrzymaj użytkownika w sekcji historii
+        // Opcjonalnie: utrzymaj uĂ„Ä…Ă„Ëťytkownika w sekcji historii
         try{
           var ref = $('zq-refresh-history');
           if (ref && ref.scrollIntoView) ref.scrollIntoView({behavior:'smooth', block:'start'});
@@ -9227,7 +9241,7 @@ function deleteOffer(id){
       });
     }
 
-    // Dokowanie przycisku "Zwiń listę" do modala (widoczny tylko gdy Historia jest w viewport scroll-container).
+    // Dokowanie przycisku "ZwiĂ„Ä…Ă˘â‚¬Ĺľ listÄ‚â€žĂ˘â€žË" do modala (widoczny tylko gdy Historia jest w viewport scroll-container).
     try{ setupHistoryCollapseDock(); }catch(e){}
 
     var hsrt = $('zq-history-sort');
@@ -9245,7 +9259,7 @@ function deleteOffer(id){
     if ($('zq-osm-close')) $('zq-osm-close').addEventListener('click', closeOfferStatusModal);
     if ($('zq-osm-cancel')) $('zq-osm-cancel').addEventListener('click', closeOfferStatusModal);
     if ($('zq-osm-save')) $('zq-osm-save').addEventListener('click', saveOfferStatusModal);
-    // klik na tło NIE zamyka (zamknięcie tylko przyciski / ESC)
+    // klik na tĂ„Ä…Ă˘â‚¬Ĺˇo NIE zamyka (zamkniÄ‚â€žĂ˘â€žËcie tylko przyciski / ESC)
     if ($('zq-osm-status')) $('zq-osm-status').addEventListener('keydown', function(e){
       if (!e) return;
       if (e.key === 'Enter'){ e.preventDefault(); saveOfferStatusModal(); }
@@ -9269,7 +9283,7 @@ function deleteOffer(id){
     }, true);
 
 
-    // Modal: podgląd oferty (szybki)
+    // Modal: podglÄ‚â€žĂ˘â‚¬Â¦d oferty (szybki)
     if ($('zq-qvm-close')) $('zq-qvm-close').addEventListener('click', closeOfferPreviewModal);
     if ($('zq-qvm-ok')) $('zq-qvm-ok').addEventListener('click', closeOfferPreviewModal);
     DOC.addEventListener('keydown', function(ev){
@@ -9285,7 +9299,7 @@ function deleteOffer(id){
     if ($('zq-snm-close')) $('zq-snm-close').addEventListener('click', closeSalesNoteModal);
     if ($('zq-snm-cancel')) $('zq-snm-cancel').addEventListener('click', closeSalesNoteModal);
     if ($('zq-snm-save')) $('zq-snm-save').addEventListener('click', saveSalesNoteModal);
-    // klik na tło NIE zamyka (zamknięcie tylko przyciski / ESC)
+    // klik na tĂ„Ä…Ă˘â‚¬Ĺˇo NIE zamyka (zamkniÄ‚â€žĂ˘â€žËcie tylko przyciski / ESC)
     if ($('zq-snm-note')) $('zq-snm-note').addEventListener('input', function(){
       if (state._snm) state._snm.dirty = true;
     });
@@ -9296,13 +9310,16 @@ function deleteOffer(id){
     });
 
 
-    // Modal: potwierdzenie (bez confirm() - działa w iframe sandbox)
+    // Modal: potwierdzenie (bez confirm() - dziaĂ„Ä…Ă˘â‚¬Ĺˇa w iframe sandbox)
     initConfirmModal();
 
 var hd = $('zq-history-details');
 if (hd) hd.addEventListener('toggle', function(){
   if (hd.open) renderHistory();
 });
+
+    // zsynchronizuj flagĂ„â„˘ niezapisanych zmian z hostem ERP
+    syncHostDirtyFromDraft();
 
 
     // auto open (standalone)
@@ -9366,7 +9383,7 @@ if (hd) hd.addEventListener('toggle', function(){
     if (perms && Object.prototype.hasOwnProperty.call(perms, 'allow_special_offer')){
       return !!perms.allow_special_offer;
     }
-    return true; // kompatybilność
+    return true; // kompatybilnoĂ„Ä…Ă˘â‚¬ĹźÄ‚â€žĂ˘â‚¬Ë‡
   }
 
   function canDeleteOffers(){
@@ -9376,13 +9393,13 @@ if (hd) hd.addEventListener('toggle', function(){
     var caps = (state.actorCaps && typeof state.actorCaps === 'object') ? state.actorCaps : null;
     var isImpersonating = !!(state.actor && state.actor.login && acc && acc.login && state.actor.login !== acc.login);
 
-    // W trybie impersonacji: tylko AKTOR z "can_delete_offers_any" może kasować mimo braku uprawnień konta.
+    // W trybie impersonacji: tylko AKTOR z "can_delete_offers_any" moĂ„Ä…Ă„Ëťe kasowaÄ‚â€žĂ˘â‚¬Ë‡ mimo braku uprawnieĂ„Ä…Ă˘â‚¬Ĺľ konta.
     if (isImpersonating){
       if (caps && caps.can_delete_offers_any) return true;
       return !!(perms && (perms.can_delete_offers_any || perms.can_delete_offers_own));
     }
 
-    // Normalnie: bierzemy uprawnienia konta (oraz - dla spójności - caps z /me).
+    // Normalnie: bierzemy uprawnienia konta (oraz - dla spĂ„â€šÄąâ€šjnoĂ„Ä…Ă˘â‚¬Ĺźci - caps z /me).
     if (caps && (caps.can_delete_offers_any || caps.can_delete_offers_own)) return true;
     return !!(perms && (perms.can_delete_offers_any || perms.can_delete_offers_own));
   }
@@ -9458,5 +9475,10 @@ function getAllowedTabs(){
 JS;
   }
 }
+
+
+
+
+
 
 
